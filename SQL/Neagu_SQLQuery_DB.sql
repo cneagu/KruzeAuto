@@ -26,7 +26,7 @@ CONSTRAINT [FK_UserLocation_Users] FOREIGN KEY ([UserID])
 CREATE TABLE [Annoucements](
 	[AnnoucementID] uniqueidentifier NOT NULL,
 	[UserID] uniqueidentifier NOT NULL,
-	[VehicleType] nvarchar(50) NOT NULL,
+	[VehicleType] int NOT NULL,
 	[Views] int NOT NULL,
 	[Promoted] bit,
 	[Active] bit,
@@ -65,10 +65,9 @@ CREATE TABLE [Options](
 CONSTRAINT [PK_Options] PRIMARY KEY ([OptionID]));
 
 CREATE TABLE [AnnouncementsOptions](
-	[AnnouncementsOptionsID] uniqueidentifier NOT NULL,
 	[AnnoucementID] uniqueidentifier NOT NULL,
 	[OptionID] uniqueidentifier NOT NULL,
-CONSTRAINT [PK_AnnouncementsOptions] PRIMARY KEY ([AnnouncementsOptionsID]),
+CONSTRAINT [PK_AnnouncementsOptions] PRIMARY KEY ([AnnoucementID],[OptionID]),
 CONSTRAINT [FK_AnnouncementsOptions_Annoucements] FOREIGN KEY ([AnnoucementID])
 	REFERENCES [Annoucements]([AnnoucementID]),
 CONSTRAINT [FK_AnnouncementsOptions_Options] FOREIGN KEY ([OptionID])
@@ -110,3 +109,4 @@ CONSTRAINT [FK_AnnoucementsPictures_Pictures] FOREIGN KEY ([PictureID])
 	REFERENCES [Pictures]([PictureID]),
 CONSTRAINT [FK_AnnoucementsPictures_Annoucements] FOREIGN KEY ([AnnoucementID])
 	REFERENCES [Annoucements]([AnnoucementID]));
+
