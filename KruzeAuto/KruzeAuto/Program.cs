@@ -1,5 +1,5 @@
 ﻿using KruzeAuto.Model;
-using Repository;
+using KruzeAuto.Repository;
 using System;
 using System.Collections.Generic;
 

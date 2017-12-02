@@ -1,9 +1,9 @@
-﻿using System;
+﻿using KruzeAuto.Model;
+using System;
 using System.Collections.Generic;
-using KruzeAuto.Model;
 using System.Data.SqlClient;
 
-namespace Repository
+namespace KruzeAuto.Repository
 {
     public class UserRepository
     {
