@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KruzeAuto")]
+[assembly: AssemblyTitle("KruzeAuto.Library")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("KruzeAuto")]
+[assembly: AssemblyProduct("KruzeAuto.Library")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cbf97d1a-2dac-4cdc-a603-0fd1c5450c08")]
+[assembly: Guid("0cb3a34e-bb74-4758-b59d-a3ff94c3f5ee")]
 
 // Version information for an assembly consists of the following four values:
 //

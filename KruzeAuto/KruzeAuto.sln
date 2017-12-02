@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KruzeAuto", "KruzeAuto\KruzeAuto.csproj", "{A08A5419-E7B7-4D7A-BADA-8B3021E825A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KruzeAuto", "KruzeAuto\KruzeAuto.csproj", "{0D1ADCEA-ACA3-40CE-8773-37B4110F35AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KruzeAuto.Model", "KruzeAuto.Model\KruzeAuto.Model.csproj", "{D563014A-9ECF-4BEA-B084-45EDC4921409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KruzeAuto.Repository", "Repository\KruzeAuto.Repository.csproj", "{0CA1095F-15E4-40A8-AE56-74F2EC4E900F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{79AD8D2E-77BE-4C8B-A845-FF905DA04558}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\Neagu_SQLQuery_DB.sql = SQL\Neagu_SQLQuery_DB.sql
+		SQL\Neagu_SQLQuery_DB_test.sql = SQL\Neagu_SQLQuery_DB_test.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KruzeAuto.Library", "KruzeAuto.Library\KruzeAuto.Library.csproj", "{0CB3A34E-BB74-4758-B59D-A3FF94C3F5EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +23,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A08A5419-E7B7-4D7A-BADA-8B3021E825A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A08A5419-E7B7-4D7A-BADA-8B3021E825A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A08A5419-E7B7-4D7A-BADA-8B3021E825A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A08A5419-E7B7-4D7A-BADA-8B3021E825A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1ADCEA-ACA3-40CE-8773-37B4110F35AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1ADCEA-ACA3-40CE-8773-37B4110F35AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1ADCEA-ACA3-40CE-8773-37B4110F35AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1ADCEA-ACA3-40CE-8773-37B4110F35AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D563014A-9ECF-4BEA-B084-45EDC4921409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D563014A-9ECF-4BEA-B084-45EDC4921409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D563014A-9ECF-4BEA-B084-45EDC4921409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D563014A-9ECF-4BEA-B084-45EDC4921409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA1095F-15E4-40A8-AE56-74F2EC4E900F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA1095F-15E4-40A8-AE56-74F2EC4E900F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA1095F-15E4-40A8-AE56-74F2EC4E900F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA1095F-15E4-40A8-AE56-74F2EC4E900F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB3A34E-BB74-4758-B59D-A3FF94C3F5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB3A34E-BB74-4758-B59D-A3FF94C3F5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB3A34E-BB74-4758-B59D-A3FF94C3F5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB3A34E-BB74-4758-B59D-A3FF94C3F5EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F74F70E0-C990-47FE-8DD0-ED7CA8BB8096}
+		SolutionGuid = {D927CDE3-CA8A-4D06-8D78-51323F9EF983}
 	EndGlobalSection
 EndGlobal

@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D1ADCEA-ACA3-40CE-8773-37B4110F35AB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>KruzeAuto</RootNamespace>
-    <AssemblyName>KruzeAuto</AssemblyName>
+    <ProjectGuid>{D563014A-9ECF-4BEA-B084-45EDC4921409}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KruzeAuto.Model</RootNamespace>
+    <AssemblyName>KruzeAuto.Model</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,21 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Announcement.cs" />
+    <Compile Include="AnnouncementOption.cs" />
+    <Compile Include="AnnouncementPictures.cs" />
+    <Compile Include="MessageImbox.cs" />
+    <Compile Include="Option.cs" />
+    <Compile Include="Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KruzeAuto.Model\KruzeAuto.Model.csproj">
-      <Project>{D563014A-9ECF-4BEA-B084-45EDC4921409}</Project>
-      <Name>KruzeAuto.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Repository\KruzeAuto.Repository.csproj">
-      <Project>{0CA1095F-15E4-40A8-AE56-74F2EC4E900F}</Project>
-      <Name>KruzeAuto.Repository</Name>
-    </ProjectReference>
+    <Compile Include="User.cs" />
+    <Compile Include="UserLocation.cs" />
+    <Compile Include="UserPicture.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

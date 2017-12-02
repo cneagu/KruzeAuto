@@ -1,46 +1,46 @@
 USE KruzeAutoDB;
 
 INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
-VALUES('561FC9B6-74AB-D604-337F-3D83F8504E01','neagucristianstefan@yahoo.com','neagucristianstefan','UMT365','0765537186','1998-05-10T13:23:38-07:00','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('E5C24E7A-A819-1E62-E37C-0700402A1B8C','felis.ullamcorper.viverra@Suspendissenonleo.edu','felis.ullamcorper.viverra','vivera123','0762561832','1996-07-13T07:39:13-07:00','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','morarioan923@yahoo.com','morarioan923','morarsp934','07863249537','1993-01-04T04:16:43-08:00','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('6DEB815A-5F4B-D7A5-8571-168AB1DA8E67','neica_star@yahoo.ro','neica_star','neiculita84','0753418654','2002-07-10T13:21:38-09:00','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','Rafa.calin@gmail.com','Rafa.calin','rafazor94','04625996555','2012-09-10T13:20:31-01:00','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('5588EDAA-8B4A-21EC-6E09-AC366C60BE28','morena_morena@yahoo.com','morena_morena45','mora99','078246328','1996-11-19T09:51:15-08:00','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('07C379FB-E86E-672E-2AEF-A51D972B23DD','nelutu.grigoreln@yahoo.com','nelutu.grigoreln','UMT365','076558716','2007-06-10T13:23:38-07:00','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('6744521B-D152-D609-73CB-BC6FDABD82E8','spantil.core@yahoo.com','spantil.core','mospalc2345','0765537169','2008-07-10T13:23:38-07:00','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('A1685337-572A-497B-0D73-1384E453D3B4','nevermind_98@gmail.com','nevermind_98','laponia12','0765537126','2012-05-10T13:23:38-07:00','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('978211D7-76EB-B5E4-C14B-CFDD78BF0AF2','alandala.boca@yahoo.com','alandala.boca','sinclaire903','0765556345','2013-05-10T13:23:38-07:00','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('1BE0C12A-3373-39BC-3B0A-CC02396D03CB','havana_club@yahoo.com','havana_club','lone034','0765111223','2014-05-10T13:23:38-07:00','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('73A64F90-0611-E35E-BB36-A1950794B2B1','rotviler100@@gmail.com','rotviler100','romaz932','07651186366','2015-05-10T13:23:38-07:00','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('ADDDFE06-A8BE-A3D5-F2DD-5164F385C21C','sandriver_94@yahoo.com','sandriver_94','spirt94','0765314965','2016-03-10T13:23:38-07:00','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('D6877042-4394-7D9C-0790-1F4BC4A88722','miculas_ionel@gmail.com','miculas_ionel','revo29','0765537155','2017-05-10T13:23:38-07:00','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('FE1B7EFD-571A-DEAA-4513-DB413054A827','serin.tatone@yahoo.ro','serin.tatone','Usam','0765167186','2012-05-10T13:23:38-07:00','1');
+VALUES('561FC9B6-74AB-D604-337F-3D83F8504E01','neagucristianstefan@yahoo.com','neagucristianstefan','UMT365','0765537186','2017-12-01 21:33','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('E5C24E7A-A819-1E62-E37C-0700402A1B8C','felis.ullamcorper.viverra@Suspendissenonleo.edu','felis.ullamcorper.viverra','vivera123','0762561832','1996-07-13 12:13','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','morarioan923@yahoo.com','morarioan923','morarsp934','07863249537','1993-01-04 08:00','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('6DEB815A-5F4B-D7A5-8571-168AB1DA8E67','neica_star@yahoo.ro','neica_star','neiculita84','0753418654','2002-07-10 09:00','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','Rafa.calin@gmail.com','Rafa.calin','rafazor94','04625996555','2012-09-10 01:00','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('5588EDAA-8B4A-21EC-6E09-AC366C60BE28','morena_morena@yahoo.com','morena_morena45','mora99','078246328','1996-11-19 08:00','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('07C379FB-E86E-672E-2AEF-A51D972B23DD','nelutu.grigoreln@yahoo.com','nelutu.grigoreln','UMT365','076558716','2007-06-10 07:00','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('6744521B-D152-D609-73CB-BC6FDABD82E8','spantil.core@yahoo.com','spantil.core','mospalc2345','0765537169','2008-07-10 07:00','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('A1685337-572A-497B-0D73-1384E453D3B4','nevermind_98@gmail.com','nevermind_98','laponia12','0765537126','2012-05-10 07:00','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('978211D7-76EB-B5E4-C14B-CFDD78BF0AF2','alandala.boca@yahoo.com','alandala.boca','sinclaire903','0765556345','2013-05-10 07:00','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('1BE0C12A-3373-39BC-3B0A-CC02396D03CB','havana_club@yahoo.com','havana_club','lone034','0765111223','2014-05-10 07:00','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('73A64F90-0611-E35E-BB36-A1950794B2B1','rotviler100@@gmail.com','rotviler100','romaz932','07651186366','2015-05-10 07:00','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('ADDDFE06-A8BE-A3D5-F2DD-5164F385C21C','sandriver_94@yahoo.com','sandriver_94','spirt94','0765314965','2016-03-10 07:00','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('D6877042-4394-7D9C-0790-1F4BC4A88722','miculas_ionel@gmail.com','miculas_ionel','revo29','0765537155','2017-05-10 07:00','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('FE1B7EFD-571A-DEAA-4513-DB413054A827','serin.tatone@yahoo.ro','serin.tatone','Usam','0765167186','2012-05-10 07:00','1');
 
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('bc16cb00-4c2d-493b-bc43-a2acb365408a','manu_lacu@yahoo.ro','manu_lacu','lama22','0765767186','2016-02-06T03:10:19Z','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('0c5670db-c0aa-4e05-9d60-6ea19f6144c0','leoaica_tanara@yahoo.ro','leoaica_tanara','lenose92','0765167073','2015-09-06T16:50:59Z','1');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('5f15fdbf-dea2-4f35-a293-ccf18a6aaf46','lenuta_tote@yahoo.ro','lenuta_tote','leni99','0708467186','2015-06-20T02:57:56Z','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('2b554af2-11cc-4d09-b63d-09daa69ec6d3','senior_85gmail.com','serin.senior_85','sen5467','0765907186','2016-10-10T00:01:16Z','');
-INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed]) 
-VALUES('df85c71f-4b01-4ed5-8569-241b722f77f5','lara_craft@gmail.com','lara_craft','lara23','0783167186','2016-03-11T16:24:47Z','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('bc16cb00-4c2d-493b-bc43-a2acb365408a','manu_lacu@yahoo.ro','manu_lacu','lama22','0765767186','2016-02-06 10:19','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('0c5670db-c0aa-4e05-9d60-6ea19f6144c0','leoaica_tanara@yahoo.ro','leoaica_tanara','lenose92','0765167073','2015-09-06 12:59','1');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('5f15fdbf-dea2-4f35-a293-ccf18a6aaf46','lenuta_tote@yahoo.ro','lenuta_tote','leni99','0708467186','2015-06-20 14:56','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('2b554af2-11cc-4d09-b63d-09daa69ec6d3','senior_85gmail.com','serin.senior_85','sen5467','0765907186','2016-10-10 01:16','');
+INSERT INTO [Users]([UserID],[Email],[UserName],[Password],[PhoneNumber],[CreationDate],[Subscribed])
+VALUES('df85c71f-4b01-4ed5-8569-241b722f77f5','lara_craft@gmail.com','lara_craft','lara23','0783167186','2016-03-11 16:47','1');
 
 INSERT INTO [UserLocation]([UserID],[Country],[County],[City]) VALUES('561FC9B6-74AB-D604-337F-3D83F8504E01','Romania','Cluj','ClujNapoca');
 INSERT INTO [UserLocation]([UserID],[Country],[County],[City]) VALUES('E5C24E7A-A819-1E62-E37C-0700402A1B8C','Romania','Timis','Timisoara');
@@ -146,11 +146,11 @@ INSERT INTO [Options]([OptionID],[Name]) VALUES('215799a4-24f3-4e95-ba79-d19c478
 INSERT INTO [Options]([OptionID],[Name]) VALUES('fe4dee85-ef13-47ff-95bb-e2e6586ce3b9','Windshield');
 INSERT INTO [Options]([OptionID],[Name]) VALUES('f9581b24-720d-4077-aa3e-eb91c0af42a9','XenonHeadlights');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2','561FC9B6-74AB-D604-337F-3D83F8504E01',1,20,1,1,'2017-05-10T13:23:38-07:00',
-'2017-05-10T13:23:38-07:00','New','BMW M4 450HP','BMW','M4','Coupe',100000,2014,'WDDKK7CF6BF088425','Petrol',22000,1,'EUR',
+VALUES('9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2','561FC9B6-74AB-D604-337F-3D83F8504E01',1,20,1,1,'2017-05-10 07:00',
+'2017-05-10 07:00','New','BMW M4 450HP','BMW','M4','Coupe',100000,2014,'WDDKK7CF6BF088425','Petrol',22000,1,'EUR',
 'Blue','Metalic',450,'Automatic',2979,'Euro6',4,'','','','Descriere Vehicul de test');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -222,11 +222,11 @@ VALUES('9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('b345e705-3575-4d50-80ed-61886cbf6961','561FC9B6-74AB-D604-337F-3D83F8504E01',1,28,'',1,'2015-03-15T01:58:11Z',
-'2015-03-15T01:58:11Z','New','Mercedes Benz E klase','Mercedes Benz','E220','Coupe',178000,2015,'WDDKK7CF6BF088225','Petrol',29000,1,'EUR',
+VALUES('b345e705-3575-4d50-80ed-61886cbf6961','561FC9B6-74AB-D604-337F-3D83F8504E01',1,28,'',1,'2015-03-15 01:58',
+'2015-03-15 01:58','New','Mercedes Benz E klase','Mercedes Benz','E220','Coupe',178000,2015,'WDDKK7CF6BF088225','Petrol',29000,1,'EUR',
 'White','Metalic',280,'Automatic',2979,'Euro6',4,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -298,11 +298,11 @@ VALUES('b345e705-3575-4d50-80ed-61886cbf6961','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('b345e705-3575-4d50-80ed-61886cbf6961','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('d157ecc4-0b80-486a-a9fb-484fa5cce90a','E5C24E7A-A819-1E62-E37C-0700402A1B8C',1,32,'',1,'2015-08-15T01:58:12Z',
-'2015-08-15T01:58:12Z','New','Mercedes Benz E klase','Mercedes Benz','E220','Coupe',168000,2015,'WDDKK7CF6BF088225','Petrol',30000,1,'EUR',
+VALUES('d157ecc4-0b80-486a-a9fb-484fa5cce90a','E5C24E7A-A819-1E62-E37C-0700402A1B8C',1,32,'',1,'2015-08-15 01:58',
+'2015-08-15 01:58','New','Mercedes Benz E klase','Mercedes Benz','E220','Coupe',168000,2015,'WDDKK7CF6BF088225','Petrol',30000,1,'EUR',
 'White','Metalic',280,'Automatic',2979,'Euro6',4,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -374,11 +374,11 @@ VALUES('d157ecc4-0b80-486a-a9fb-484fa5cce90a','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('d157ecc4-0b80-486a-a9fb-484fa5cce90a','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('16d2d316-ccd2-4f75-b33f-7cd6f87700bb','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7',1,100,1,1,'2017-08-15T01:58:12Z',
-'2017-08-15T01:58:12Z','New','Mercedes Benz S 63 AMG','Mercedes Benz','S klase 63 AMG','Coupe',1600,2016,'WDDKK7CF6BF088225','Petrol',183000,1,'EUR',
+VALUES('16d2d316-ccd2-4f75-b33f-7cd6f87700bb','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7',1,100,1,1,'2017-08-15 01:58',
+'2017-08-15 01:58','New','Mercedes Benz S 63 AMG','Mercedes Benz','S klase 63 AMG','Coupe',1600,2016,'WDDKK7CF6BF088225','Petrol',183000,1,'EUR',
 'White','Metalic',600,'Automatic',5000,'Euro6',4,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -450,11 +450,11 @@ VALUES('16d2d316-ccd2-4f75-b33f-7cd6f87700bb','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('16d2d316-ccd2-4f75-b33f-7cd6f87700bb','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('41775229-5a6b-45de-b16a-12a9d668fd4d','6DEB815A-5F4B-D7A5-8571-168AB1DA8E67',1,100,1,1,'2017-08-15T01:58:12Z',
-'2017-08-15T01:58:12Z','New','Bentley Bentayga','Bentley','Bentayga','SUV',3000,2016,'WDDKK7gF6BF088225','Diesel',230000,'','EUR',
+VALUES('41775229-5a6b-45de-b16a-12a9d668fd4d','6DEB815A-5F4B-D7A5-8571-168AB1DA8E67',1,100,1,1,'2017-08-15 01:58',
+'2017-08-15 01:58','New','Bentley Bentayga','Bentley','Bentayga','SUV',3000,2016,'WDDKK7gF6BF088225','Diesel',230000,'','EUR',
 'White','Metalic',450,'Automatic',4200,'Euro6',5,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -526,11 +526,11 @@ VALUES('41775229-5a6b-45de-b16a-12a9d668fd4d','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('41775229-5a6b-45de-b16a-12a9d668fd4d','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('c6a2e706-c1c1-446d-bbc1-c79161d04776','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8',1,14,1,1,'2016-07-13T02:58:12Z',
-'2016-07-13T02:58:12Z','SEC','Seat Leon','Seat','Leon','hatchback',215000,2011,'WDDKK7gF6BF088225','Diesel',6000,1,'EUR',
+VALUES('c6a2e706-c1c1-446d-bbc1-c79161d04776','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8',1,14,1,1,'2016-07-13 02:58',
+'2016-07-13 02:58','SEC','Seat Leon','Seat','Leon','hatchback',215000,2011,'WDDKK7gF6BF088225','Diesel',6000,1,'EUR',
 'Black','Metalic',105,'Automatic',1600,'Euro6',5,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -582,11 +582,11 @@ VALUES('c6a2e706-c1c1-446d-bbc1-c79161d04776','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('c6a2e706-c1c1-446d-bbc1-c79161d04776','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('097b4eca-89ec-4660-a11b-8e92596583d1','bc16cb00-4c2d-493b-bc43-a2acb365408a',1,68,1,1,'2016-07-13T02:58:12Z',
-'2016-07-13T02:58:12Z','SEC','Volkswagen golf 6','Volkswagen','Golf','hatchback',245000,2009,'WDDKK7gF6BF088225','Diesel',5900,1,'EUR',
+VALUES('097b4eca-89ec-4660-a11b-8e92596583d1','bc16cb00-4c2d-493b-bc43-a2acb365408a',1,68,1,1,'2016-07-13 02:58',
+'2016-07-13 02:58','SEC','Volkswagen golf 6','Volkswagen','Golf','hatchback',245000,2009,'WDDKK7gF6BF088225','Diesel',5900,1,'EUR',
 'Grey','Metalic',90,'Manual',1600,'Euro6',5,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -638,11 +638,11 @@ VALUES('097b4eca-89ec-4660-a11b-8e92596583d1','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('097b4eca-89ec-4660-a11b-8e92596583d1','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('747ffed8-768b-4273-baf5-c0c3c7149085','0c5670db-c0aa-4e05-9d60-6ea19f6144c0',1,29,1,1,'2017-09-13T02:58:12Z',
-'2017-09-13T02:58:12Z','SEC','Skoda Octavia 3','Skoda','Octavia','sedan',205000,2011,'WDDKK7gF6BF088225','Diesel',7200,1,'EUR',
+VALUES('747ffed8-768b-4273-baf5-c0c3c7149085','0c5670db-c0aa-4e05-9d60-6ea19f6144c0',1,29,1,1,'2017-09-13 02:58',
+'2017-09-13 02:58','SEC','Skoda Octavia 3','Skoda','Octavia','sedan',205000,2011,'WDDKK7gF6BF088225','Diesel',7200,1,'EUR',
 'Black','Metalic',140,'Manual',2000,'Euro5',5,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -694,11 +694,11 @@ VALUES('747ffed8-768b-4273-baf5-c0c3c7149085','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('747ffed8-768b-4273-baf5-c0c3c7149085','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('a74cedfd-5fd8-490f-a02d-2ece4af7f0b8','2b554af2-11cc-4d09-b63d-09daa69ec6d3',1,92,1,1,'2017-11-13T02:58:12Z',
-'2017-11-13T02:58:12Z','SEC','Skoda Superb','Skoda','Superb','sedan',214000,2010,'WDDKK7gF6BF088225','Diesel',9500,1,'EUR',
+VALUES('a74cedfd-5fd8-490f-a02d-2ece4af7f0b8','2b554af2-11cc-4d09-b63d-09daa69ec6d3',1,92,1,1,'2017-11-13 02:58',
+'2017-11-13 02:58','SEC','Skoda Superb','Skoda','Superb','sedan',214000,2010,'WDDKK7gF6BF088225','Diesel',9500,1,'EUR',
 'Black','Metalic',170,'Manual',2000,'Euro5',5,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -750,11 +750,11 @@ VALUES('a74cedfd-5fd8-490f-a02d-2ece4af7f0b8','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('a74cedfd-5fd8-490f-a02d-2ece4af7f0b8','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 [Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],[NegociablePrice],[Currency],
 [Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
-VALUES('1bf22988-54ae-4fd3-a611-413d951408f7','2b554af2-11cc-4d09-b63d-09daa69ec6d3',1,42,1,1,'2017-11-13T02:58:12Z',
-'2017-11-13T02:58:12Z','SEC','Skoda Fabia','Skoda','Fabia','sedan',230050,2006,'WDDKK7gF6BF088225','Diesel',3500,1,'EUR',
+VALUES('1bf22988-54ae-4fd3-a611-413d951408f7','2b554af2-11cc-4d09-b63d-09daa69ec6d3',1,42,1,1,'2017-11-13 02:58',
+'2017-11-13 02:58','SEC','Skoda Fabia','Skoda','Fabia','sedan',230050,2006,'WDDKK7gF6BF088225','Diesel',3500,1,'EUR',
 'Green','Metalic',90,'Manual',1600,'Euro5',5,'','','','Descriere Vehicul de test2');
 
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
@@ -806,254 +806,254 @@ VALUES('1bf22988-54ae-4fd3-a611-413d951408f7','3696d174-8ac5-45bd-a797-c99efd448
 INSERT INTO [AnnouncementsOptions]([AnnoucementID],[OptionID])
 VALUES('1bf22988-54ae-4fd3-a611-413d951408f7','f9581b24-720d-4077-aa3e-eb91c0af42a9');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('67b53930-d95d-4ffb-8c63-1ad3e5f10835',0x21232F297A57A5A743894A0E4A801FC3);
 
 INSERT INTO [UsersPictures]([UserID],[PictureID])
 VALUES('561FC9B6-74AB-D604-337F-3D83F8504E01','67b53930-d95d-4ffb-8c63-1ad3e5f10835');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('eb203afa-8879-41b6-82da-118e81225e37',0x21232F297A57A5A743894A0E4A801FC3);
 
 INSERT INTO [UsersPictures]([UserID],[PictureID])
 VALUES('E5C24E7A-A819-1E62-E37C-0700402A1B8C','eb203afa-8879-41b6-82da-118e81225e37');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('5763f914-f0ab-4f1f-a634-95cfbf6bc4ef',0x21232F297A57A5A743894A0E4A801FC3);
 
 INSERT INTO [UsersPictures]([UserID],[PictureID])
 VALUES('bc16cb00-4c2d-493b-bc43-a2acb365408a','5763f914-f0ab-4f1f-a634-95cfbf6bc4ef');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('6da2475f-7c69-4e99-b1fd-7883e150b575',0x21232F297A57A5A743894A0E4A801FC3);
 
 INSERT INTO [UsersPictures]([UserID],[PictureID])
 VALUES('0c5670db-c0aa-4e05-9d60-6ea19f6144c0','6da2475f-7c69-4e99-b1fd-7883e150b575');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('efbe0ffe-73b6-42d7-89da-9314b3b66354',0x21232F297A57A5A743894A0E4A801FC3);
 
 INSERT INTO [UsersPictures]([UserID],[PictureID])
 VALUES('5f15fdbf-dea2-4f35-a293-ccf18a6aaf46','efbe0ffe-73b6-42d7-89da-9314b3b66354');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('6db01906-39a2-4f2a-80c5-974bd02ce797',0x21232F297A57A5A743894A0E4A801FC3);
 
 INSERT INTO [UsersPictures]([UserID],[PictureID])
 VALUES('2b554af2-11cc-4d09-b63d-09daa69ec6d3','6db01906-39a2-4f2a-80c5-974bd02ce797');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('b9f01c51-feb0-4dab-b6d5-aff0752b0fb1',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('0e32b5d1-842f-4811-b0f0-085b77d72c31',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('e36537f6-f37b-4cdb-ba8b-daa5ee67774b',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('8bfbfabb-c613-43fb-839f-577b6fa2b704',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('b9f01c51-feb0-4dab-b6d5-aff0752b0fb1','41775229-5A6B-45DE-B16A-12A9D668FD4D',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('0e32b5d1-842f-4811-b0f0-085b77d72c31','41775229-5A6B-45DE-B16A-12A9D668FD4D');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('e36537f6-f37b-4cdb-ba8b-daa5ee67774b','41775229-5A6B-45DE-B16A-12A9D668FD4D');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('8bfbfabb-c613-43fb-839f-577b6fa2b704','41775229-5A6B-45DE-B16A-12A9D668FD4D');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('e8c5fe35-81a0-493c-b236-92d5a5a043c1',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('92e9b605-617a-4492-882b-b6034a8aeac5',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('6823dab3-88b8-4021-b9b5-3d42cd7789cd',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('495cc256-c25f-4478-aefe-b2724edfb4ca',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('e8c5fe35-81a0-493c-b236-92d5a5a043c1','A74CEDFD-5FD8-490F-A02D-2ECE4AF7F0B8',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('92e9b605-617a-4492-882b-b6034a8aeac5','A74CEDFD-5FD8-490F-A02D-2ECE4AF7F0B8');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('6823dab3-88b8-4021-b9b5-3d42cd7789cd','A74CEDFD-5FD8-490F-A02D-2ECE4AF7F0B8');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('495cc256-c25f-4478-aefe-b2724edfb4ca','A74CEDFD-5FD8-490F-A02D-2ECE4AF7F0B8');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('c1f986e1-758d-42ea-92ca-96af3529d757',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('9f089238-b4f3-4b37-9dbb-1c1fa0467d70',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('9e730734-2612-4698-bfcf-3c8b8c384822',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('faa4c9a3-c3fb-4c79-9462-fac3588174d0',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('c1f986e1-758d-42ea-92ca-96af3529d757','1BF22988-54AE-4FD3-A611-413D951408F7',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('9f089238-b4f3-4b37-9dbb-1c1fa0467d70','1BF22988-54AE-4FD3-A611-413D951408F7');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('9e730734-2612-4698-bfcf-3c8b8c384822','1BF22988-54AE-4FD3-A611-413D951408F7');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('faa4c9a3-c3fb-4c79-9462-fac3588174d0','1BF22988-54AE-4FD3-A611-413D951408F7');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('438e73ad-7fbe-4bc5-96d8-fac9cdd395e8',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('135edabe-4935-4697-b97a-907c9fc5f329',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('bc86607f-bdfb-4371-96fe-a8de71baa2e4',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('36343807-734d-471f-82a4-3af6dabbda69',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('438e73ad-7fbe-4bc5-96d8-fac9cdd395e8','9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('135edabe-4935-4697-b97a-907c9fc5f329','9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('bc86607f-bdfb-4371-96fe-a8de71baa2e4','9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('36343807-734d-471f-82a4-3af6dabbda69','9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('ffc9cc61-2867-42b4-b969-e94400e2a91e',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('e70d2257-2880-4d56-82c0-be51f5b3dcd3',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('94facbf7-2f20-4595-b550-7f6ed86c2665',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('10cf451f-cfa5-4963-a098-5dae59f8b08b',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('ffc9cc61-2867-42b4-b969-e94400e2a91e','D157ECC4-0B80-486A-A9FB-484FA5CCE90A',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('e70d2257-2880-4d56-82c0-be51f5b3dcd3','D157ECC4-0B80-486A-A9FB-484FA5CCE90A');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('94facbf7-2f20-4595-b550-7f6ed86c2665','D157ECC4-0B80-486A-A9FB-484FA5CCE90A');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('10cf451f-cfa5-4963-a098-5dae59f8b08b','D157ECC4-0B80-486A-A9FB-484FA5CCE90A');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('e7d9373a-98ac-4bf8-8b95-84e5078d6145',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('8d89d9ee-4a3f-4857-9445-bc3610739427',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('2c5997c8-2196-4a32-ba93-d83debd1dcff',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('5bce5a82-ef98-4da8-8936-6df363fd8266',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('e7d9373a-98ac-4bf8-8b95-84e5078d6145','9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('8d89d9ee-4a3f-4857-9445-bc3610739427','9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('2c5997c8-2196-4a32-ba93-d83debd1dcff','9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('5bce5a82-ef98-4da8-8936-6df363fd8266','9E5060AB-E64C-4E3A-DC3F-5C5B627FB6C2');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('72408d4c-ea74-405d-b2fe-7502f3a5cc3a',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('4d452c3f-62af-4472-9de7-bd5b9c64f88f',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('4f2c4056-e2c0-4abe-90a5-40ba80f36f92',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('c128800e-25f5-4a06-8332-f46c409ec1dd',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('72408d4c-ea74-405d-b2fe-7502f3a5cc3a','B345E705-3575-4D50-80ED-61886CBF6961',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('4d452c3f-62af-4472-9de7-bd5b9c64f88f','B345E705-3575-4D50-80ED-61886CBF6961');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('4f2c4056-e2c0-4abe-90a5-40ba80f36f92','B345E705-3575-4D50-80ED-61886CBF6961');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('c128800e-25f5-4a06-8332-f46c409ec1dd','B345E705-3575-4D50-80ED-61886CBF6961');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('81dee1b7-d922-4846-b5c2-2005335a2354',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('f990be61-60cc-4f0e-bb3b-07c782567dce',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('702e9a70-1877-42f8-bb65-69532ee21940',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('ad2dfa4f-0e16-4403-a9bb-a90febd79d00',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('81dee1b7-d922-4846-b5c2-2005335a2354','16D2D316-CCD2-4F75-B33F-7CD6F87700BB',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('f990be61-60cc-4f0e-bb3b-07c782567dce','16D2D316-CCD2-4F75-B33F-7CD6F87700BB');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('702e9a70-1877-42f8-bb65-69532ee21940','16D2D316-CCD2-4F75-B33F-7CD6F87700BB');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('ad2dfa4f-0e16-4403-a9bb-a90febd79d00','16D2D316-CCD2-4F75-B33F-7CD6F87700BB');
 
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('f93bf91f-b66b-4ed4-9b46-649e13c9a7bc',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('f69efb27-533c-4617-a170-b977170aff35',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('1cf3e52f-8378-42ae-a731-7345bcecd275',0x21232F297A57A5A743894A0E4A801FC3);
-INSERT INTO [Pictures]([PictureID], [Picture])
+INSERT INTO [Pictures]([PictureID], [Image])
 VALUES('e720b86c-01a6-4549-a388-3bcdb91b64e2',0x21232F297A57A5A743894A0E4A801FC3);
 
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 VALUES('f93bf91f-b66b-4ed4-9b46-649e13c9a7bc','097B4ECA-89EC-4660-A11B-8E92596583D1',1);
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('f69efb27-533c-4617-a170-b977170aff35','097B4ECA-89EC-4660-A11B-8E92596583D1');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('1cf3e52f-8378-42ae-a731-7345bcecd275','097B4ECA-89EC-4660-A11B-8E92596583D1');
-INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID])
+INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('e720b86c-01a6-4549-a388-3bcdb91b64e2','097B4ECA-89EC-4660-A11B-8E92596583D1');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('de34d3a8-f91e-4de9-9257-914054d24169','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10T13:22:18-07:00','1','Mai este disponibil?');
+VALUES('de34d3a8-f91e-4de9-9257-914054d24169','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10 07:00','1','Mai este disponibil?');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('c7938e36-5beb-4102-bf87-64607d667c31','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10T13:22:30-07:00','1','Ultimul pret?');
+VALUES('c7938e36-5beb-4102-bf87-64607d667c31','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10 07:02','1','Ultimul pret?');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('e14bfae2-d9ff-4093-90a5-bf98d3c2cb6e','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-09-10T13:20:18-07:00','1','perfect');
+VALUES('e14bfae2-d9ff-4093-90a5-bf98d3c2cb6e','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-09-10 07:07','1','perfect');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('a4088423-34a0-41b4-adb5-e179fe73dce7','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10T13:22:20-07:00','1','da');
+VALUES('a4088423-34a0-41b4-adb5-e179fe73dce7','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10 07:01','1','da');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('39cb476f-6242-4959-83fd-ef9dde8c258e','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10T13:22:50-07:00','1','43215 euro');
+VALUES('39cb476f-6242-4959-83fd-ef9dde8c258e','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10 07:06','1','43215 euro');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('aa2cf911-3c8a-429e-b907-eadbc82d3fca','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-09-10T13:22:18-07:00','','ok');
+VALUES('aa2cf911-3c8a-429e-b907-eadbc82d3fca','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-09-10 07:12','','ok');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('d2e0f8e4-27c6-44e8-a5db-8dc38f6c1d5e','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10T13:22:18-07:00','1','Maigbhfgil?');
+VALUES('d2e0f8e4-27c6-44e8-a5db-8dc38f6c1d5e','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10 07:00','1','Maigbhfgil?');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('2655910a-24e9-4b3d-8523-357816e01432','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10T13:22:30-07:00','1','Ulfggpret?');
+VALUES('2655910a-24e9-4b3d-8523-357816e01432','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10 07:00','1','Ulfggpret?');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('4fae3b31-7d3e-44a4-91c6-3bee5ded5882','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-09-10T13:20:18-07:00','1','pahdf');
+VALUES('4fae3b31-7d3e-44a4-91c6-3bee5ded5882','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-09-10 07:00','1','pahdf');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('0ef69e27-6a3b-41b4-ba71-fcd9026747fe','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10T13:22:20-07:00','1','dfgvfddc');
+VALUES('0ef69e27-6a3b-41b4-ba71-fcd9026747fe','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10 07:00','1','dfgvfddc');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('ee1c4579-dd57-4801-9dfc-00537d2ff32a','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10T13:22:50-07:00','1','4ccvcdd');
+VALUES('ee1c4579-dd57-4801-9dfc-00537d2ff32a','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10 07:00','1','4ccvcdd');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('0bf8d867-fcde-4b33-89bb-23b923220e30','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-09-10T13:22:18-07:00','','odcgvgtfgdfc');
+VALUES('0bf8d867-fcde-4b33-89bb-23b923220e30','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-09-10 07:00','','odcgvgtfgdfc');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('ed6e15eb-2b2f-4d1b-bfbd-4ce6dbe7586d','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10T13:22:18-07:00','1','ce faci?');
+VALUES('ed6e15eb-2b2f-4d1b-bfbd-4ce6dbe7586d','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10 07:00','1','ce faci?');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('a51c475a-6fd0-4b7a-9764-db37608f6e60','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10T13:22:30-07:00','1','Usunt bine');
+VALUES('a51c475a-6fd0-4b7a-9764-db37608f6e60','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10 07:00','1','Usunt bine');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('4c4cd2fb-4ae5-4346-8ad0-27b4be3cabc9','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-09-10T13:20:18-07:00','1','perfect');
+VALUES('4c4cd2fb-4ae5-4346-8ad0-27b4be3cabc9','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-09-10 07:00','1','perfect');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('fe1b4fc2-e185-4d87-bdd1-c46fadf4d32a','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10T13:22:20-07:00','1','da');
+VALUES('fe1b4fc2-e185-4d87-bdd1-c46fadf4d32a','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10 07:00','1','da');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('509543b8-8aff-4f7d-95a5-03fe00a7a559','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10T13:22:50-07:00','1','415 euro');
+VALUES('509543b8-8aff-4f7d-95a5-03fe00a7a559','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10 07:00','1','415 euro');
 
 INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
-VALUES('565b58c8-e37d-437a-a761-a7a290bdb3f5','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-09-10T13:22:18-07:00','','ok2');
+VALUES('565b58c8-e37d-437a-a761-a7a290bdb3f5','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-09-10 07:00','','ok2');

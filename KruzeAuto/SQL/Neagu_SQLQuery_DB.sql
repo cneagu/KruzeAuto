@@ -9,8 +9,8 @@ CREATE TABLE [Users](
 	[UserName] nvarchar(50) NOT NULL,
 	[Password] nvarchar(50) NOT NULL,
 	[PhoneNumber] nvarchar(50) NOT NULL,
-	[CreationDate] date NOT NULL,
-	[Subscribed] bit NOT NULL,
+	[CreationDate] datetime NOT NULL,
+	[Subscribed] bit,
 CONSTRAINT [PK_Users] PRIMARY KEY ([UserID]));
 
 CREATE TABLE [UserLocation](
@@ -20,18 +20,18 @@ CREATE TABLE [UserLocation](
 	[City] nvarchar(50) NOT NULL,
 CONSTRAINT [PK_UserLocation] PRIMARY KEY ([UserID]),
 CONSTRAINT [FK_UserLocation_Users] FOREIGN KEY ([UserID])
-	REFERENCES [Users]([UserID]));
+	REFERENCES [Users]([UserID]) ON DELETE CASCADE);
 
 --cars, motorcycles, motorhomes, vans, Truks, Trailers, Semitrailers, Buses, ConstructionMachines, AgriculturalVehicles, ForkliftTruks
-CREATE TABLE [Annoucements](
+CREATE TABLE [Announcements](
 	[AnnoucementID] uniqueidentifier NOT NULL,
 	[UserID] uniqueidentifier NOT NULL,
 	[VehicleType] int NOT NULL,
 	[Views] int NOT NULL,
 	[Promoted] bit,
 	[Active] bit,
-	[CreationDate] date NOT NULL,
-	[Update] date,
+	[CreationDate] datetime NOT NULL,
+	[Update] datetime,
 	[Condition] nvarchar(15) NOT NULL,
 	[Title] nvarchar(50) NOT NULL,
 	[Brand] nvarchar(50) NOT NULL,
@@ -55,9 +55,9 @@ CREATE TABLE [Annoucements](
 	[LoadCapacity] int,
 	[OperatingHours] int,
 	[Description] text,
-CONSTRAINT [PK_Annoucements] PRIMARY KEY ([AnnoucementID]),
-CONSTRAINT [FK_Annoucements_Users] FOREIGN KEY ([UserID])
-	REFERENCES [Users]([UserID]));
+CONSTRAINT [PK_Announcements] PRIMARY KEY ([AnnoucementID]),
+CONSTRAINT [FK_Announcements_Users] FOREIGN KEY ([UserID])
+	REFERENCES [Users]([UserID]) ON DELETE CASCADE);
 
 CREATE TABLE [Options](
 	[OptionID] uniqueidentifier NOT NULL,
@@ -68,27 +68,29 @@ CREATE TABLE [AnnouncementsOptions](
 	[AnnoucementID] uniqueidentifier NOT NULL,
 	[OptionID] uniqueidentifier NOT NULL,
 CONSTRAINT [PK_AnnouncementsOptions] PRIMARY KEY ([AnnoucementID],[OptionID]),
-CONSTRAINT [FK_AnnouncementsOptions_Annoucements] FOREIGN KEY ([AnnoucementID])
-	REFERENCES [Annoucements]([AnnoucementID]),
+CONSTRAINT [FK_AnnouncementsOptions_Announcements] FOREIGN KEY ([AnnoucementID])
+	REFERENCES [Announcements]([AnnoucementID]) ON DELETE CASCADE,
 CONSTRAINT [FK_AnnouncementsOptions_Options] FOREIGN KEY ([OptionID])
-	REFERENCES [Options]([OptionID]));
+	REFERENCES [Options]([OptionID]) ON DELETE CASCADE);
 
 CREATE TABLE [MessageImbox](
 	[MessageID] uniqueidentifier NOT NULL,
 	[UserID] uniqueidentifier NOT NULL,
-	[AnnoucementID] uniqueidentifier NOT NULL,
-	[CreationDate] date NOT NULL,
+	[AnnoucementID] uniqueidentifier,
+	[CreationDate] datetime NOT NULL,
 	[Read] bit,
 	[MesageContent] text NOT NULL,
 CONSTRAINT [PK_MesageImbox] PRIMARY KEY ([MessageID]),
 CONSTRAINT [FK_MesageImbox_Users] FOREIGN KEY ([UserID])
-	REFERENCES [Users]([UserID]),
-CONSTRAINT [FK_MessageImbox_Annoucements] FOREIGN KEY ([AnnoucementID])
-	REFERENCES [Annoucements]([AnnoucementID]));
+	REFERENCES [Users]([UserID]) ON DELETE CASCADE,
+CONSTRAINT [FK_MessageImbox_Announcements]  FOREIGN KEY ([AnnoucementID])
+	REFERENCES [Announcements]([AnnoucementID]) ON DELETE NO ACTION);
+
+ALTER TABLE [MessageImbox] NOCHECK CONSTRAINT [FK_MessageImbox_Announcements];
 
 CREATE TABLE [Pictures](
 	[PictureID] uniqueidentifier NOT NULL,
-	[Picture] image,
+	[Image] image,
 CONSTRAINT [PK_Pictures] PRIMARY KEY ([PictureID]));
 
 CREATE TABLE [UsersPictures](
@@ -96,20 +98,22 @@ CREATE TABLE [UsersPictures](
 	[PictureID] uniqueidentifier NOT NULL,
 CONSTRAINT [PK_UsersPictures] PRIMARY KEY ([UserID]),
 CONSTRAINT [FK_UsersPictures_Users] FOREIGN KEY ([UserID])
-	REFERENCES [Users]([UserID]),
+	REFERENCES [Users]([UserID]) ON DELETE CASCADE,
 CONSTRAINT [FK_UsersPictures_Pictures] FOREIGN KEY ([PictureID])
-	REFERENCES [Pictures]([PictureID]));
+	REFERENCES [Pictures]([PictureID]) ON DELETE CASCADE);
 
-CREATE TABLE [AnnoucementsPictures](
+CREATE TABLE [AnnouncementsPictures](
 	[PictureID] uniqueidentifier NOT NULL,
 	[AnnoucementID] uniqueidentifier NOT NULL,
 	[PrimaryPicture] bit,
-CONSTRAINT [PK_AnnoucementsPictures] PRIMARY KEY ([PictureID]),
-CONSTRAINT [FK_AnnoucementsPictures_Pictures] FOREIGN KEY ([PictureID])
-	REFERENCES [Pictures]([PictureID]),
-CONSTRAINT [FK_AnnoucementsPictures_Annoucements] FOREIGN KEY ([AnnoucementID])
-	REFERENCES [Annoucements]([AnnoucementID]));
+CONSTRAINT [PK_AnnouncementsPictures] PRIMARY KEY ([PictureID]),
+CONSTRAINT [FK_AnnouncementsPictures_Pictures] FOREIGN KEY ([PictureID])
+	REFERENCES [Pictures]([PictureID]) ON DELETE CASCADE,
+CONSTRAINT [FK_AnnouncementsPictures_Announcements] FOREIGN KEY ([AnnoucementID])
+	REFERENCES [Announcements]([AnnoucementID]) ON DELETE CASCADE);
 GO
+
+--STORED PROCEDURES INSERT
 
 CREATE PROCEDURE dbo.Users_Insert
 (
@@ -118,7 +122,7 @@ CREATE PROCEDURE dbo.Users_Insert
 	@UserName nvarchar(50),
 	@Password nvarchar(50),
 	@PhoneNumber nvarchar(50),
-	@CreationDate date,
+	@CreationDate datetime,
 	@Subscribed bit
 )
 AS
@@ -142,7 +146,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.Annoucements_Insert
+CREATE PROCEDURE dbo.Announcements_Insert
 (
 	@AnnoucementID uniqueidentifier,
 	@UserID uniqueidentifier,
@@ -150,8 +154,8 @@ CREATE PROCEDURE dbo.Annoucements_Insert
 	@Views int,
 	@Promoted bit,
 	@Active bit,
-	@CreationDate date,
-	@Update date,
+	@CreationDate datetime,
+	@Update datetime,
 	@Condition nvarchar(15),
 	@Title nvarchar(50),
 	@Brand nvarchar(50),
@@ -178,7 +182,7 @@ CREATE PROCEDURE dbo.Annoucements_Insert
 )
 AS
 BEGIN
-	INSERT INTO [Annoucements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
+	INSERT INTO [Announcements]([AnnoucementID],[UserID],[VehicleType],[Views],[Promoted],[Active],[CreationDate],
 	[Update],[Condition],[Title],[Brand],[Model],[Type],[Kilometer],[FabricationYear],[VIN],[FuelType],[Price],
 	[NegociablePrice],[Currency],[Color],[ColorType],[Power],[Transmission],[CubicCapacity],[EmissionClass],
 	[NumberOfSeats],[GVW],[LoadCapacity],[OperatingHours],[Description])
@@ -219,7 +223,7 @@ CREATE PROCEDURE dbo.MessageImbox_Insert
 	@MessageID uniqueidentifier,
 	@UserID uniqueidentifier,
 	@AnnoucementID uniqueidentifier,
-	@CreationDate date,
+	@CreationDate datetime,
 	@Read bit,
 	@MesageContent text
 )
@@ -233,12 +237,12 @@ GO
 CREATE PROCEDURE dbo.Pictures_Insert
 (
 	@PictureID uniqueidentifier,
-	@Picture image
+	@Image image
 )
 AS
 BEGIN
-	INSERT INTO [Pictures]([PictureID],[Picture])
-	VALUES(@PictureID,@Picture)
+	INSERT INTO [Pictures]([PictureID],[Image])
+	VALUES(@PictureID,@Image)
 END
 GO
 
@@ -254,7 +258,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.AnnoucementsPictures_Insert
+CREATE PROCEDURE dbo.AnnouncementsPictures_Insert
 (
 	@PictureID uniqueidentifier,
 	@AnnoucementID uniqueidentifier,
@@ -262,10 +266,12 @@ CREATE PROCEDURE dbo.AnnoucementsPictures_Insert
 )
 AS
 BEGIN
-	INSERT INTO [AnnoucementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
+	INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID],[PrimaryPicture])
 	VALUES(@PictureID,@AnnoucementID,@PrimaryPicture)
 END
 GO
+
+--STORED PROCEDURES UPDATE
 
 CREATE PROCEDURE dbo.Users_UpdateByID
 (
@@ -278,10 +284,10 @@ CREATE PROCEDURE dbo.Users_UpdateByID
 )
 AS
 BEGIN
-	UPDATE [Users] SET 
-	[Email] = @Email, 
-	[UserName] =@UserName, 
-	[Password] =  @Password, 
+	UPDATE [Users] SET
+	[Email] = @Email,
+	[UserName] =@UserName,
+	[Password] =  @Password,
 	[PhoneNumber] = @PhoneNumber,
 	[Subscribed] = @Subscribed
 	WHERE [UserID] = @UserID
@@ -297,23 +303,23 @@ CREATE PROCEDURE dbo.UserLocation_UpdateByID
 )
 AS
 BEGIN
-	UPDATE [UserLocation] SET  
-	[Country] = @Country, 
-	[County] = @County, 
+	UPDATE [UserLocation] SET
+	[Country] = @Country,
+	[County] = @County,
 	[City] = @City
 	WHERE [UserID] = @UserID
 END
 GO
 
-CREATE PROCEDURE dbo.Annoucements_UpdateByID
+CREATE PROCEDURE dbo.Announcements_UpdateByID
 (
 	@AnnoucementID uniqueidentifier,
 	@VehicleType int,
 	@Views int,
 	@Promoted bit,
 	@Active bit,
-	@CreationDate date,
-	@Update date,
+	@CreationDate datetime,
+	@Update datetime,
 	@Condition nvarchar(15),
 	@Title nvarchar(50),
 	@Brand nvarchar(50),
@@ -340,8 +346,8 @@ CREATE PROCEDURE dbo.Annoucements_UpdateByID
 )
 AS
 BEGIN
-	UPDATE [Annoucements] SET  
-	[VehicleType] = @VehicleType, 
+	UPDATE [Announcements] SET
+	[VehicleType] = @VehicleType,
 	[Views] = @Views,
 	[Promoted] = @Promoted,
 	[Active] = @Active,
@@ -350,7 +356,7 @@ BEGIN
 	[Condition] = @Condition,
 	[Title] = @Title,
 	[Brand] = @Brand,
-	[Model] = @Model, 
+	[Model] = @Model,
 	[Type] = @Type,
 	[Kilometer] = @Kilometer,
 	[FabricationYear] = @FabricationYear,
@@ -382,7 +388,7 @@ CREATE PROCEDURE dbo.Options_UpdateByID
 )
 AS
 BEGIN
-	UPDATE [Options] SET 
+	UPDATE [Options] SET
 	[Name] = @Name
 	WHERE [OptionID] = @OptionID
 END
@@ -396,7 +402,7 @@ CREATE PROCEDURE dbo.MessageImbox_UpdateByID
 )
 AS
 BEGIN
-	UPDATE [MessageImbox] SET 
+	UPDATE [MessageImbox] SET
 	[Read] = @Read,
 	[MesageContent] = @MesageContent
 	WHERE [MessageID] = @MessageID
@@ -406,12 +412,12 @@ GO
 CREATE PROCEDURE dbo.Pictures_UpdateByID
 (
 	@PictureID uniqueidentifier,
-	@Picture image
+	@Image image
 )
 AS
 BEGIN
-	UPDATE [Pictures] SET 
-	[Picture] = @Picture
+	UPDATE [Pictures] SET
+	[Image] = @Image
 	WHERE [PictureID] = @PictureID
 END
 GO
@@ -423,35 +429,27 @@ CREATE PROCEDURE dbo.UsersPictures_UpdateByID
 )
 AS
 BEGIN
-	UPDATE [UsersPictures] SET 
+	UPDATE [UsersPictures] SET
 	[PictureID] = @PictureID
 	WHERE [UserID] = @UserID
 END
 GO
 
-CREATE PROCEDURE dbo.AnnoucementsPictures_UpdateByID
+CREATE PROCEDURE dbo.AnnouncementsPictures_UpdateByID
 (
 	@PictureID uniqueidentifier,
 	@PrimaryPicture bit
 )
 AS
 BEGIN
-	UPDATE [AnnoucementsPictures] SET 
+	UPDATE [AnnouncementsPictures] SET
 	[PrimaryPicture] = @PrimaryPicture
 	WHERE [PictureID] = @PictureID
 END
 GO
 
---select * FROM Annoucements;
+--STORED PROCEDURES DELETE
 
---ALTER TABLE Annoucements
---   DROP CONSTRAINT FK_Annoucements_Users   -- or whatever it's called
-
----ALTER TABLE Annoucements
---   ADD CONSTRAINT FK_Annoucements_Users_Cascade
---  FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE
-
---delete from Annoucements where UserID = '6DEB815A-5F4B-D7A5-8571-168AB1DA8E67'
 CREATE PROCEDURE dbo.Users_DeleteByID
 (
 	@UserID uniqueidentifier
@@ -459,7 +457,7 @@ CREATE PROCEDURE dbo.Users_DeleteByID
 AS
 BEGIN
 
-	DELETE FROM [Users] 
+	DELETE FROM [Users]
 	WHERE [UserID] = @UserID
 END
 GO
@@ -470,18 +468,18 @@ CREATE PROCEDURE dbo.UserLocation_DeleteByID
 )
 AS
 BEGIN
-	DELETE  FROM [UserLocation] 
+	DELETE  FROM [UserLocation]
 	WHERE [UserID] = @UserID
 END
 GO
 
-CREATE PROCEDURE dbo.Annoucements_DeleteByID
+CREATE PROCEDURE dbo.Announcements_DeleteByID
 (
 	@AnnoucementID uniqueidentifier
 )
 AS
 BEGIN
-	DELETE  FROM [Annoucements] 
+	DELETE  FROM [Announcements]
 	WHERE [AnnoucementID] = @AnnoucementID
 END
 GO
@@ -492,7 +490,7 @@ CREATE PROCEDURE dbo.Options_DeleteByID
 )
 AS
 BEGIN
-	DELETE  FROM [Options] 
+	DELETE  FROM [Options]
 	WHERE [OptionID] = @Options
 END
 GO
@@ -504,10 +502,11 @@ CREATE PROCEDURE dbo.AnnouncementsOptions_DeleteByID
 )
 AS
 BEGIN
-	DELETE  FROM [AnnouncementsOptions] 
+	DELETE  FROM [AnnouncementsOptions]
 	WHERE [AnnoucementID] = @AnnoucementID AND [OptionID] = @OptionID
 END
 GO
+----
 
 CREATE PROCEDURE dbo.MessageImbox_DeleteByID
 (
@@ -515,7 +514,7 @@ CREATE PROCEDURE dbo.MessageImbox_DeleteByID
 )
 AS
 BEGIN
-	DELETE  FROM [MessageImbox] 
+	DELETE  FROM [MessageImbox]
 	WHERE [MessageID] = @MessageID
 END
 GO
@@ -526,7 +525,7 @@ CREATE PROCEDURE dbo.Pictures_DeleteByID
 )
 AS
 BEGIN
-	DELETE  FROM [Pictures] 
+	DELETE  FROM [Pictures]
 	WHERE [PictureID] = @PictureID
 END
 GO
@@ -537,26 +536,35 @@ CREATE PROCEDURE dbo.UsersPictures_DeleteByID
 )
 AS
 BEGIN
-	DELETE  FROM [UsersPictures] 
+	DELETE  FROM [UsersPictures]
 	WHERE [UserID] = @UserID
 END
 GO
 
-CREATE PROCEDURE dbo.AnnoucementsPictures_DeleteByID
+CREATE PROCEDURE dbo.AnnouncementsPictures_DeleteByID
 (
 	@PictureID uniqueidentifier
 )
 AS
 BEGIN
-	DELETE  FROM [AnnoucementsPictures] 
+	DELETE  FROM [AnnouncementsPictures]
 	WHERE [PictureID] = @PictureID
 END
 GO
 
+-- STORED PROCEDURE READ
+
 CREATE PROCEDURE dbo.Users_ReadAll
 AS
 BEGIN
-	SELECT * FROM [Users]
+	SELECT  [UserID],
+			[Email],
+			[UserName],
+			[Password],
+			[PhoneNumber],
+			[CreationDate],
+			[Subscribed]
+	FROM	[Users]
 END
 GO
 
@@ -566,8 +574,26 @@ CREATE PROCEDURE dbo.Users_ReadByID
 )
 AS
 BEGIN
-	SELECT * FROM [Users]
-	WHERE [UserID] = @UserID
+	SELECT  [UserID],
+			[Email],
+			[UserName],
+			[Password],
+			[PhoneNumber],
+			[CreationDate],
+			[Subscribed]
+	FROM	[Users]
+	WHERE	[UserID] = @UserID
+END
+GO
+
+CREATE PROCEDURE dbo.UserLocation_ReadAll
+AS
+BEGIN
+	SELECT  [UserID],
+			[Country],
+			[County],
+			[City]
+	FROM	[UserLocation]
 END
 GO
 
@@ -577,8 +603,12 @@ CREATE PROCEDURE dbo.UserLocation_ReadByID
 )
 AS
 BEGIN
-	SELECT * FROM [UserLocation]
-	WHERE [UserID] = @UserID
+	SELECT  [UserID],
+			[Country],
+			[County],
+			[City]
+	FROM	[UserLocation]
+	WHERE	[UserID] = @UserID
 END
 GO
 
@@ -620,7 +650,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.MessageImbox_Annoucements_ReadByID
+CREATE PROCEDURE dbo.MessageImbox_Announcements_ReadByID
 (
 @AnnoucementID uniqueidentifier
 )
@@ -633,38 +663,139 @@ BEGIN
 			m.[Read],
 			m.MesageContent
 	FROM MessageImbox m
-		INNER JOIN Annoucements a ON a.AnnoucementID = m.AnnoucementID
+		INNER JOIN Announcements a ON a.AnnoucementID = m.AnnoucementID
 	WHERE m.AnnoucementID = @AnnoucementID
 END
 GO
 
-CREATE PROCEDURE dbo.Annoucements_ReadByID
+CREATE PROCEDURE dbo.Announcements_ReadAll
+AS
+BEGIN
+	SELECT  [AnnoucementID],
+			[UserID],
+			[VehicleType],
+			[Views],
+			[Promoted],
+			[Active],
+			[CreationDate],
+			[Update],
+			[Condition],
+			[Title],
+			[Brand],
+			[Model],
+			[Type],
+			[Kilometer],
+			[FabricationYear],
+			[VIN],
+			[FuelType],
+			[Price],
+			[NegociablePrice],
+			[Currency],
+			[Color],
+			[ColorType],
+			[Power],
+			[Transmission],
+			[CubicCapacity],
+			[EmissionClass],
+			[NumberOfSeats],
+			[GVW],
+			[LoadCapacity],
+			[OperatingHours],
+			[Description]
+	FROM	[Announcements]
+END
+GO
+
+CREATE PROCEDURE dbo.Announcements_ReadByID
 (
 @AnnoucementID uniqueidentifier
 )
 AS
 BEGIN
-	SELECT * FROM [Annoucements]
-	WHERE [AnnoucementID] = @AnnoucementID
+	SELECT  [AnnoucementID],
+			[UserID],
+			[VehicleType],
+			[Views],
+			[Promoted],
+			[Active],
+			[CreationDate],
+			[Update],
+			[Condition],
+			[Title],
+			[Brand],
+			[Model],
+			[Type],
+			[Kilometer],
+			[FabricationYear],
+			[VIN],
+			[FuelType],
+			[Price],
+			[NegociablePrice],
+			[Currency],
+			[Color],
+			[ColorType],
+			[Power],
+			[Transmission],
+			[CubicCapacity],
+			[EmissionClass],
+			[NumberOfSeats],
+			[GVW],
+			[LoadCapacity],
+			[OperatingHours],
+			[Description]
+	FROM	[Announcements]
+	WHERE	[AnnoucementID] = @AnnoucementID
 END
 GO
 
-CREATE PROCEDURE dbo.Annoucements_Users_ReadByID
+CREATE PROCEDURE dbo.Announcements_Users_ReadByID
 (
 @UserID uniqueidentifier
 )
 AS
 BEGIN
-	SELECT *
-	FROM Annoucements 
-	WHERE [UserID] = @UserID
+	SELECT  [AnnoucementID],
+			[UserID],
+			[VehicleType],
+			[Views],
+			[Promoted],
+			[Active],
+			[CreationDate],
+			[Update],
+			[Condition],
+			[Title],
+			[Brand],
+			[Model],
+			[Type],
+			[Kilometer],
+			[FabricationYear],
+			[VIN],
+			[FuelType],
+			[Price],
+			[NegociablePrice],
+			[Currency],
+			[Color],
+			[ColorType],
+			[Power],
+			[Transmission],
+			[CubicCapacity],
+			[EmissionClass],
+			[NumberOfSeats],
+			[GVW],
+			[LoadCapacity],
+			[OperatingHours],
+			[Description]
+	FROM	[Announcements]
+	WHERE	[UserID] = @UserID
 END
 GO
 
 CREATE PROCEDURE dbo.Options_ReadAll
 AS
 BEGIN
-	SELECT * FROM [Options]
+	SELECT  [OptionID],
+			[Name]
+	FROM	[Options]
 END
 GO
 
@@ -674,8 +805,10 @@ CREATE PROCEDURE dbo.Options_ReadByID
 )
 AS
 BEGIN
-	SELECT * FROM [Options]
-	WHERE [OptionID] = @OptionID
+	SELECT  [OptionID],
+			[Name]
+	FROM	[Options]
+	WHERE	[OptionID] = @OptionID
 END
 GO
 
@@ -685,8 +818,24 @@ CREATE PROCEDURE dbo.AnnouncementsOptions_ReadAnnouncementsOptionsByID
 )
 AS
 BEGIN
-	SELECT * FROM [AnnouncementsOptions]
-	WHERE [AnnoucementID] = @AnnoucementID
+	SELECT  [AnnoucementID],
+			[OptionID]
+	FROM	[AnnouncementsOptions]
+	WHERE	[AnnoucementID] = @AnnoucementID
+END
+GO
+
+CREATE PROCEDURE dbo.AnnouncementsOptions_ReadByID
+(
+@AnnoucementID uniqueidentifier,
+@OptionID uniqueidentifier
+)
+AS
+BEGIN
+	SELECT  [AnnoucementID],
+			[OptionID]
+	FROM	[AnnouncementsOptions]
+	WHERE	[AnnoucementID] = @AnnoucementID AND [OptionID] = @OptionID
 END
 GO
 
@@ -696,8 +845,14 @@ CREATE PROCEDURE dbo.MessageImbox_ReadByID
 )
 AS
 BEGIN
-	SELECT * FROM [MessageImbox]
-	WHERE [MessageID] = @MessageID
+	SELECT  [MessageID],
+			[UserID],
+			[AnnoucementID],
+			[CreationDate],
+			[Read],
+			[MesageContent]
+	FROM	[MessageImbox]
+	WHERE	[MessageID] = @MessageID
 END
 GO
 
@@ -707,8 +862,38 @@ CREATE PROCEDURE dbo.Pictures_ReadByID
 )
 AS
 BEGIN
-	SELECT * FROM [Pictures]
-	WHERE [PictureID] = @PictureID
+	SELECT  [PictureID],
+			[Image]
+	FROM	[Pictures]
+	WHERE	[PictureID] = @PictureID
 END
 GO
+
+CREATE PROCEDURE dbo.UsersPictures_ReadByID
+(
+@UserID uniqueidentifier
+)
+AS
+BEGIN
+	SELECT  [UserID],
+			[PictureID]
+	FROM	[UsersPictures]
+	WHERE	[UserID] = @UserID
+END
+GO
+
+CREATE PROCEDURE dbo.AnnouncementsPictures_ReadByID
+(
+@AnnoucementID uniqueidentifier
+)
+AS
+BEGIN
+	SELECT  [PictureID],
+			[AnnoucementID],
+			[PrimaryPicture]
+	FROM	[AnnouncementsPictures]
+	WHERE	[AnnoucementID] = @AnnoucementID
+END
+GO
+
 -- CREATE NONCLUSTERED INDEX index_clustered ON Users(UserId asc)
