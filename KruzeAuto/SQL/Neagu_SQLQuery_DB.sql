@@ -394,6 +394,19 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE dbo.AnnouncementsOptions_UpdateByID
+(
+	@AnnoucementID uniqueidentifier,
+	@OptionID nvarchar(50)
+)
+AS
+BEGIN
+	UPDATE [AnnouncementsOptions] SET
+	[OptionID] = @OptionID
+	WHERE [AnnoucementID] = @AnnoucementID
+END
+GO
+
 CREATE PROCEDURE dbo.MessageImbox_UpdateByID
 (
 	@MessageID uniqueidentifier,
@@ -650,21 +663,36 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.MessageImbox_Announcements_ReadByID
+CREATE PROCEDURE dbo.MessageImbox_ReadByUserID
+(
+@UserID uniqueidentifier
+)
+AS
+BEGIN
+	SELECT  MessageID,
+			AnnoucementID,
+			CreationDate,
+			[Read],
+			MesageContent
+	FROM MessageImbox		
+	WHERE [UserID] = @UserID
+END
+GO
+
+CREATE PROCEDURE dbo.MessageImbox_ReadByAnnouncementsID
 (
 @AnnoucementID uniqueidentifier
 )
 AS
 BEGIN
-	SELECT  m.MessageID,
-			m.UserID,
-			m.AnnoucementID,
-			m.CreationDate,
-			m.[Read],
-			m.MesageContent
-	FROM MessageImbox m
-		INNER JOIN Announcements a ON a.AnnoucementID = m.AnnoucementID
-	WHERE m.AnnoucementID = @AnnoucementID
+	SELECT  MessageID,
+			UserID,
+			AnnoucementID,
+			CreationDate,
+			[Read],
+			MesageContent
+	FROM MessageImbox 
+	WHERE AnnoucementID = @AnnoucementID
 END
 GO
 
@@ -869,6 +897,15 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE dbo.Pictures_ReadAll
+AS
+BEGIN
+	SELECT  [PictureID],
+			[Image]
+	FROM	[Pictures]
+END
+GO
+
 CREATE PROCEDURE dbo.UsersPictures_ReadByID
 (
 @UserID uniqueidentifier
@@ -883,6 +920,21 @@ END
 GO
 
 CREATE PROCEDURE dbo.AnnouncementsPictures_ReadByID
+(
+@AnnoucementID uniqueidentifier,
+@PictureID uniqueidentifier
+)
+AS
+BEGIN
+	SELECT  [PictureID],
+			[AnnoucementID],
+			[PrimaryPicture]
+	FROM	[AnnouncementsPictures]
+	WHERE	[AnnoucementID] = @AnnoucementID AND [PictureID] = @PictureID
+END
+GO
+
+CREATE PROCEDURE dbo.AnnouncementsPictures_ReadAllPicturesByID
 (
 @AnnoucementID uniqueidentifier
 )

@@ -2,7 +2,7 @@
 
 namespace KruzeAuto.Model
 {
-    class AnnouncementPictures
+    public class AnnouncementPictures
     {
         #region Properties
         public Guid PictureID { get; set; }
