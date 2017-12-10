@@ -7,8 +7,8 @@
     <ProjectGuid>{0CA1095F-15E4-40A8-AE56-74F2EC4E900F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Repository</RootNamespace>
-    <AssemblyName>Repository</AssemblyName>
+    <RootNamespace>KruseAuto.Repository</RootNamespace>
+    <AssemblyName>KruseAuto.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,7 +44,9 @@
     <Compile Include="AnnouncementOptionRepository.cs" />
     <Compile Include="AnnouncementPicturesRepository.cs" />
     <Compile Include="AnnouncementRepository.cs" />
-    <Compile Include="MessageImboxRepository.cs" />
+    <Compile Include="Core\BaseRepository.cs" />
+    <Compile Include="Core\RepositoryContext.cs" />
+    <Compile Include="MessageInboxRepository.cs" />
     <Compile Include="OptionRepository.cs" />
     <Compile Include="PictureRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,10 +55,15 @@
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KruzeAuto.Library\KruzeAuto.Library.csproj">
+      <Project>{0CB3A34E-BB74-4758-B59D-A3FF94C3F5EE}</Project>
+      <Name>KruzeAuto.Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KruzeAuto.Model\KruzeAuto.Model.csproj">
       <Project>{D563014A-9ECF-4BEA-B084-45EDC4921409}</Project>
       <Name>KruzeAuto.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

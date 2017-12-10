@@ -1,5 +1,5 @@
-﻿using KruzeAuto.Model;
-using KruzeAuto.Repository;
+﻿using KruseAuto.Repository.Core;
+using KruzeAuto.Model;
 using System;
 using System.Collections.Generic;
 
@@ -9,58 +9,80 @@ namespace KruzeAuto
     {
         static void Main(string[] args)
         {
-            Guid IDtest = Guid.NewGuid();
-            UserRepository userRepo = new UserRepository();
+            Guid idTest = Guid.NewGuid();
+
 
             //insert
             User userNew = new User();
-            userNew.UserID = IDtest;
+            userNew.UserID = idTest;
             userNew.Email = "testnou@yahoo.com";
             userNew.UserName = "Test1";
             userNew.Password = "parolatest";
             userNew.PhoneNumber = "012351455";
             userNew.CreationDate = new DateTime(1990, 12, 1);
             userNew.Subscribed = true;
-            userRepo.Insert(userNew);
 
-            //readByID insert
-            User userInsert = userRepo.ReadByID(IDtest);
-            Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", userInsert.UserID, userInsert.Email, userInsert.UserName, userInsert.Password, userInsert.PhoneNumber, userInsert.CreationDate, userInsert.Subscribed);
-         
             //update
             User userUpdate = new User();
-            userUpdate.UserID = IDtest;
+            userUpdate.UserID = idTest;
             userUpdate.Email = "testnou2@yahoo.com";
             userUpdate.UserName = "Test2";
             userUpdate.Password = "parolatest22222222222222222222222222222222222222222222";
             userUpdate.PhoneNumber = "01356787";
             userUpdate.Subscribed = false;
-            userRepo.Update(userUpdate);
 
-            //readByID update
-            User userToRead = userRepo.ReadByID(IDtest);
-            Console.WriteLine("\n\n\n\n{0} {1} {2} {3} {4} {5} {6}", userToRead.UserID, userToRead.Email, userToRead.UserName, userToRead.Password, userToRead.PhoneNumber, userToRead.CreationDate, userToRead.Subscribed);
-
-            //read all
-            Console.Write("\n\n\n\n");            
-            List<User> users = userRepo.ReadAll();
-            foreach(User user in users)
+            using (RepositoryContext repositoryContext = new RepositoryContext())
             {
-                Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", user.UserID, user.Email, user.UserName, user.Password, user.PhoneNumber, user.CreationDate, user.Subscribed);
+                ShowUsers(repositoryContext);
+                Console.Write("\n\n\n\n");
+                InsertUser(repositoryContext, userNew);
+                ShowUserByID(repositoryContext, idTest);
+                Console.Write("\n\n\n\n");
+                UpdateUser(repositoryContext, userUpdate);
+                ShowUserByID(repositoryContext, idTest);
+                Console.Write("\n\n\n\n");
+                DeleteUser(repositoryContext, idTest);
+                ShowUsers(repositoryContext);
+
             }
+            Console.ReadKey();
+            Console.ReadLine();
+        }
 
-            //deleteByID
-            userRepo.DeleteByID(IDtest);
-
-            //read all
-            Console.Write("\n\n\n\n");
-            List<User> usersAfter = userRepo.ReadAll();
+        private static void ShowUsers(RepositoryContext repositoryContext)
+        {
+            List<User> usersAfter = repositoryContext.UserRepository.ReadAll();
+            Console.WriteLine("Users:");
             foreach (User user in usersAfter)
             {
-                Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", user.UserID, user.Email, user.UserName, user.Password, user.PhoneNumber, user.CreationDate, user.Subscribed);
+                Console.WriteLine("UserID:{0} Email:{1} UserName:{2} Password:{3} PhoneNumber:{4} CreationDate:{5} Subscribed:{6}",
+                    user.UserID, user.Email, user.UserName, user.Password, user.PhoneNumber, user.CreationDate, user.Subscribed);
             }
+        }
 
-            Console.ReadKey();
+        private static void ShowUserByID(RepositoryContext repositoryContext, Guid idTest)
+        {
+            User userInsert = repositoryContext.UserRepository.ReadByID(idTest);
+            Console.WriteLine("User:"); 
+            Console.WriteLine("UserID:{0} Email:{1} UserName:{2} Password:{3} PhoneNumber:{4} CreationDate:{5} Subscribed:{6}",
+                userInsert.UserID, userInsert.Email, userInsert.UserName, userInsert.Password, userInsert.PhoneNumber, userInsert.CreationDate, userInsert.Subscribed);           
+        }
+
+        private static void InsertUser(RepositoryContext repositoryContext, User user)
+        {
+           repositoryContext.UserRepository.Insert(user);
+        }
+
+        private static void UpdateUser(RepositoryContext repositoryContext, User user)
+        {
+            repositoryContext.UserRepository.Update(user);
+        }
+
+        private static void DeleteUser(RepositoryContext repositoryContext, Guid idTest)
+        {
+            repositoryContext.UserRepository.DeleteByID(idTest);
         }
     }
+         
 }
+

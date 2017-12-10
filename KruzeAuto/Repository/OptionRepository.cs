@@ -1,202 +1,56 @@
-﻿using KruzeAuto.Model;
+﻿using KruseAuto.Repository.Core;
+using KruzeAuto.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace Repository
+namespace KruseAuto.Repository
 {
-    public class OptionRepository
+    public class OptionRepository : BaseRepository<Option>
     {
         #region Methdos
         public void Insert(Option option)
         {
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Options_Insert";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@OptionID", option.OptionID));
-                        command.Parameters.Add(new SqlParameter("@Name", option.Name));
-
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                    }
-
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("There was an error: {0}", ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            SqlParameter[] parameters = {
+                new SqlParameter("@OptionID", option.OptionID),
+                new SqlParameter("@Name", option.Name) };
+            Procedure("dbo.Options_Insert", parameters);
         }
 
         public void Update(Option option)
         {
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Options_UpdateByID";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@OptionID", option.OptionID));
-                        command.Parameters.Add(new SqlParameter("@Name", option.Name));
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                    }
-
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("There was an error: {0}", ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            SqlParameter[] parameters = {
+               new SqlParameter("@OptionID", option.OptionID),
+                new SqlParameter("@Name", option.Name) };
+            Procedure("dbo.Options_UpdateByID", parameters);
         }
 
-        public void DeleteByID(Guid Options)
+        public void DeleteByID(Guid optionID)
         {
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Options_DeleteByID";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@Options", Options));
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                    }
-
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("There was an error: {0}", ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            SqlParameter[] parameters = {
+                new SqlParameter("@OptionID", optionID) };
+            Procedure("dbo.Options_DeleteByID", parameters);
         }
 
         public List<Option> ReadAll()
         {
-            List<Option> options = new List<Option>();
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Options_ReadAll";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Option option = new Option();
-                                option.OptionID = reader.GetGuid(reader.GetOrdinal("OptionID"));
-                                option.Name = reader.GetString(reader.GetOrdinal("Name"));
-                                options.Add(option);
-                            }
-                        }
-                    }
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was an SQL error: {0}", sqlEx.ToString());
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("There was an error: {0}", ex.ToString());
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-            return options;
+            return ReadAll("dbo.Options_ReadAll");
         }
 
-        public Option ReadByID(Guid OptionID)
+        public Option ReadByID(Guid optionID)
         {
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
+            List<Option> result = new List<Option>();
+            SqlParameter[] parameters = { new SqlParameter("@OptionID", optionID) };
+            result = ReadAll("dbo.Options_ReadByID", parameters);
+            return result[0];
+        }
+
+        protected override Option GetModelFromReader(SqlDataReader reader)
+        {
             Option option = new Option();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Options_ReadByID";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        command.Parameters.Add(new SqlParameter("@OptionID", OptionID));
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                option.OptionID = reader.GetGuid(reader.GetOrdinal("OptionID"));
-                                option.Name = reader.GetString(reader.GetOrdinal("Name"));
-                            }
-
-                        }
-                    }
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-
-                    Console.WriteLine("There was an error: {0}", ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-
-            }
-
-            return option;
+            option.OptionID = reader.GetGuid(reader.GetOrdinal("OptionID"));
+            option.Name = reader.GetString(reader.GetOrdinal("Name"));
+            return (option);
         }
         #endregion
     }

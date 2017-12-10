@@ -43,7 +43,7 @@
     <Compile Include="Announcement.cs" />
     <Compile Include="AnnouncementOption.cs" />
     <Compile Include="AnnouncementPictures.cs" />
-    <Compile Include="MessageImbox.cs" />
+    <Compile Include="MessageInbox.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,204 +1,57 @@
-﻿using KruzeAuto.Model;
+﻿using KruseAuto.Repository.Core;
+using KruzeAuto.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace Repository
+namespace KruseAuto.Repository
 {
-    public class PictureRepository
+    public class PictureRepository : BaseRepository<Picture>
     {
         #region Methdos
         public void Insert(Picture picture)
         {
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Pictures_Insert";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@PictureID", picture.PictureID));
-                        command.Parameters.Add(new SqlParameter("@Image", picture.Image));
-
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                    }
-
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("There was an error: {0}", ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            SqlParameter[] parameters = {
+                new SqlParameter("@PictureID", picture.PictureID),
+                new SqlParameter("@Image", picture.Image) };
+            Procedure("dbo.Pictures_Insert", parameters);
         }
 
         public void Update(Picture picture)
         {
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Pictures_UpdateByID";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@PictureID", picture.PictureID));
-                        command.Parameters.Add(new SqlParameter("@Image", picture.Image));
-
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                    }
-
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("There was an error: {0}", ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            SqlParameter[] parameters = {
+               new SqlParameter("@PictureID", picture.PictureID),
+               new SqlParameter("@Image", picture.Image) };
+            Procedure("dbo.Pictures_UpdateByID", parameters);
         }
 
-        public void Pictures_DeleteByID(Guid PictureID)
+        public void DeleteByID(Guid pictureID)
         {
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Pictures_DeleteByID";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@PictureID", PictureID));
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                    }
-
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("There was an error: {0}", ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            SqlParameter[] parameters = {
+                new SqlParameter("@PictureID", pictureID) };
+            Procedure("dbo.Pictures_DeleteByID", parameters);
         }
 
         public List<Picture> ReadAll()
         {
-            List<Picture> pictures = new List<Picture>();
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Pictures_ReadAll";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Picture picture = new Picture();
-                                picture.PictureID = reader.GetGuid(reader.GetOrdinal("PictureID"));
-                               // picture.Image = reader.GetByte(reader.GetOrdinal("Image"));
-
-                                pictures.Add(picture);
-                            }
-                        }
-                    }
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was an SQL error: {0}", sqlEx.ToString());
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("There was an error: {0}", ex.ToString());
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-            return pictures;
+            return ReadAll("dbo.Pictures_ReadAll");
         }
 
-        public Picture ReadByID(Guid PictureID)
+        public Picture ReadByID(Guid pictureID)
         {
-            string connectionString = "Server=NEAGU;Database=KruzeAutoDB;Trusted_Connection=True;";
+            List<Picture> result = new List<Picture>();
+            SqlParameter[] parameters = { new SqlParameter("@PictureID", pictureID) };
+            result = ReadAll("dbo.Pictures_ReadByID", parameters);
+            return result[0];
+        }
+
+        protected override Picture GetModelFromReader(SqlDataReader reader)
+        {
+
             Picture picture = new Picture();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "dbo.Pictures_ReadByID";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        command.Parameters.Add(new SqlParameter("@PictureID", PictureID));
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                picture.PictureID = reader.GetGuid(reader.GetOrdinal("PictureID"));
-                                // picture.Image = reader.GetByte(reader.GetOrdinal("Image"));
-                            }
-
-                        }
-                    }
-                }
-                catch (SqlException sqlEx)
-                {
-                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-
-                    Console.WriteLine("There was an error: {0}", ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-
-            }
-
-            return picture;
+            picture.PictureID = reader.GetGuid(reader.GetOrdinal("PictureID"));
+            picture.Image = (byte[])reader["Image"];
+            return (picture);
         }
         #endregion
     }

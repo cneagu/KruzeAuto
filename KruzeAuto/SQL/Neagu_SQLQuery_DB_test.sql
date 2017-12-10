@@ -1004,56 +1004,56 @@ VALUES('1cf3e52f-8378-42ae-a731-7345bcecd275','097B4ECA-89EC-4660-A11B-8E9259658
 INSERT INTO [AnnouncementsPictures]([PictureID],[AnnoucementID])
 VALUES('e720b86c-01a6-4549-a388-3bcdb91b64e2','097B4ECA-89EC-4660-A11B-8E92596583D1');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('de34d3a8-f91e-4de9-9257-914054d24169','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10 07:00','1','Mai este disponibil?');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('c7938e36-5beb-4102-bf87-64607d667c31','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10 07:02','1','Ultimul pret?');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('e14bfae2-d9ff-4093-90a5-bf98d3c2cb6e','FE1B7EFD-571A-DEAA-4513-DB413054A827','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-09-10 07:07','1','perfect');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('a4088423-34a0-41b4-adb5-e179fe73dce7','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10 07:01','1','da');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('39cb476f-6242-4959-83fd-ef9dde8c258e','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-08-10 07:06','1','43215 euro');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('aa2cf911-3c8a-429e-b907-eadbc82d3fca','D6877042-4394-7D9C-0790-1F4BC4A88722','41775229-5A6B-45DE-B16A-12A9D668FD4D','2017-09-10 07:12','','ok');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('d2e0f8e4-27c6-44e8-a5db-8dc38f6c1d5e','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10 07:00','1','Maigbhfgil?');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('2655910a-24e9-4b3d-8523-357816e01432','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10 07:00','1','Ulfggpret?');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('4fae3b31-7d3e-44a4-91c6-3bee5ded5882','7FF26F6F-CA03-FD5B-993C-CB0F2FD6F9B8','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-09-10 07:00','1','pahdf');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('0ef69e27-6a3b-41b4-ba71-fcd9026747fe','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10 07:00','1','dfgvfddc');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('ee1c4579-dd57-4801-9dfc-00537d2ff32a','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-08-10 07:00','1','4ccvcdd');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('0bf8d867-fcde-4b33-89bb-23b923220e30','0C5670DB-C0AA-4E05-9D60-6EA19F6144C0','747FFED8-768B-4273-BAF5-C0C3C7149085','2017-09-10 07:00','','odcgvgtfgdfc');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('ed6e15eb-2b2f-4d1b-bfbd-4ce6dbe7586d','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10 07:00','1','ce faci?');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('a51c475a-6fd0-4b7a-9764-db37608f6e60','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10 07:00','1','Usunt bine');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('4c4cd2fb-4ae5-4346-8ad0-27b4be3cabc9','BC16CB00-4C2D-493B-BC43-A2ACB365408A','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-09-10 07:00','1','perfect');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('fe1b4fc2-e185-4d87-bdd1-c46fadf4d32a','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10 07:00','1','da');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('509543b8-8aff-4f7d-95a5-03fe00a7a559','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-08-10 07:00','1','415 euro');
 
-INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 VALUES('565b58c8-e37d-437a-a761-a7a290bdb3f5','CEBF5C68-9DAB-3590-3E11-E01DFEE0CAB7','16D2D316-CCD2-4F75-B33F-7CD6F87700BB','2017-09-10 07:00','','ok2');

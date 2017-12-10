@@ -2,7 +2,7 @@
 
 namespace KruzeAuto.Model
 {
-   public  class MessageImbox
+   public  class MessageInbox
     {
         #region Properties
         public Guid MessageID { get; set; }

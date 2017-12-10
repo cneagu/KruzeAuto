@@ -73,7 +73,7 @@ CONSTRAINT [FK_AnnouncementsOptions_Announcements] FOREIGN KEY ([AnnoucementID])
 CONSTRAINT [FK_AnnouncementsOptions_Options] FOREIGN KEY ([OptionID])
 	REFERENCES [Options]([OptionID]) ON DELETE CASCADE);
 
-CREATE TABLE [MessageImbox](
+CREATE TABLE [MessageInbox](
 	[MessageID] uniqueidentifier NOT NULL,
 	[UserID] uniqueidentifier NOT NULL,
 	[AnnoucementID] uniqueidentifier,
@@ -83,10 +83,10 @@ CREATE TABLE [MessageImbox](
 CONSTRAINT [PK_MesageImbox] PRIMARY KEY ([MessageID]),
 CONSTRAINT [FK_MesageImbox_Users] FOREIGN KEY ([UserID])
 	REFERENCES [Users]([UserID]) ON DELETE CASCADE,
-CONSTRAINT [FK_MessageImbox_Announcements]  FOREIGN KEY ([AnnoucementID])
+CONSTRAINT [FK_MessageInbox_Announcements]  FOREIGN KEY ([AnnoucementID])
 	REFERENCES [Announcements]([AnnoucementID]) ON DELETE NO ACTION);
 
-ALTER TABLE [MessageImbox] NOCHECK CONSTRAINT [FK_MessageImbox_Announcements];
+ALTER TABLE [MessageInbox] NOCHECK CONSTRAINT [FK_MessageInbox_Announcements];
 
 CREATE TABLE [Pictures](
 	[PictureID] uniqueidentifier NOT NULL,
@@ -218,7 +218,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.MessageImbox_Insert
+CREATE PROCEDURE dbo.MessageInbox_Insert
 (
 	@MessageID uniqueidentifier,
 	@UserID uniqueidentifier,
@@ -229,7 +229,7 @@ CREATE PROCEDURE dbo.MessageImbox_Insert
 )
 AS
 BEGIN
-	INSERT INTO [MessageImbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
+	INSERT INTO [MessageInbox]([MessageID],[UserID],[AnnoucementID],[CreationDate],[Read],[MesageContent])
 	VALUES(@MessageID,@UserID,@AnnoucementID,@CreationDate,@Read,@MesageContent)
 END
 GO
@@ -407,7 +407,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.MessageImbox_UpdateByID
+CREATE PROCEDURE dbo.MessageInbox_UpdateByID
 (
 	@MessageID uniqueidentifier,
 	@Read bit,
@@ -415,7 +415,7 @@ CREATE PROCEDURE dbo.MessageImbox_UpdateByID
 )
 AS
 BEGIN
-	UPDATE [MessageImbox] SET
+	UPDATE [MessageInbox] SET
 	[Read] = @Read,
 	[MesageContent] = @MesageContent
 	WHERE [MessageID] = @MessageID
@@ -499,12 +499,12 @@ GO
 
 CREATE PROCEDURE dbo.Options_DeleteByID
 (
-	@Options uniqueidentifier
+	@OptionID uniqueidentifier
 )
 AS
 BEGIN
 	DELETE  FROM [Options]
-	WHERE [OptionID] = @Options
+	WHERE [OptionID] = @OptionID
 END
 GO
 
@@ -521,13 +521,13 @@ END
 GO
 ----
 
-CREATE PROCEDURE dbo.MessageImbox_DeleteByID
+CREATE PROCEDURE dbo.MessageInbox_DeleteByID
 (
 	@MessageID uniqueidentifier
 )
 AS
 BEGIN
-	DELETE  FROM [MessageImbox]
+	DELETE  FROM [MessageInbox]
 	WHERE [MessageID] = @MessageID
 END
 GO
@@ -644,7 +644,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.Users_MessageImbox_ReadByID
+CREATE PROCEDURE dbo.Users_MessageInbox_ReadByID
 (
 @UserID uniqueidentifier
 )
@@ -658,12 +658,12 @@ BEGIN
 			m.[Read],
 			m.MesageContent
 	FROM [Users] u
-		INNER JOIN MessageImbox m ON m.[UserID] = u.[UserID]
+		INNER JOIN MessageInbox m ON m.[UserID] = u.[UserID]
 	WHERE u.[UserID] = @UserID
 END
 GO
 
-CREATE PROCEDURE dbo.MessageImbox_ReadByUserID
+CREATE PROCEDURE dbo.MessageInbox_ReadByUserID
 (
 @UserID uniqueidentifier
 )
@@ -674,12 +674,12 @@ BEGIN
 			CreationDate,
 			[Read],
 			MesageContent
-	FROM MessageImbox		
+	FROM MessageInbox
 	WHERE [UserID] = @UserID
 END
 GO
 
-CREATE PROCEDURE dbo.MessageImbox_ReadByAnnouncementsID
+CREATE PROCEDURE dbo.MessageInbox_ReadByAnnouncementsID
 (
 @AnnoucementID uniqueidentifier
 )
@@ -691,7 +691,7 @@ BEGIN
 			CreationDate,
 			[Read],
 			MesageContent
-	FROM MessageImbox 
+	FROM MessageInbox
 	WHERE AnnoucementID = @AnnoucementID
 END
 GO
@@ -840,7 +840,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.AnnouncementsOptions_ReadAnnouncementsOptionsByID
+CREATE PROCEDURE dbo.AnnouncementsOptions_ReadByID
 (
 @AnnoucementID uniqueidentifier
 )
@@ -853,21 +853,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE dbo.AnnouncementsOptions_ReadByID
-(
-@AnnoucementID uniqueidentifier,
-@OptionID uniqueidentifier
-)
-AS
-BEGIN
-	SELECT  [AnnoucementID],
-			[OptionID]
-	FROM	[AnnouncementsOptions]
-	WHERE	[AnnoucementID] = @AnnoucementID AND [OptionID] = @OptionID
-END
-GO
-
-CREATE PROCEDURE dbo.MessageImbox_ReadByID
+CREATE PROCEDURE dbo.MessageInbox_ReadByID
 (
 @MessageID uniqueidentifier
 )
@@ -879,7 +865,7 @@ BEGIN
 			[CreationDate],
 			[Read],
 			[MesageContent]
-	FROM	[MessageImbox]
+	FROM	[MessageInbox]
 	WHERE	[MessageID] = @MessageID
 END
 GO
@@ -906,6 +892,15 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE dbo.UsersPictures_ReadAll
+AS
+BEGIN
+	SELECT  [UserID],
+			[PictureID]
+	FROM	[UsersPictures]
+END
+GO
+
 CREATE PROCEDURE dbo.UsersPictures_ReadByID
 (
 @UserID uniqueidentifier
@@ -916,21 +911,6 @@ BEGIN
 			[PictureID]
 	FROM	[UsersPictures]
 	WHERE	[UserID] = @UserID
-END
-GO
-
-CREATE PROCEDURE dbo.AnnouncementsPictures_ReadByID
-(
-@AnnoucementID uniqueidentifier,
-@PictureID uniqueidentifier
-)
-AS
-BEGIN
-	SELECT  [PictureID],
-			[AnnoucementID],
-			[PrimaryPicture]
-	FROM	[AnnouncementsPictures]
-	WHERE	[AnnoucementID] = @AnnoucementID AND [PictureID] = @PictureID
 END
 GO
 
