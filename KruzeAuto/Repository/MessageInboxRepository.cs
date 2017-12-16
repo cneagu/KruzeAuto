@@ -1,11 +1,12 @@
 ﻿using KruseAuto.Repository.Core;
 using KruzeAuto.Model;
+using KruzeAuto.RepositoryAbstraction;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 namespace KruseAuto.Repository
 {
-    public class MessageInboxRepository : BaseRepository<MessageInbox>
+    public class MessageInboxRepository : BaseRepository<MessageInbox>, IMessageInboxRepository
     {
         #region Methdos
         public void Insert(MessageInbox messageInbox)
@@ -17,7 +18,7 @@ namespace KruseAuto.Repository
                 new SqlParameter("@CreationDate", messageInbox.CreationDate),
                 new SqlParameter("@Read", messageInbox.Read),
                 new SqlParameter("@MesageContent", messageInbox.MesageContent) };
-            Procedure("dbo.MessageImbox_Insert", parameters);
+            ExecuteNonQuery("dbo.MessageImbox_Insert", parameters);
         }
 
         public void Update(MessageInbox messageInbox)
@@ -26,14 +27,14 @@ namespace KruseAuto.Repository
                 new SqlParameter("@MessageID", messageInbox.MessageID),
                 new SqlParameter("@Read", messageInbox.Read),
                 new SqlParameter("@MesageContent", messageInbox.MesageContent) };
-            Procedure("dbo.MessageImbox_UpdateByID", parameters);
+            ExecuteNonQuery("dbo.MessageImbox_UpdateByID", parameters);
         }
 
-        public void DeleteByID(Guid messageID)
+        public void Delete(Guid messageID)
         {
             SqlParameter[] parameters = {
                 new SqlParameter("@MessageID", messageID) };
-            Procedure("dbo.MessageImbox_DeleteByID", parameters);
+            ExecuteNonQuery("dbo.MessageImbox_DeleteByID", parameters);
         }
 
         public List<MessageInbox> ReadByUserID(Guid userID)

@@ -1,12 +1,13 @@
 ﻿using KruseAuto.Repository.Core;
 using KruzeAuto.Model;
+using KruzeAuto.RepositoryAbstraction;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace KruseAuto.Repository
 {
-    public class AnnouncementRepository : BaseRepository<Announcement>
+    public class AnnouncementRepository : BaseRepository<Announcement>, IAnnouncementRepository
     {
         #region Methdos
         public void Insert(Announcement announcement)
@@ -43,7 +44,7 @@ namespace KruseAuto.Repository
                 new SqlParameter("@LoadCapacity", announcement.LoadCapacity),
                 new SqlParameter("@OperatingHours", announcement.OperatingHours),
                 new SqlParameter("@Description", announcement.Description) };
-            Procedure("dbo.Announcements_Insert", parameters);
+            ExecuteNonQuery("dbo.Announcements_Insert", parameters);
         }
 
         public void Update(Announcement announcement)
@@ -79,14 +80,14 @@ namespace KruseAuto.Repository
                 new SqlParameter("@LoadCapacity", announcement.LoadCapacity),
                 new SqlParameter("@OperatingHours", announcement.OperatingHours),
                 new SqlParameter("@Description", announcement.Description) };
-            Procedure("dbo.Announcements_UpdateByID", parameters);
+            ExecuteNonQuery("dbo.Announcements_UpdateByID", parameters);
         }
 
-        public void DeleteByID(Announcement annoucementID)
+        public void Delete(Guid annoucementID)
         {
             SqlParameter[] parameters = {
                 new SqlParameter("@AnnoucementID", annoucementID) };
-            Procedure("dbo.Announcements_DeleteByID", parameters);
+            ExecuteNonQuery("dbo.Announcements_DeleteByID", parameters);
         }
 
         public List<Announcement> ReadAll()

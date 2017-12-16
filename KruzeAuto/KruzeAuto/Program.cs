@@ -1,4 +1,4 @@
-﻿using KruseAuto.Repository.Core;
+﻿using KruzeAuto.Business.Core;
 using KruzeAuto.Model;
 using System;
 using System.Collections.Generic;
@@ -31,27 +31,26 @@ namespace KruzeAuto
             userUpdate.PhoneNumber = "01356787";
             userUpdate.Subscribed = false;
 
-            using (RepositoryContext repositoryContext = new RepositoryContext())
+            using (BusinessContext businessContext = new BusinessContext())
             {
-                ShowUsers(repositoryContext);
+                ShowUsers(businessContext);
                 Console.Write("\n\n\n\n");
-                InsertUser(repositoryContext, userNew);
-                ShowUserByID(repositoryContext, idTest);
+                InsertUser(businessContext, userNew);
+                ShowUserByID(businessContext, idTest);
                 Console.Write("\n\n\n\n");
-                UpdateUser(repositoryContext, userUpdate);
-                ShowUserByID(repositoryContext, idTest);
+                UpdateUser(businessContext, userUpdate);
+                ShowUserByID(businessContext, idTest);
                 Console.Write("\n\n\n\n");
-                DeleteUser(repositoryContext, idTest);
-                ShowUsers(repositoryContext);
+                DeleteUser(businessContext, idTest);
+                ShowUsers(businessContext);
 
             }
-            Console.ReadKey();
             Console.ReadLine();
         }
 
-        private static void ShowUsers(RepositoryContext repositoryContext)
+        private static void ShowUsers(BusinessContext businessContext)
         {
-            List<User> usersAfter = repositoryContext.UserRepository.ReadAll();
+            List<User> usersAfter = businessContext.UserBusiness.ReadAll();
             Console.WriteLine("Users:");
             foreach (User user in usersAfter)
             {
@@ -60,27 +59,27 @@ namespace KruzeAuto
             }
         }
 
-        private static void ShowUserByID(RepositoryContext repositoryContext, Guid idTest)
+        private static void ShowUserByID(BusinessContext businessContext, Guid idTest)
         {
-            User userInsert = repositoryContext.UserRepository.ReadByID(idTest);
+            User userInsert = businessContext.UserBusiness.ReadByID(idTest);
             Console.WriteLine("User:"); 
             Console.WriteLine("UserID:{0} Email:{1} UserName:{2} Password:{3} PhoneNumber:{4} CreationDate:{5} Subscribed:{6}",
                 userInsert.UserID, userInsert.Email, userInsert.UserName, userInsert.Password, userInsert.PhoneNumber, userInsert.CreationDate, userInsert.Subscribed);           
         }
 
-        private static void InsertUser(RepositoryContext repositoryContext, User user)
+        private static void InsertUser(BusinessContext businessContext, User user)
         {
-           repositoryContext.UserRepository.Insert(user);
+            businessContext.UserBusiness.Insert(user);
         }
 
-        private static void UpdateUser(RepositoryContext repositoryContext, User user)
+        private static void UpdateUser(BusinessContext businessContext, User user)
         {
-            repositoryContext.UserRepository.Update(user);
+            businessContext.UserBusiness.Update(user);
         }
 
-        private static void DeleteUser(RepositoryContext repositoryContext, Guid idTest)
+        private static void DeleteUser(BusinessContext businessContext, Guid idTest)
         {
-            repositoryContext.UserRepository.DeleteByID(idTest);
+            businessContext.UserBusiness.Delete(idTest);
         }
     }
          

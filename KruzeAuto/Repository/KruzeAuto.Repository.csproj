@@ -63,6 +63,10 @@
       <Project>{D563014A-9ECF-4BEA-B084-45EDC4921409}</Project>
       <Name>KruzeAuto.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KruzeAuto.RepositoryAbstraction\KruzeAuto.RepositoryAbstraction.csproj">
+      <Project>{6abf598e-1e79-4b20-ae73-0b9d1938f586}</Project>
+      <Name>KruzeAuto.RepositoryAbstraction</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

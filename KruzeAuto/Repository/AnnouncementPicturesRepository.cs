@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using KruzeAuto.Model;
 using System.Data.SqlClient;
 using KruseAuto.Repository.Core;
-
+using KruzeAuto.RepositoryAbstraction;
 
 namespace KruseAuto.Repository
 {
-    public class AnnouncementPicturesRepository : BaseRepository<AnnouncementPictures>
+    public class AnnouncementPicturesRepository : BaseRepository<AnnouncementPictures>, IAnnouncementPicturesRepository
     {
         #region Methdos
         public void Insert(AnnouncementPictures announcementPictures)
@@ -16,7 +16,7 @@ namespace KruseAuto.Repository
                 new SqlParameter("@PictureID", announcementPictures.PictureID),
                 new SqlParameter("@AnnoucementID", announcementPictures.AnnoucementID),
                 new SqlParameter("@PrimaryPicture", announcementPictures.PrimaryPicture) };
-            Procedure("dbo.AnnouncementsPictures_Insert", parameters);
+            ExecuteNonQuery("dbo.AnnouncementsPictures_Insert", parameters);
         }
 
         public void Update(AnnouncementPictures announcementPictures)
@@ -25,14 +25,14 @@ namespace KruseAuto.Repository
                 new SqlParameter("@PictureID", announcementPictures.PictureID),
                 new SqlParameter("@AnnoucementID", announcementPictures.AnnoucementID),
                 new SqlParameter("@PrimaryPicture", announcementPictures.PrimaryPicture) };
-            Procedure("dbo.AnnouncementsPictures_UpdateByID", parameters);
+            ExecuteNonQuery("dbo.AnnouncementsPictures_UpdateByID", parameters);
         }
 
-        public void DeleteByID(Guid pictureID)
+        public void Delete(Guid pictureID)
         {
             SqlParameter[] parameters = {
                 new SqlParameter("@PictureID", pictureID) };
-            Procedure("dbo.AnnouncementsPictures_DeleteByID", parameters);
+            ExecuteNonQuery("dbo.AnnouncementsPictures_DeleteByID", parameters);
         }
 
         public List<AnnouncementPictures> ReadAll(Guid annoucementID)

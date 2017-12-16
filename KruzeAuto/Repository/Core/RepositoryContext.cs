@@ -1,24 +1,45 @@
-﻿using KruseAuto.Repository;
+﻿using KruzeAuto.RepositoryAbstraction;
+using KruzeAuto.RepositoryAbstraction.Core;
 using System;
 
 namespace KruseAuto.Repository.Core
 {
-    public class RepositoryContext : IDisposable
+    public class RepositoryContext : IRepositoryContext
     {
         #region Members
-        private AnnouncementOptionRepository _announcementOptionRepository;
-        private AnnouncementPicturesRepository _announcementPicturesRepository;
-        private AnnouncementRepository _announcementRepository;
-        private MessageInboxRepository _messageInboxRepository;
-        private OptionRepository _optionRepository;
-        private PictureRepository _pictureRepository;
-        private UserLocationRepository _userLocationRepository;
-        private UserPictureRepository _userPictureRepository;
-        private UserRepository _userRepository;
+        private static IRepositoryContext _instance;
+        private IAnnouncementOptionRepository _announcementOptionRepository;
+        private IAnnouncementPicturesRepository _announcementPicturesRepository;
+        private IAnnouncementRepository _announcementRepository;
+        private IMessageInboxRepository _messageInboxRepository;
+        private IOptionRepository _optionRepository;
+        private IPictureRepository _pictureRepository;
+        private IUserLocationRepository _userLocationRepository;
+        private IUserPictureRepository _userPictureRepository;
+        private IUserRepository _userRepository;
+        #endregion
+
+        #region Constructor
+        public RepositoryContext()
+        {
+            _instance = this;
+        }
         #endregion
 
         #region Properties
-        public AnnouncementOptionRepository AnnouncementOptionRepository
+        internal static IRepositoryContext Current
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    throw new Exception("No RepositoryContext instance available!");
+                }
+                return _instance;
+            }
+        }
+
+        public IAnnouncementOptionRepository AnnouncementOptionRepository
         {
             get
             {
@@ -28,7 +49,7 @@ namespace KruseAuto.Repository.Core
             }
         }
 
-        public AnnouncementPicturesRepository AnnouncementPicturesRepository
+        public IAnnouncementPicturesRepository AnnouncementPicturesRepository
         {
             get
             {
@@ -38,7 +59,7 @@ namespace KruseAuto.Repository.Core
             }
         }
 
-        public AnnouncementRepository AnnouncementRepository
+        public IAnnouncementRepository AnnouncementRepository
         {
             get
             {
@@ -48,7 +69,7 @@ namespace KruseAuto.Repository.Core
             }
         }
 
-        public MessageInboxRepository MessageInboxRepository
+        public IMessageInboxRepository MessageInboxRepository
         {
             get
             {
@@ -58,7 +79,7 @@ namespace KruseAuto.Repository.Core
             }
         }
 
-        public OptionRepository OptionRepository
+        public IOptionRepository OptionRepository
         {
             get
             {
@@ -68,7 +89,7 @@ namespace KruseAuto.Repository.Core
             }
         }
 
-        public PictureRepository PictureRepository
+        public IPictureRepository PictureRepository
         {
             get
             {
@@ -78,7 +99,7 @@ namespace KruseAuto.Repository.Core
             }
         }
 
-        public UserLocationRepository UserLocationRepository
+        public IUserLocationRepository UserLocationRepository
         {
             get
             {
@@ -88,7 +109,7 @@ namespace KruseAuto.Repository.Core
             }
         }
 
-        public UserPictureRepository UserPictureRepository
+        public IUserPictureRepository UserPictureRepository
         {
             get
             {
@@ -98,7 +119,7 @@ namespace KruseAuto.Repository.Core
             }
         }
 
-        public UserRepository UserRepository
+        public IUserRepository UserRepository
         {
             get
             {

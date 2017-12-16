@@ -1,12 +1,13 @@
 ﻿using KruseAuto.Repository.Core;
 using KruzeAuto.Model;
+using KruzeAuto.RepositoryAbstraction;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace KruseAuto.Repository
 {
-    public class UserRepository : BaseRepository<User>
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
         #region Methdos
         public void Insert(User user)
@@ -19,7 +20,7 @@ namespace KruseAuto.Repository
                 new SqlParameter("@PhoneNumber", user.PhoneNumber),
                 new SqlParameter("@CreationDate", user.CreationDate),
                 new SqlParameter("@Subscribed", user.Subscribed) };
-            Procedure("dbo.Users_Insert", parameters);    
+            ExecuteNonQuery("dbo.Users_Insert", parameters);    
         }
 
         public void Update(User user)
@@ -31,14 +32,14 @@ namespace KruseAuto.Repository
                 new SqlParameter("@Password", user.Password),
                 new SqlParameter("@PhoneNumber", user.PhoneNumber),
                 new SqlParameter("@Subscribed", user.Subscribed) };
-            Procedure("dbo.Users_UpdateByID", parameters);
+            ExecuteNonQuery("dbo.Users_UpdateByID", parameters);
         }
 
-        public void DeleteByID(Guid userID)
+        public void Delete(Guid userID)
         {
             SqlParameter[] parameters = {
                 new SqlParameter("@UserID", userID) };
-            Procedure("dbo.Users_DeleteByID", parameters);
+            ExecuteNonQuery("dbo.Users_DeleteByID", parameters);
         }
 
         public List<User> ReadAll()

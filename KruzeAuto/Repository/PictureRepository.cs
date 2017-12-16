@@ -1,12 +1,13 @@
 ﻿using KruseAuto.Repository.Core;
 using KruzeAuto.Model;
+using KruzeAuto.RepositoryAbstraction;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace KruseAuto.Repository
 {
-    public class PictureRepository : BaseRepository<Picture>
+    public class PictureRepository : BaseRepository<Picture>, IPictureRepository
     {
         #region Methdos
         public void Insert(Picture picture)
@@ -14,7 +15,7 @@ namespace KruseAuto.Repository
             SqlParameter[] parameters = {
                 new SqlParameter("@PictureID", picture.PictureID),
                 new SqlParameter("@Image", picture.Image) };
-            Procedure("dbo.Pictures_Insert", parameters);
+            ExecuteNonQuery("dbo.Pictures_Insert", parameters);
         }
 
         public void Update(Picture picture)
@@ -22,14 +23,14 @@ namespace KruseAuto.Repository
             SqlParameter[] parameters = {
                new SqlParameter("@PictureID", picture.PictureID),
                new SqlParameter("@Image", picture.Image) };
-            Procedure("dbo.Pictures_UpdateByID", parameters);
+            ExecuteNonQuery("dbo.Pictures_UpdateByID", parameters);
         }
 
-        public void DeleteByID(Guid pictureID)
+        public void Delete(Guid pictureID)
         {
             SqlParameter[] parameters = {
                 new SqlParameter("@PictureID", pictureID) };
-            Procedure("dbo.Pictures_DeleteByID", parameters);
+            ExecuteNonQuery("dbo.Pictures_DeleteByID", parameters);
         }
 
         public List<Picture> ReadAll()

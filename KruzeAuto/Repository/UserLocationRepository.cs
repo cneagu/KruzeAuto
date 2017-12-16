@@ -1,12 +1,13 @@
 ﻿using KruseAuto.Repository.Core;
 using KruzeAuto.Model;
+using KruzeAuto.RepositoryAbstraction;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace KruseAuto.Repository
 {
-    public class UserLocationRepository : BaseRepository<UserLocation>
+    public class UserLocationRepository : BaseRepository<UserLocation>, IUserLocationRepository
     {
         #region Methdos
         public void Insert(UserLocation userLocation)
@@ -16,7 +17,7 @@ namespace KruseAuto.Repository
                 new SqlParameter("@Country", userLocation.Country),
                 new SqlParameter("@County", userLocation.County),
                 new SqlParameter("@City", userLocation.City) };
-            Procedure("dbo.UserLocation_Insert", parameters);
+            ExecuteNonQuery("dbo.UserLocation_Insert", parameters);
         }
 
         public void Update(UserLocation userLocation)
@@ -26,14 +27,14 @@ namespace KruseAuto.Repository
                 new SqlParameter("@Country", userLocation.Country),
                 new SqlParameter("@County", userLocation.County),
                 new SqlParameter("@City", userLocation.City) };
-            Procedure("dbo.UserLocation_UpdateByID", parameters);
+            ExecuteNonQuery("dbo.UserLocation_UpdateByID", parameters);
         }
 
-        public void DeleteByID(Guid userID)
+        public void Delete(Guid userID)
         {
             SqlParameter[] parameters = {
                 new SqlParameter("@UserID", userID) };
-            Procedure("dbo.UserLocation_DeleteByID", parameters);
+            ExecuteNonQuery("dbo.UserLocation_DeleteByID", parameters);
         }
 
         public List<UserLocation> ReadAll()

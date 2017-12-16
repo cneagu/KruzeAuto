@@ -1,12 +1,13 @@
 ﻿using KruseAuto.Repository.Core;
 using KruzeAuto.Model;
+using KruzeAuto.RepositoryAbstraction;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace KruseAuto.Repository
 {
-    public class OptionRepository : BaseRepository<Option>
+    public class OptionRepository : BaseRepository<Option>, IOptionRepository
     {
         #region Methdos
         public void Insert(Option option)
@@ -14,7 +15,7 @@ namespace KruseAuto.Repository
             SqlParameter[] parameters = {
                 new SqlParameter("@OptionID", option.OptionID),
                 new SqlParameter("@Name", option.Name) };
-            Procedure("dbo.Options_Insert", parameters);
+            ExecuteNonQuery("dbo.Options_Insert", parameters);
         }
 
         public void Update(Option option)
@@ -22,14 +23,14 @@ namespace KruseAuto.Repository
             SqlParameter[] parameters = {
                new SqlParameter("@OptionID", option.OptionID),
                 new SqlParameter("@Name", option.Name) };
-            Procedure("dbo.Options_UpdateByID", parameters);
+            ExecuteNonQuery("dbo.Options_UpdateByID", parameters);
         }
 
-        public void DeleteByID(Guid optionID)
+        public void Delete(Guid optionID)
         {
             SqlParameter[] parameters = {
                 new SqlParameter("@OptionID", optionID) };
-            Procedure("dbo.Options_DeleteByID", parameters);
+            ExecuteNonQuery("dbo.Options_DeleteByID", parameters);
         }
 
         public List<Option> ReadAll()

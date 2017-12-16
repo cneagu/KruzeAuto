@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D1ADCEA-ACA3-40CE-8773-37B4110F35AB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>KruzeAuto</RootNamespace>
-    <AssemblyName>KruzeAuto</AssemblyName>
+    <ProjectGuid>{6ABF598E-1E79-4B20-AE73-0B9D1938F586}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KruzeAuto.RepositoryAbstraction</RootNamespace>
+    <AssemblyName>KruzeAuto.RepositoryAbstraction</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,23 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Core\IRepositoryContext.cs" />
+    <Compile Include="IAnnouncementOptionRepository.cs" />
+    <Compile Include="IAnnouncementPicturesRepository.cs" />
+    <Compile Include="IAnnouncementRepository.cs" />
+    <Compile Include="IMessageInboxRepository.cs" />
+    <Compile Include="IOptionRepository.cs" />
+    <Compile Include="IPictureRepository.cs" />
+    <Compile Include="IUserLocationRepository.cs" />
+    <Compile Include="IUserPictureRepository.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KruzeAuto.Business\KruzeAuto.Business.csproj">
-      <Project>{04212cc6-e06d-4e89-8231-34723ef20f7b}</Project>
-      <Name>KruzeAuto.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KruzeAuto.Library\KruzeAuto.Library.csproj">
-      <Project>{0cb3a34e-bb74-4758-b59d-a3ff94c3f5ee}</Project>
-      <Name>KruzeAuto.Library</Name>
-    </ProjectReference>
     <ProjectReference Include="..\KruzeAuto.Model\KruzeAuto.Model.csproj">
-      <Project>{D563014A-9ECF-4BEA-B084-45EDC4921409}</Project>
+      <Project>{d563014a-9ecf-4bea-b084-45edc4921409}</Project>
       <Name>KruzeAuto.Model</Name>
     </ProjectReference>
   </ItemGroup>
