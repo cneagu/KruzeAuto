@@ -1,0 +1,29 @@
+﻿
+
+body {
+    margin-top:50px;
+}
+
+.navbar{
+    box-shadow:2px 2px 5px #ffde1c;
+    background-color:#000000;
+}
+
+#main_page_search{
+    background:url('../Source/MainPage_search.jpg');
+    height:450px;
+    background-size:cover;
+}
+
+#Tittle {
+    font-style: italic;
+    color:gold;
+}
+table{
+    text-align:left;
+}
+
+
+.ul {
+    margin: 0 auto;
+} 
