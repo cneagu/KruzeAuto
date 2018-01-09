@@ -47,7 +47,7 @@
                         </a>
                     </div>
                 </li>
-                <li class="nav-item" id="login">
+                <li class="nav-item" id="login" hidden>
                     <button type="button" class="btn btn-outline-success">Log In</button> 
                 </li>
             </ul>
@@ -55,12 +55,11 @@
     </nav>
 
     <section id="main_page_search">
-        <div class="container py-4">
+        <div class="container py-4 ">
             <div class="row">
-                <div class="card col-xl-4 col-lg-5 col-md-7">
-                    <form>
+                <div id="main-page-card" class="card col-xl-4 col-lg-5 col-md-7">                   
                         <div class="row bg-white">
-                            <ul class="nav nav-tabs">
+                            <ul id="main-page-card-category" class="nav nav-tabs">
                                 <li class="nav-item col-centered">
                                     <a id ="car" class="nav-link active" href="#">Cars</a>
                                 </li>
@@ -75,32 +74,27 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="row">
+                        <div class="row pt-2">
                             <div class="col-sm-6">
-                                <p>Brand</p>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="input-group input-group-sm mb-3">
-                                            <input list="brands" name="brands" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                                            <datalist id="brands"></datalist>
+                                        <div class="form-group form-group-sm mb-3"> 
+                                            <label for="brands">Brand</label>
+                                            <select name="brands" class="form-control form-control-sm" id="brands" required>
+                                                <option value="" disabled selected>Select a Brand</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <p>Model</p>
+                            <div class="col-sm-6">                               
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="input-group input-group-sm mb-3">
-                                            <input list="browsers" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                                            <datalist id="browsers">
-                                                <option value="Chrome">
-                                                <option value="Firefox">
-                                                <option value="Internet Explorer">
-                                                <option value="Opera">
-                                                <option value="Safari">
-                                                <option value="Microsoft Edge">
-                                            </datalist>
+                                        <div class="form-group form-group-sm mb-3">
+                                            <label for="models">Model</label>
+                                            <select name="models" class="form-control form-control-sm" id="models" required>
+                                                <option value="" disabled selected>Select a Model</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -108,37 +102,25 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <p>Price up to</p>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="input-group input-group-sm mb-3">
-                                            <input list="browsers" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                                            <datalist id="browsers">
-                                                <option value="Chrome">
-                                                <option value="Firefox">
-                                                <option value="Internet Explorer">
-                                                <option value="Opera">
-                                                <option value="Safari">
-                                                <option value="Microsoft Edge">
-                                            </datalist>
+                                       <div class="form-group form-group-sm mb-3"> 
+                                            <label for="registration">First Registration</label>
+                                            <select name="registration" class="form-control form-control-sm" id="registration" required>
+                                                <option value="" disabled selected>Select a Year</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <p>First registration</p>
+                            <div class="col-sm-6">                                
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="input-group input-group-sm mb-3">
-                                            <input list="browsers" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                                            <datalist id="browsers">
-                                                <option value="Chrome">
-                                                <option value="Firefox">
-                                                <option value="Internet Explorer">
-                                                <option value="Opera">
-                                                <option value="Safari">
-                                                <option value="Microsoft Edge">
-                                            </datalist>
+                                        <div class="form-group form-group-sm mb-3">
+                                            <label for="price">Price up to</label>
+                                            <select name="price" class="form-control form-control-sm" id="price" required>
+                                                <option value="" disabled selected>Select a Price</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -146,61 +128,49 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <p>Km up to</p>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="input-group input-group-sm mb-3">
-                                            <input list="browsers" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                                            <datalist id="browsers">
-                                                <option value="Chrome">
-                                                <option value="Firefox">
-                                                <option value="Internet Explorer">
-                                                <option value="Opera">
-                                                <option value="Safari">
-                                                <option value="Microsoft Edge">
-                                            </datalist>
+                                        <div class="form-group form-group-sm mb-3">
+                                            <label for="km">Km up to</label>
+                                            <select name="km" class="form-control form-control-sm" id="km" required>
+                                                <option value="" disabled selected>Select km</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <p>Fuel type</p>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="input-group input-group-sm mb-3">
-                                            <input list="browsers" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                                            <datalist id="browsers">
-                                                <option value="Chrome">
-                                                <option value="Firefox">
-                                                <option value="Internet Explorer">
-                                                <option value="Opera">
-                                                <option value="Safari">
-                                                <option value="Microsoft Edge">
-                                            </datalist>
+                                        <div class="form-group form-group-sm mb-3">
+                                            <label for="fuel">Fuel type</label>
+                                            <select name="fuel" class="form-control form-control-sm" id="fuel" required>
+                                                <option value="" disabled selected>Select a fuel type</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-check form-check-inline col-sm-3 p-3">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <div class="form-check form-check-inline col-sm-3 p-3 d-inline-block">
+                                <input name="new" class="form-check-input " type="checkbox" id="new" value="option1">
                                 <label class="form-check-label" for="inlineCheckbox1">New</label>
                             </div>
-                            <div class="form-check form-check-inline col-sm-3 p-3">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <div class="form-check form-check-inline col-sm-3 p-3 d-inline-block">
+                                <input name="used" class="form-check-input" type="checkbox" id="used" value="option1">
                                 <label class="form-check-label" for="inlineCheckbox1">Used</label>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row ">
                             <div class="col-sm-6 p-3">
                                 <a href="#" class="" id="">Detailed Search</a>
                             </div>
                             <div class="col-sm-6">
-                                <button type="submit" class="btn btn-primary float-right">Search</button>
+                                <button type="submit" class="btn btn-primary float-right main-search">
+                                    <i class="fa fa-search"></i> Search</button>
                             </div>
-                        </div>
-                    </form>
+                        </div>                   
                 </div>
                 <div class="col-md-6 ml-5 text-center text-white d-none d-lg-block">
                     <h1 class="display-2 mt-5 ">
