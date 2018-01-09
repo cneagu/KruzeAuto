@@ -86,6 +86,8 @@
     <Content Include="profile.html" />
     <Content Include="Scripts\Core.js" />
     <Content Include="Scripts\Global_Variables.js" />
+    <Content Include="Scripts\Login_Singin.js" />
+    <Content Include="Scripts\Search_Engine.js" />
     <Content Include="Scripts\SPA.js" />
     <Content Include="Source\Logo.ico" />
     <Content Include="Source\Logo.png" />
