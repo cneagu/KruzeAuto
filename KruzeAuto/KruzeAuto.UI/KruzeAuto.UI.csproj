@@ -76,10 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="Scripts\Core.js" />
+    <Content Include="Scripts\appController.js" />
     <Content Include="Scripts\Global_Variables.js" />
     <Content Include="Scripts\Login_Singin.js" />
-    <Content Include="Scripts\Search_Engine.js" />
+    <Content Include="Scripts\menuController.js" />
+    <Content Include="Scripts\Search_engine\Search_Engine.js" />
+    <Content Include="Scripts\Search_engine\Search_functions.js" />
     <Content Include="Scripts\SPA.js" />
     <Content Include="Source\Logo.ico" />
     <Content Include="Source\Logo.png" />
@@ -91,7 +93,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Scripts\Controllers\" />
+    <Folder Include="Scripts\Services\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

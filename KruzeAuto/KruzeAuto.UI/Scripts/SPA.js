@@ -26,4 +26,13 @@
     $(window).on('hashchange', function (e) {
         navigate();
     });
+
+    $("#primary-login").on("click", function () {
+        window.location.hash = '#login';
+
+    });
+
+    $(".main-search").on("click", function () {
+        window.location.hash = '#search';
+    });
 }());
