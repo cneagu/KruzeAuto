@@ -75,15 +75,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="404.html" />
-    <Content Include="add_announcement.html" />
-    <Content Include="announcement.html" />
-    <Content Include="display_announcements.html" />
-    <Content Include="edit_announcement.html" />
-    <Content Include="home.html" />
     <Content Include="index.html" />
-    <Content Include="login.html" />
-    <Content Include="profile.html" />
     <Content Include="Scripts\Core.js" />
     <Content Include="Scripts\Global_Variables.js" />
     <Content Include="Scripts\Login_Singin.js" />

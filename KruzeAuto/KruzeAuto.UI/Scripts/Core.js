@@ -17,7 +17,8 @@ $(document).ready(function () {
     });
 
     $(".main-search").on("click", function () {
-        
+
+        window.location.hash = '#search';
         var result = {
             brand : $('select[name=brands]').val(),
             model : $('select[name=models]').val(),
@@ -32,5 +33,9 @@ $(document).ready(function () {
         console.log(result);
     });
 
+    $("#primary-login").on("click", function () {
+        window.location.hash = '#login';
+
+    });
 });
 
