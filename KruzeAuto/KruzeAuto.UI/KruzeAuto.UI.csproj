@@ -86,7 +86,9 @@
     <Content Include="Source\Logo.ico" />
     <Content Include="Source\Logo.png" />
     <Content Include="Source\MainPage_search.jpg" />
+    <Content Include="Source\road-singin.jpeg" />
     <Content Include="Style\FooterStyle.css" />
+    <Content Include="Style\LogIn.css" />
     <Content Include="Style\Style.css" />
     <Content Include="Web.config" />
   </ItemGroup>

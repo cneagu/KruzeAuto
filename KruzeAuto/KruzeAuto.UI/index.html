@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Style/Style.css" />
     <link rel="stylesheet" href="Style/FooterStyle.css" />
+    <link href="Style/LogIn.css" rel="stylesheet" />
     <script src="Scripts/Global_Variables.js"></script>
     <script src="Scripts/Search_engine/Search_functions.js"></script>
     <script src="Scripts/Search_engine/Search_Engine.js"></script>
+    <script src="Scripts/Login_Singin.js"></script>
     <script src="Scripts/appController.js"></script>
 
 </head>
@@ -49,7 +51,7 @@
                     </div>
                 </li>
                 <li class="nav-item login-button" id="login-button">
-                    <button id="primary-login" type="button" class="btn btn-outline-success">Log In</button> 
+                    <button id="primary-login" type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#loginModal">Log In</button> 
                 </li>
             </ul>
         </div>        
@@ -169,7 +171,7 @@
                                 <a href="#" class="" id="">Detailed Search</a>
                             </div>
                             <div class="col-sm-6">
-                                <button type="submit" class="btn btn-primary float-right main-search">
+                                <button type="submit" class="btn btn-warning float-right main-search">
                                     <i class="fa fa-search"></i> Search
                                 </button>
                             </div>
@@ -184,10 +186,113 @@
                 </div>
             </div>
         </section>
+
+        <section id="main-page-singin">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="py-5">
+                            <h1 class="display-4">Create an free announcement</h1>
+                            <p class="lead">To create an free announcement you need to create an account</p>
+                            <a href="#singin" class="btn btn-outline-warning singin-page">Sing in today</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div id="login" class="page-content">
-        <h1 style="padding:20%">This is login page Success!</h1>
+    <div id="singin" class="page-content">
+        <header id="home-section">
+            <div class="dark-overlay">
+                <div class="home-inner">
+                    <div class="container">
+                        <div class="row">                       
+                            <div class="col-lg-5">
+                                <div class="card card-singin text-center card-form">
+                                    <div class="card-body text-muted">
+                                        <h3>Sign Up Today</h3>
+                                        <p>Please fill out this form to register</p>
+                                        <form>
+                                            <div class="form-group">
+                                                <input type="text" id="username" class="form-control form-control-lg" placeholder="Username">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" id="password" class="form-control form-control-lg" placeholder="Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" id="c-password" class="form-control form-control-lg" placeholder="Confirm Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="phonenumber" class="form-control form-control-lg" placeholder="Phone number">
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="Country" class="form-control form-control-lg" id="country" required>
+                                                    <option value="" disabled selected>Select a Country</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="County" class="form-control form-control-lg" id="county" required>
+                                                    <option value="" disabled selected>Select a County</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="City" class="form-control form-control-lg" id="city" required>
+                                                    <option value="" disabled selected>Select a City</option>
+                                                </select>
+                                            </div>                                            
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="terms">
+                                                <label class="form-check-label" for="inlineCheckbox1"><a href="#terms">Terms and conditions</a></label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="subscribe" checked>
+                                                <label class="form-check-label" for="inlineCheckbox2">subscribe</label>
+                                            </div>
+                                            
+                                           
+                                            <button type="submit" class="btn btn-success btn-block">Sing In!</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 d-none d-lg-block">
+                                <h3 class="display-4">Build the best <strong>free</strong> car market in <strong>Europe</strong></h3>
+                                <div class="d-flex flex-row">
+                                    <div class="p-4 align-self-start">
+                                        <i class="fa fa-check singin-icon"></i>
+                                    </div>
+                                    <div class="p-4 align-self-end">
+                                        <h2>Easy to use</h2>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-row">
+                                    <div class="p-4 align-self-start">
+                                        <i class="fa fa-check singin-icon"></i>
+                                    </div>
+                                    <div class="p-4 align-self-end">
+                                        <h2>Unlimited free announcements</h2>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-row">
+                                    <div class="p-4 align-self-start">
+                                        <i class="fa fa-check singin-icon"></i>
+                                    </div>
+                                    <div class="p-4 align-self-end">
+                                      <h2>Best prices</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
     </div>
 
     <div id="user_profile" class="page-content">
@@ -248,26 +353,40 @@
                         </div>
                     </div>
                 <!--/.row-->
+                <p class="pull-left copyright"> Copyright © KruseAuto 2018. All right reserved. </p> 
             </div>
             <!--/.container-->
         </div>
         <!--/.footer-->
+    </footer>
 
-        <div class="footer-bottom">
-            <div class="container">
-                <p class="pull-left"> Copyright © KruseAuto 2018. All right reserved. </p>               
-                <div class="pull-right">
-                    <ul class="nav nav-pills payments">
-                        <li><i class="fa fa-cc-visa"></i></li>
-                        <li><i class="fa fa-cc-mastercard"></i></li>
-                        <li><i class="fa fa-cc-amex"></i></li>
-                        <li><i class="fa fa-cc-paypal"></i></li>
-                    </ul>
+    <div class="modal fade text-dark" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalTitle">Log In</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Email</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Password</label>
+                            <input type="text" class="form-control">
+                        </div>
+                       
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-block">Log In</button>
                 </div>
             </div>
         </div>
-        <!--/.footer-bottom-->
-    </footer>
+    </div>
+
     <script src="Scripts/SPA.js"></script>
 </body>
 </html>

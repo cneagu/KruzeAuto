@@ -4,6 +4,9 @@
     width: 100%;
 }
 
+.copyright {
+    color: #ffde1c !important;
+}
 .gap {
     height: 30px;
     width: 100%;

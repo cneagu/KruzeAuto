@@ -1,0 +1,28 @@
+﻿
+#home-section {
+    background: url('../Source/road-singin.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 1000px;
+}
+
+
+.home-inner {
+    padding-top: 100px;
+}
+
+
+
+.singin-icon {
+    color: #ffde1c;
+    background: #fff;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 30px;
+}
+.card-singin {
+    color: #ffde1c !important;
+    background-color: #ffde1c !important;
+    
+}
+

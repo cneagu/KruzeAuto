@@ -24,11 +24,14 @@
 
     navigate();
     $(window).on('hashchange', function (e) {
+        scroll(0, 0);
         navigate();
     });
 
-    $("#primary-login").on("click", function () {
-        window.location.hash = '#login';
+
+
+    $(".singin-page").on("click", function () {
+        window.location.hash = '#singin';
 
     });
 

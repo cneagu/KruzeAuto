@@ -2,11 +2,17 @@
 
 body {
     margin-top:50px;
+    background-color:gray;
 }
 
 .navbar{
     box-shadow:2px 2px 5px #ffde1c;
     background-color:#000000;
+}
+
+
+#main-page-singin { 
+    box-shadow: 0 -2px 2px -2px #ffde1c;
 }
 
 #main_page_search{
@@ -36,7 +42,6 @@ table{
     margin-right: 0;
     width: 100%;
 }
-
 
 @media only screen and (max-width: 575px) {
     #main_page_search {
