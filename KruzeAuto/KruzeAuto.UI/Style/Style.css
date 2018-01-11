@@ -66,3 +66,17 @@ option[value=""][disabled] {
 option {
     color: black;
 }
+
+
+#main-page-info {
+    position: relative;
+    min-height: 200px;
+    background: url('../Source/home-page-info-2.jpeg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    box-shadow: 2px 2px 5px #ffde1c;
+
+}
+}

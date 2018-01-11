@@ -83,6 +83,7 @@
     <Content Include="Scripts\Search_engine\Search_Engine.js" />
     <Content Include="Scripts\Search_engine\Search_functions.js" />
     <Content Include="Scripts\SPA.js" />
+    <Content Include="Source\home-page-info-2.jpeg" />
     <Content Include="Source\Logo.ico" />
     <Content Include="Source\Logo.png" />
     <Content Include="Source\MainPage_search.jpg" />
