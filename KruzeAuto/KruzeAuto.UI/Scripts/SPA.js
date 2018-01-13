@@ -38,4 +38,8 @@
     $(".main-search").on("click", function () {
         window.location.hash = '#search';
     });
+
+    $(".back-home").on("click", function () {
+        window.history.back();
+    });
 }
