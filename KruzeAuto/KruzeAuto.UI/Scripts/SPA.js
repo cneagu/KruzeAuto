@@ -1,4 +1,4 @@
-﻿(function () {
+﻿function SPA() {
     function setActiveLink(fragmentId) {
         $(".page-content").each(function (i, divElement) {
             var divElement = $(this).attr('id');
@@ -38,4 +38,4 @@
     $(".main-search").on("click", function () {
         window.location.hash = '#search';
     });
-}());
+}

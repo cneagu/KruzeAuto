@@ -76,13 +76,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="Scripts\appController.js" />
+    <Content Include="Scripts\AppController.js" />
+    <Content Include="Scripts\Controllers\SearchCardController.js" />
+    <Content Include="Scripts\Controllers\SearchController.js" />
     <Content Include="Scripts\Global_Variables.js" />
-    <Content Include="Scripts\Login_Singin.js" />
-    <Content Include="Scripts\menuController.js" />
-    <Content Include="Scripts\Search_engine\Search_Engine.js" />
-    <Content Include="Scripts\Search_engine\Search_functions.js" />
+    <Content Include="Scripts\Controllers\Search_Result_Functions.js" />
+    <Content Include="Scripts\Controllers\Search_Functions.js" />
+    <Content Include="Scripts\Services\ServiceContext.js" />
+    <Content Include="Scripts\Services\AnnouncementService.js" />
     <Content Include="Scripts\SPA.js" />
+    <Content Include="Source\autos-technology-vw-multi-storey-car-park-63294.jpeg" />
     <Content Include="Source\home-page-info-2.jpeg" />
     <Content Include="Source\Logo.ico" />
     <Content Include="Source\Logo.png" />
@@ -97,8 +100,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Scripts\Controllers\" />
-    <Folder Include="Scripts\Services\" />
+    <Folder Include="Source\announcements_photo\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

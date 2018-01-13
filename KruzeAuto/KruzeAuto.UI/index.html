@@ -14,10 +14,13 @@
     <link rel="stylesheet" href="Style/FooterStyle.css" />
     <link href="Style/LogIn.css" rel="stylesheet" />
     <script src="Scripts/Global_Variables.js"></script>
-    <script src="Scripts/Search_engine/Search_functions.js"></script>
-    <script src="Scripts/Search_engine/Search_Engine.js"></script>
-    <script src="Scripts/Login_Singin.js"></script>
-    <script src="Scripts/appController.js"></script>
+    <script src="Scripts/Services/AnnouncementService.js"></script>
+    <script src="Scripts/Services/ServiceContext.js"></script>
+    <script src="Scripts/Controllers/Search_Functions.js"></script>
+    <script src="Scripts/Controllers/SearchController.js"></script>
+    <script src="Scripts/Controllers/Search_Result_Functions.js"></script>
+    <script src="Scripts/Controllers/SearchCardController.js"></script>
+    <script src="Scripts/AppController.js"></script>
 
 </head>
 <body>
@@ -110,9 +113,8 @@
                                     <div class="col-sm-12">
                                         <div class="form-group form-group-sm mb-3">
                                             <label for="registration">First Registration</label>
-                                            <select name="registration" class="form-control form-control-sm" id="registration" required>
-                                                <option value="" disabled selected>Select a Year</option>
-                                            </select>
+                                            <input name="registration" class="form-control form-control-sm" id="registration" list="dregistration" placeholder="Select a year" >
+                                            <datalist id="dregistration"></datalist>
                                         </div>
                                     </div>
                                 </div>
@@ -122,9 +124,8 @@
                                     <div class="col-sm-12">
                                         <div class="form-group form-group-sm mb-3">
                                             <label for="price">Price up to</label>
-                                            <select name="price" class="form-control form-control-sm" id="price" required>
-                                                <option value="" disabled selected>Select a Price</option>
-                                            </select>
+                                            <input name="price" class="form-control form-control-sm" id="price" list="dprice" placeholder="Select a Price">
+                                            <datalist id="dprice"></datalist>
                                         </div>
                                     </div>
                                 </div>
@@ -135,10 +136,9 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group form-group-sm mb-3">
-                                            <label for="km">Km up to</label>
-                                            <select name="km" class="form-control form-control-sm" id="km" required>
-                                                <option value="" disabled selected>Select km</option>
-                                            </select>
+                                            <label for="km">Km up to</label>     
+                                            <input name="km" class="form-control form-control-sm" id="km" list="dkm" placeholder="Select kme">
+                                            <datalist id="dkm"></datalist>
                                         </div>
                                     </div>
                                 </div>
@@ -157,15 +157,23 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-check form-check-inline col-sm-3 p-3 d-inline-block">
-                                <input name="new" class="form-check-input " type="checkbox" id="new" value="option1">
-                                <label class="form-check-label" for="inlineCheckbox1">New</label>
+                       
+                                <div class="form-check form-check-inline col-sm-3 p-3">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="main-radio" id="main-all" value="All" checked> All
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline col-sm-3 p-3">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="main-radio" id="main-new" value="New"> New
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline col-sm-3 p-3">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="main-radio" id="main-used" value="Used"> Used
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-check form-check-inline col-sm-3 p-3 d-inline-block">
-                                <input name="used" class="form-check-input" type="checkbox" id="used" value="option1">
-                                <label class="form-check-label" for="inlineCheckbox1">Used</label>
-                            </div>
-                        </div>
                         <div class="row ">
                             <div class="col-sm-6 p-3">
                                 <a href="#" class="" id="">Detailed Search</a>
@@ -226,41 +234,41 @@
                                         <p>Please fill out this form to register</p>
                                         <form>
                                             <div class="form-group">
-                                                <input type="text" id="username" class="form-control form-control-lg" placeholder="Username">
+                                                <input type="text" id="new-username" class="form-control form-control-lg" placeholder="Username">
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email">
+                                                <input type="email" id="new-email" class="form-control form-control-lg" placeholder="Email">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" id="password" class="form-control form-control-lg" placeholder="Password">
+                                                <input type="password" id="new-password" class="form-control form-control-lg" placeholder="Password">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" id="c-password" class="form-control form-control-lg" placeholder="Confirm Password">
+                                                <input type="password" id="new-c-password" class="form-control form-control-lg" placeholder="Confirm Password">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="phonenumber" class="form-control form-control-lg" placeholder="Phone number">
+                                                <input type="text" id="new-phonenumber" class="form-control form-control-lg" placeholder="Phone number">
                                             </div>
                                             <div class="form-group">
-                                                <select name="Country" class="form-control form-control-lg" id="country" required>
+                                                <select name="Country" class="form-control form-control-lg" id="new-country" required>
                                                     <option value="" disabled selected>Select a Country</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="County" class="form-control form-control-lg" id="county" required>
+                                                <select name="County" class="form-control form-control-lg" id="new-county" required>
                                                     <option value="" disabled selected>Select a County</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="City" class="form-control form-control-lg" id="city" required>
+                                                <select name="City" class="form-control form-control-lg" id="new-city" required>
                                                     <option value="" disabled selected>Select a City</option>
                                                 </select>
                                             </div>                                            
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="terms">
+                                                <input class="form-check-input" type="checkbox" id="new-terms" value="terms">
                                                 <label class="form-check-label" for="inlineCheckbox1"><a href="#terms">Terms and conditions</a></label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="subscribe" checked>
+                                                <input class="form-check-input" type="checkbox" id="new-subscribe" value="subscribe" checked>
                                                 <label class="form-check-label" for="inlineCheckbox2">subscribe</label>
                                             </div> 
                                             <button type="submit" class="btn btn-success btn-block">Sing In!</button>
