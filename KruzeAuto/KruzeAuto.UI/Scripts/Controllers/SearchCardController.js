@@ -17,6 +17,6 @@
             + "<p class='card-text'><i class='fa fa-user-o'></i>  " + announcement.UserName + "</p>"
             + "</div ></div> </div>";
          
-                 $("#" + containerId).append(jqCard);      
+        $("#" + containerId).append(jqCard);      
     }
 }
