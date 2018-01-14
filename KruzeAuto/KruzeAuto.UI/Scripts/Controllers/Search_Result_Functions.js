@@ -26,8 +26,6 @@
                 $(".to-pagination").children().remove();
 
                 var noPages = Math.ceil(results.length / 9);
-
-
                 if (noPages >= 2) {
                     $(".to-pagination").append("<li class='page-item disabled'><a class='page-link prev'> Previous </a > </li>");
                     for (var p = 1; p <= noPages; p++) {
@@ -50,7 +48,6 @@
                 
                 $('.prev').on('click', function () {
                     var index = parseInt($(".page-item.active").text());
-                    console.log(index + 'prev');
                     $(".page-item").eq(index).removeClass('active');
                     $(".page-item").eq(index - 1).addClass('active');
                     if (index == 1)
@@ -64,13 +61,11 @@
                     for (var i = (index - 1) * 9 - 9; i < (index - 1) * 9 ; i++) {
                         var searchCardController = new SearchCardController("card-result", results[i]);
                         searchCardController.RenderCard();
-                    }
-                   
+                    }                  
                 });
 
                 $('.next').on('click', function () {
-                    var index = parseInt($(".page-item.active").text());
-                    console.log(index +'next');
+                    var index = parseInt($(".page-item.active").text());                  
                     $(".page-item").eq(index).removeClass('active');
                     $(".page-item").eq(index + 1).addClass('active');
                     if (index + 1 > 1)

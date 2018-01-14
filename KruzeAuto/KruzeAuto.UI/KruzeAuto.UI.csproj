@@ -80,11 +80,12 @@
     <Content Include="Scripts\Controllers\SearchCardController.js" />
     <Content Include="Scripts\Controllers\SearchController.js" />
     <Content Include="Scripts\Controllers\Search_Pagination.js" />
-    <Content Include="Scripts\Global_Variables.js" />
     <Content Include="Scripts\Controllers\Search_Result_Functions.js" />
     <Content Include="Scripts\Controllers\Search_Functions.js" />
+    <Content Include="Scripts\Controllers\UserController.js" />
     <Content Include="Scripts\Services\ServiceContext.js" />
     <Content Include="Scripts\Services\AnnouncementService.js" />
+    <Content Include="Scripts\Services\UserService.js" />
     <Content Include="Scripts\SPA.js" />
     <Content Include="Source\autos-technology-vw-multi-storey-car-park-63294.jpeg" />
     <Content Include="Source\home-page-info-2.jpeg" />
