@@ -17,6 +17,7 @@ namespace KruseAuto.Repository.Core
         private IUserLocationRepository _userLocationRepository;
         private IUserPictureRepository _userPictureRepository;
         private IUserRepository _userRepository;
+        private ISearchRepository _searchRepository;
         #endregion
 
         #region Constructor
@@ -128,6 +129,16 @@ namespace KruseAuto.Repository.Core
                 return _userRepository;
             }
         }
+
+        public ISearchRepository SearchRepository
+        {
+            get
+            {
+                if (_searchRepository == null)
+                    _searchRepository = new SearchRepository();
+                return _searchRepository;
+            }
+        }
         #endregion
 
         #region IDisposable Implementation
@@ -185,6 +196,11 @@ namespace KruseAuto.Repository.Core
                 if (_userRepository != null)
                 {
                     _userRepository = null;
+                }
+
+                if(_searchRepository != null)
+                {
+                    _searchRepository = null;
                 }
             }
         }

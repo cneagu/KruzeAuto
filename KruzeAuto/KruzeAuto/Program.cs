@@ -9,43 +9,57 @@ namespace KruzeAuto
     {
         static void Main(string[] args)
         {
-            Guid idTest = Guid.NewGuid();
+
+            int VehicleType = 1;
+            string Condition1 = "New";
+            string Condition2 = "SEC";
+            string Brand = "";
+            string Model = "";
+            int Kilometer = 1000000;
+            int FabricationYear = 2000;
+            string FuelType1 = "Petrol";
+            string FuelType2 = "Diesel";
+            string FuelType3 = "";
+            string FuelType4 = "";
+            string FuelType5 = "";
+            string FuelType6 = "";
+            string FuelType7 = "";
+            string FuelType8 = "";
+            int Price = 1000000;
 
 
-            //insert
-            User userNew = new User();
-            userNew.UserID = idTest;
-            userNew.Email = "testnou@yahoo.com";
-            userNew.UserName = "Test1";
-            userNew.Password = "parolatest";
-            userNew.PhoneNumber = "012351455";
-            userNew.CreationDate = new DateTime(1990, 12, 1);
-            userNew.Subscribed = true;
 
-            //update
-            User userUpdate = new User();
-            userUpdate.UserID = idTest;
-            userUpdate.Email = "testnou2@yahoo.com";
-            userUpdate.UserName = "Test2";
-            userUpdate.Password = "parolatest22222222222222222222222222222222222222222222";
-            userUpdate.PhoneNumber = "01356787";
-            userUpdate.Subscribed = false;
 
             using (BusinessContext businessContext = new BusinessContext())
             {
-                ShowUsers(businessContext);
+                mainSearch(businessContext,  VehicleType,  Condition1,  Condition2,  Brand,  Model,
+             Kilometer,  FabricationYear,  FuelType1,  FuelType2,  FuelType3,  FuelType4,
+             FuelType5,  FuelType6,  FuelType7,  FuelType8,  Price);
                 Console.Write("\n\n\n\n");
-                InsertUser(businessContext, userNew);
-                ShowUserByID(businessContext, idTest);
-                Console.Write("\n\n\n\n");
-                UpdateUser(businessContext, userUpdate);
-                ShowUserByID(businessContext, idTest);
-                Console.Write("\n\n\n\n");
-                DeleteUser(businessContext, idTest);
                 ShowUsers(businessContext);
 
             }
             Console.ReadLine();
+        }
+
+      
+
+        private static void mainSearch(BusinessContext businessContext, int VehicleType, string Condition1, string Condition2, string Brand, string Model,
+            int Kilometer, int FabricationYear, string FuelType1, string FuelType2, string FuelType3, string FuelType4,
+            string FuelType5, string FuelType6, string FuelType7, string FuelType8, int Price)
+        {
+            List<Search> announcements = businessContext.SearchBusiness.MainSearch(VehicleType, Condition1, Condition2, Brand, Model,
+             Kilometer, FabricationYear, FuelType1, FuelType2, FuelType3, FuelType4,
+             FuelType5, FuelType6, FuelType7, FuelType8, Price);
+            Console.WriteLine("Announcement:");
+            foreach (Search announcement in announcements)
+            {
+                Console.WriteLine("AnnoucementID:{0} UserID:{1} Promoted:{2} Title:{3} Brand:{4} Model:{5} Kilometer:{6}" +
+                    " FabricationYear{7} FuelType{8} Price{9} Power{10} UserName{11} Country{12} County{13} Image{14}",
+                    announcement.AnnoucementID, announcement.UserID, announcement.Promoted, announcement.Title, announcement.Brand,
+                    announcement.Model, announcement.Kilometer, announcement.FabricationYear, announcement.FuelType,
+                    announcement.Price, announcement.Power, announcement.UserName, announcement.Country, announcement.County, announcement.Image);
+            }
         }
 
         private static void ShowUsers(BusinessContext businessContext)
@@ -57,29 +71,6 @@ namespace KruzeAuto
                 Console.WriteLine("UserID:{0} Email:{1} UserName:{2} Password:{3} PhoneNumber:{4} CreationDate:{5} Subscribed:{6}",
                     user.UserID, user.Email, user.UserName, user.Password, user.PhoneNumber, user.CreationDate, user.Subscribed);
             }
-        }
-
-        private static void ShowUserByID(BusinessContext businessContext, Guid idTest)
-        {
-            User userInsert = businessContext.UserBusiness.ReadByID(idTest);
-            Console.WriteLine("User:"); 
-            Console.WriteLine("UserID:{0} Email:{1} UserName:{2} Password:{3} PhoneNumber:{4} CreationDate:{5} Subscribed:{6}",
-                userInsert.UserID, userInsert.Email, userInsert.UserName, userInsert.Password, userInsert.PhoneNumber, userInsert.CreationDate, userInsert.Subscribed);           
-        }
-
-        private static void InsertUser(BusinessContext businessContext, User user)
-        {
-            businessContext.UserBusiness.Insert(user);
-        }
-
-        private static void UpdateUser(BusinessContext businessContext, User user)
-        {
-            businessContext.UserBusiness.Update(user);
-        }
-
-        private static void DeleteUser(BusinessContext businessContext, Guid idTest)
-        {
-            businessContext.UserBusiness.Delete(idTest);
         }
     }
          

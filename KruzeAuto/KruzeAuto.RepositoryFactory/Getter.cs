@@ -6,11 +6,12 @@ namespace KruzeAuto.RepositoryFactory
 {
     public class Getter
     {
-        private static string _framework = ConfigurationManager.AppSettings["framework"];
-
+        //private static string _framework = ConfigurationManager.AppSettings["framework"];
+        
         public static IRepositoryContext GetRepository()
         {
-            if (_framework == "ADONet")
+            bool framework = true;
+            if (framework)
             {
                 return new RepositoryContext();                
             }

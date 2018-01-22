@@ -1,3 +1,1 @@
-﻿var UserController = function (serviceContext) {
-
-};
+﻿

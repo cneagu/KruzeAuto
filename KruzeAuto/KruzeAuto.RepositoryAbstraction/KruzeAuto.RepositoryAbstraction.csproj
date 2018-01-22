@@ -47,6 +47,7 @@
     <Compile Include="IMessageInboxRepository.cs" />
     <Compile Include="IOptionRepository.cs" />
     <Compile Include="IPictureRepository.cs" />
+    <Compile Include="ISearchRepository.cs" />
     <Compile Include="IUserLocationRepository.cs" />
     <Compile Include="IUserPictureRepository.cs" />
     <Compile Include="IUserRepository.cs" />

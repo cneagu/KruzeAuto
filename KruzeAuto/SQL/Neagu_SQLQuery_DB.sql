@@ -818,6 +818,132 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE dbo.Announcements_MainSearch
+(
+@VehicleType int,
+@Condition1 nvarchar(15),
+@Condition2 nvarchar(15),
+@Brand nvarchar(50),
+@Model nvarchar(50),
+@Kilometer int,
+@FabricationYear int,
+@FuelType1 nvarchar(25),
+@FuelType2 nvarchar(25),
+@FuelType3 nvarchar(25),
+@FuelType4 nvarchar(25),
+@FuelType5 nvarchar(25),
+@FuelType6 nvarchar(25),
+@FuelType7 nvarchar(25),
+@FuelType8 nvarchar(25),
+@Price int
+)
+AS
+BEGIN
+	IF (@Brand = '')
+		BEGIN
+		SELECT  a.[AnnoucementID],
+					a.[UserID],
+					a.[Promoted],			
+					a.[Title],
+					a.[Brand],
+					a.[Model],
+					a.[Kilometer],
+					a.[FabricationYear],
+					a.[FuelType],
+					a.[Price],
+					a.[Power],
+					u.UserName,
+					l.Country,
+					l.County,
+					p.[Image]
+			FROM	Announcements a
+				INNER JOIN Users u ON u.[UserID] = a.[UserID]
+				LEFT JOIN [UserLocation] l ON l.[UserID] = u.[UserID]
+				LEFT JOIN AnnouncementsPictures ap ON ap.AnnoucementID = a.AnnoucementID AND ap.PrimaryPicture = 1
+				LEFT JOIN [Pictures] p ON p.PictureID = ap.PictureID
+			WHERE	Active = 1 AND 
+					[VehicleType] = @VehicleType AND 
+					(Condition = @Condition1 OR Condition = @Condition2) AND					
+					[Kilometer] <= @Kilometer AND
+					[FabricationYear] >= @FabricationYear AND
+					([FuelType] = @FuelType1 OR [FuelType] = @FuelType2 OR 
+					[FuelType] = @FuelType3 OR [FuelType] = @FuelType4 OR 
+					[FuelType] = @FuelType5 OR [FuelType] = @FuelType6 OR 
+					[FuelType] = @FuelType7 OR [FuelType] = @FuelType8) AND
+					[Price] <= @Price
+		END
+	ELSE IF(@Model = '') 
+		BEGIN
+		SELECT  a.[AnnoucementID],
+					a.[UserID],
+					a.[Promoted],			
+					a.[Title],
+					a.[Brand],
+					a.[Model],
+					a.[Kilometer],
+					a.[FabricationYear],
+					a.[FuelType],
+					a.[Price],
+					a.[Power],
+					u.UserName,
+					l.Country,
+					l.County,
+					p.[Image]
+			FROM	Announcements a
+				INNER JOIN Users u ON u.[UserID] = a.[UserID]
+				LEFT JOIN [UserLocation] l ON l.[UserID] = u.[UserID]
+				LEFT JOIN AnnouncementsPictures ap ON ap.AnnoucementID = a.AnnoucementID AND ap.PrimaryPicture = 1
+				LEFT JOIN [Pictures] p ON p.PictureID = ap.PictureID
+			WHERE	Active = 1 AND 
+					[VehicleType] = @VehicleType AND 
+					(Condition = @Condition1 OR Condition = @Condition2) AND
+					[Brand] = @Brand AND
+					[Kilometer] <= @Kilometer AND
+					[FabricationYear] >= @FabricationYear AND
+					([FuelType] = @FuelType1 OR [FuelType] = @FuelType2 OR 
+					[FuelType] = @FuelType3 OR [FuelType] = @FuelType4 OR 
+					[FuelType] = @FuelType5 OR [FuelType] = @FuelType6 OR 
+					[FuelType] = @FuelType7 OR [FuelType] = @FuelType8) AND
+					[Price] <= @Price
+		END
+	ELSE
+		BEGIN
+			SELECT  a.[AnnoucementID],
+					a.[UserID],
+					a.[Promoted],			
+					a.[Title],
+					a.[Brand],
+					a.[Model],
+					a.[Kilometer],
+					a.[FabricationYear],
+					a.[FuelType],
+					a.[Price],
+					a.[Power],
+					u.UserName,
+					l.Country,
+					l.County,
+					p.[Image]
+			FROM	Announcements a
+				INNER JOIN Users u ON u.[UserID] = a.[UserID]
+				LEFT JOIN [UserLocation] l ON l.[UserID] = u.[UserID]
+				LEFT JOIN AnnouncementsPictures ap ON ap.AnnoucementID = a.AnnoucementID AND ap.PrimaryPicture = 1
+				LEFT JOIN [Pictures] p ON p.PictureID = ap.PictureID
+			WHERE	Active = 1 AND 
+					[VehicleType] = @VehicleType AND 
+					(Condition = @Condition1 OR Condition = @Condition2) AND
+					[Brand] = @Brand AND
+					[Model] = @Model AND
+					[Kilometer] <= @Kilometer AND
+					[FabricationYear] >= @FabricationYear AND
+					([FuelType] = @FuelType1 OR [FuelType] = @FuelType2 OR 
+					[FuelType] = @FuelType3 OR [FuelType] = @FuelType4 OR 
+					[FuelType] = @FuelType5 OR [FuelType] = @FuelType6 OR 
+					[FuelType] = @FuelType7 OR [FuelType] = @FuelType8) AND
+					[Price] <= @Price
+		END
+END
+GO
+
 CREATE PROCEDURE dbo.Options_ReadAll
 AS
 BEGIN

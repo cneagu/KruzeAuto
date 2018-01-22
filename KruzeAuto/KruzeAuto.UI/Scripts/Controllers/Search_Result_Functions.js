@@ -1,20 +1,37 @@
-﻿var searchResult = function (serviceContext, result) {
+﻿var searchResult = function (result) {
 
-    var _announcements = serviceContext.AnnouncementService().ReadAll();
+    //var _announcements = serviceContext.AnnouncementService().ReadAll();
     var results = [];
+
 
     this.getResult = function () {
 
+        $.ajax({
+            url: 'http://localhost:64601/index.html#search/api/search' ,
+            type: 'GET',
+            headers: {
+                'type': result.type, 'brand': result.brand, 'condition': result.condition,
+                'fuel': result.FuelType, 'km': result.km, 'model': result.model,
+                'price': result.price, 'registration': result.registration},
+            success: function (data) {
+                alert(data);
+            },
+            failure: function (result) {
+                alert('errorrrrrrrr: ' + result);
+            }
+        });
+
+
             for (var i = 0; i < _announcements.length; i++) {
-                if ((result.brand == _announcements[i].Brand || result.brand == null || result.brand == 'Any')
-                    && (result.model == _announcements[i].Model || result.model == null || result.model == 'Any')
-                    && (parseInt(result.registration) <= _announcements[i].FabricationYear || result.registration == null || result.registration == 'Any' || result.registration === "")
-                    && (parseInt(result.price) >= _announcements[i].Price || result.price == null || result.price == 'Any' || result.price === "")
-                    && (parseInt(result.km) >= _announcements[i].Kilometer || result.km == null || result.km == 'Any' || result.km === "")
-                    && (result.fuel == _announcements[i].FuelType || result.fuel == null || result.fuel == 'Any')
-                    && (result.type == "All" || result.type == _announcements[i].Condition)) {
-                    results.push(_announcements[i]);
-                }                  
+                //if ((result.brand == _announcements[i].Brand || result.brand == null || result.brand == 'Any')
+                //    && (result.model == _announcements[i].Model || result.model == null || result.model == 'Any')
+                //    && (parseInt(result.registration) <= _announcements[i].FabricationYear || result.registration == null || result.registration == 'Any' || result.registration === "")
+                //    && (parseInt(result.price) >= _announcements[i].Price || result.price == null || result.price == 'Any' || result.price === "")
+                //    && (parseInt(result.km) >= _announcements[i].Kilometer || result.km == null || result.km == 'Any' || result.km === "")
+                //    && (result.fuel == _announcements[i].FuelType || result.fuel == null || result.fuel == 'Any')
+                //    && (result.type == "All" || result.type == _announcements[i].Condition)) {
+                //    results.push(_announcements[i]);
+                //}                  
             } 
             if (results.length == 0) {
                 $("#card-result").children().remove();

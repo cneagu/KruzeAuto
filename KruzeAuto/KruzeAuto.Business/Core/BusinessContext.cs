@@ -18,6 +18,7 @@ namespace KruzeAuto.Business.Core
         private UserLocationBusiness _userLocationBusiness;
         private UserPictureBusiness _userPictureBusiness;
         private UserBusiness _userBusiness;
+        private SearchBusiness _searchBusiness;
         #endregion
 
         #region Constructor
@@ -131,6 +132,16 @@ namespace KruzeAuto.Business.Core
             }
         }
 
+        public SearchBusiness SearchBusiness
+        {
+            get
+            {
+                if (_searchBusiness == null)
+                    _searchBusiness = new SearchBusiness();
+                return _searchBusiness;
+            }
+        }
+
         internal IRepositoryContext RepositoryContext
         {
             get { return _repositoryContext; }
@@ -192,6 +203,11 @@ namespace KruzeAuto.Business.Core
                 if (_userBusiness != null)
                 {
                     _userBusiness = null;
+                }
+
+                if(_searchBusiness != null)
+                {
+                    _searchBusiness = null;
                 }
             }
         }

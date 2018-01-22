@@ -13,5 +13,6 @@ namespace KruzeAuto.RepositoryAbstraction.Core
         IUserLocationRepository UserLocationRepository { get; }
         IUserPictureRepository UserPictureRepository { get; }
         IUserRepository UserRepository { get; }
+        ISearchRepository SearchRepository { get; }
     }
 }
