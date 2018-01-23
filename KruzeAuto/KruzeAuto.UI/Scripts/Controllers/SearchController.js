@@ -18,7 +18,7 @@
         setCarKm(carData.km);
         //set car fuel
         setOption(carData.fuel, "#fuel");
-    }
+    };
 
     this.ActivateData = function () {
         $('#main-page-card-category a').on("click", function () {
@@ -41,5 +41,5 @@
             var _searchResult = new searchResult(result);
             _searchResult.getResult();
         });
-    }
-}
+    };
+};
