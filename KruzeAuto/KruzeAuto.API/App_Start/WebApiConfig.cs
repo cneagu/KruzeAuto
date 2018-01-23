@@ -12,9 +12,13 @@ namespace KruzeAuto.API
         {
             // Web API configuration and services
             // Web API routes
-            config.EnableCors();
+
 
             config.MapHttpAttributeRoutes();
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+
+            config.EnableCors(cors);
 
             //config.Routes.MapHttpRoute(
             //    name: "DefaultApi",
