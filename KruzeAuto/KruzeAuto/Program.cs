@@ -11,8 +11,7 @@ namespace KruzeAuto
         {
 
             int VehicleType = 1;
-            string Condition1 = "New";
-            string Condition2 = "SEC";
+            string Condition = "All";
             string Brand = "";
             string Model = "";
             int Kilometer = 1000000;
@@ -24,7 +23,6 @@ namespace KruzeAuto
             string FuelType5 = "";
             string FuelType6 = "";
             string FuelType7 = "";
-            string FuelType8 = "";
             int Price = 1000000;
 
 
@@ -32,11 +30,11 @@ namespace KruzeAuto
 
             using (BusinessContext businessContext = new BusinessContext())
             {
-                mainSearch(businessContext,  VehicleType,  Condition1,  Condition2,  Brand,  Model,
+                mainSearch(businessContext,  VehicleType, Condition,  Brand,  Model,
              Kilometer,  FabricationYear,  FuelType1,  FuelType2,  FuelType3,  FuelType4,
-             FuelType5,  FuelType6,  FuelType7,  FuelType8,  Price);
+             FuelType5,  FuelType6,  FuelType7, Price);
                 Console.Write("\n\n\n\n");
-                ShowUsers(businessContext);
+                //ShowUsers(businessContext);
 
             }
             Console.ReadLine();
@@ -44,21 +42,21 @@ namespace KruzeAuto
 
       
 
-        private static void mainSearch(BusinessContext businessContext, int VehicleType, string Condition1, string Condition2, string Brand, string Model,
+        private static void mainSearch(BusinessContext businessContext, int VehicleType, string Condition, string Brand, string Model,
             int Kilometer, int FabricationYear, string FuelType1, string FuelType2, string FuelType3, string FuelType4,
-            string FuelType5, string FuelType6, string FuelType7, string FuelType8, int Price)
+            string FuelType5, string FuelType6, string FuelType7, int Price)
         {
-            List<Search> announcements = businessContext.SearchBusiness.MainSearch(VehicleType, Condition1, Condition2, Brand, Model,
+            List<Search> announcements = businessContext.SearchBusiness.MainSearch(VehicleType, Condition, Brand, Model,
              Kilometer, FabricationYear, FuelType1, FuelType2, FuelType3, FuelType4,
-             FuelType5, FuelType6, FuelType7, FuelType8, Price);
+             FuelType5, FuelType6, FuelType7, Price);
             Console.WriteLine("Announcement:");
             foreach (Search announcement in announcements)
             {
                 Console.WriteLine("AnnoucementID:{0} UserID:{1} Promoted:{2} Title:{3} Brand:{4} Model:{5} Kilometer:{6}" +
-                    " FabricationYear{7} FuelType{8} Price{9} Power{10} UserName{11} Country{12} County{13} Image{14}",
+                    " FabricationYear{7} FuelType{8} Price{9} Power{10} UserName{11} Country{12} County{13} ",
                     announcement.AnnoucementID, announcement.UserID, announcement.Promoted, announcement.Title, announcement.Brand,
                     announcement.Model, announcement.Kilometer, announcement.FabricationYear, announcement.FuelType,
-                    announcement.Price, announcement.Power, announcement.UserName, announcement.Country, announcement.County, announcement.Image);
+                    announcement.Price, announcement.Power, announcement.UserName, announcement.Country, announcement.County);
             }
         }
 

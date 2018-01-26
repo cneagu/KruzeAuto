@@ -8,14 +8,13 @@ namespace KruseAuto.Repository
 {
     public class SearchRepository : BaseRepository<Search>, ISearchRepository
     {
-        public List<Search> MainSearch(int VehicleType, string Condition1, string Condition2, string Brand, string Model,
+        public List<Search> MainSearch(int VehicleType, string Condition, string Brand, string Model,
            int Kilometer, int FabricationYear, string FuelType1, string FuelType2, string FuelType3, string FuelType4,
-           string FuelType5, string FuelType6, string FuelType7, string FuelType8, int Price)
+           string FuelType5, string FuelType6, string FuelType7, int Price)
         {
             SqlParameter[] parameters = {
                 new SqlParameter("@VehicleType", VehicleType),
-                new SqlParameter("@Condition1", Condition1),
-                new SqlParameter("@Condition2", Condition2),
+                new SqlParameter("@Condition", Condition),
                 new SqlParameter("@Brand", Brand),
                 new SqlParameter("@Model", Model),
                 new SqlParameter("@Kilometer", Kilometer),
@@ -27,7 +26,6 @@ namespace KruseAuto.Repository
                 new SqlParameter("@FuelType5", FuelType5),
                 new SqlParameter("@FuelType6", FuelType6),
                 new SqlParameter("@FuelType7", FuelType7),
-                new SqlParameter("@FuelType8", FuelType8),
                 new SqlParameter("@Price", Price)
             };
             return ReadAll("dbo.Announcements_MainSearch", parameters);
@@ -50,7 +48,6 @@ namespace KruseAuto.Repository
             announcement.UserName = reader.GetString(reader.GetOrdinal("UserName"));
             announcement.Country = reader.GetString(reader.GetOrdinal("Country"));
             announcement.County = reader.GetString(reader.GetOrdinal("County"));
-            announcement.Image = (byte[])reader["Image"];
             return (announcement);
         }
     }

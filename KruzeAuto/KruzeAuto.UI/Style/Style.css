@@ -37,10 +37,6 @@ table{
     margin: 0 auto;
 }
 
-.main-page-card-category {
-
-}
-
 #main-page-card-category {
     margin-left: 0;
     margin-right: 0;
@@ -89,4 +85,13 @@ option {
     background-size: cover;
     background-attachment:scroll;
     min-height: 500px;
+}
+
+.loader {
+    height: 700px;
+    background-size: cover;
+    background: url('https://loading.io/spinners/coolors/lg.palette-rotating-ring-loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .8;
 }

@@ -99,6 +99,9 @@
     <Content Include="Scripts\Controllers\Search_Result_Functions.js" />
     <Content Include="Scripts\Controllers\Search_Functions.js" />
     <Content Include="Scripts\Controllers\UserController.js" />
+    <Content Include="Scripts\MenuController.js" />
+    <Content Include="Scripts\Services\AjaxService.js" />
+    <Content Include="Scripts\Services\SearchService.js" />
     <Content Include="Scripts\Services\ServiceContext.js" />
     <Content Include="Scripts\Services\AnnouncementService.js" />
     <Content Include="Scripts\Services\UserService.js" />

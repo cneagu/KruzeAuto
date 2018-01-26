@@ -6,15 +6,18 @@
 function setOption(field, id) {
 
     $(id).append("<option value='" + "Any" + "'>" + "Any" + "</option>");
-    for (var i = 0; i < field.length; i++) {
-        $(id).append("<option value='" + field[i] + "'>" + field[i] + "</option>");
+    if (field !== undefined) {
+        for (var i = 0; i < field.length; i++) {
+            $(id).append("<option value='" + field[i] + "'>" + field[i] + "</option>");
+        }
     }
+    
 }
 
 
 function setModel(type) {
     $('select[name=brands]').change(function () {
-        var model = $('select[name=brands]').val()
+        var model = $('select[name=brands]').val();
         $("#models").children().remove();
         setOption(type[model], "#models");
 
@@ -66,4 +69,5 @@ function setCarKm(km) {
         else if (km <= 300000 && km >= 200000)
             km += 50000;
     }
+
 }

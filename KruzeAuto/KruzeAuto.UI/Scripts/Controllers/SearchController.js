@@ -1,4 +1,4 @@
-﻿var SearchController = function () {
+﻿var SearchController = function (serviceContext) {
     var carData = {
         "brands": ["BMW", "Mercedes", "Audi"],
         "BMW": ["1 Series", "2 Series", "3 Series", "4 Series", "5 Series", "6 Series", "7 Series", "X1", "X3", "X4", "X5", "X6", "M3", "M4", "M5", "M6"],
@@ -16,8 +16,6 @@
         setCarTime(carData.year);
         setCarPrice(carData.price);
         setCarKm(carData.km);
-        //set car fuel
-        setOption(carData.fuel, "#fuel");
     };
 
     this.ActivateData = function () {
@@ -26,19 +24,51 @@
         });
 
         $(".main-search").on("click", function () {
-            var result = {
-                type: $('#main-page-card-category a.active').attr('id'),
-                brand: $('select[name=brands]').val(),
-                model: $('select[name=models]').val(),
-                registration: $('input[name=registration]').val(),
-                price: $('input[name=price]').val(),
-                km: $('input[name=km]').val(),
-                fuel: $('select[name=fuel]').val(),
-                condition: $('input[name=main-radio]:checked').val()
-            };
 
+            var fuel = carData.fuel;
+            var selectedFuel = ['', '', '', '', '', '', '', ''];
+            $("#main-fuel:checked").each(function (index) {              
+                selectedFuel[index] = $(this).val();                
+            });
+            if (selectedFuel[0] !== '')
+                fuel = selectedFuel;
+
+            var registration = $('input[name=registration]').val();
+            if (registration === '' || registration === 'Any')
+                registration = 1700;
+
+            var price = $('input[name=price]').val();
+            if (price === '' || price === 'Any')
+                price = 10000000;
+
+            var km = $('input[name=km]').val();
+            if (km === '' || km === 'Any')
+                km = 100000000;
+
+            var type = $('#main-page-card-category a.active').attr('id');
+
+            var brand = $('select[name=brands]').val();
+            if (brand === null)
+                brand = 'Any';
+
+            var model = $('select[name=models]').val();
+            if (model === null)
+                model = 'Any';
+
+            var condition = $('input[name=main-radio]:checked').val();
+
+            var result = {
+                type: type,
+                brand: brand,
+                model: model,
+                registration: registration,
+                price: price,
+                km: km,
+                fuel: fuel,
+                condition: condition
+            };
             console.log(result);
-            var _searchResult = new searchResult(result);
+            var _searchResult = new SearchResult(result, serviceContext);
             _searchResult.getResult();
         });
     };
