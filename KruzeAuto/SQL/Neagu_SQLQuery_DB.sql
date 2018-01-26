@@ -581,6 +581,8 @@ BEGIN
 END
 GO
 
+
+
 CREATE PROCEDURE dbo.Users_ReadByID
 (
 @UserID uniqueidentifier
@@ -596,6 +598,38 @@ BEGIN
 			[Subscribed]
 	FROM	[Users]
 	WHERE	[UserID] = @UserID
+END
+GO
+
+CREATE PROCEDURE dbo.Users_Read_SingIn
+(
+@Email nvarchar(50),
+@UserName nvarchar(50),
+@PhoneNumber nvarchar(50)
+)
+AS
+BEGIN
+	SELECT  [Email],
+			[UserName],
+			[PhoneNumber]
+	FROM	[Users]
+	WHERE	[Email] = @Email OR
+			[UserName] = @UserName OR
+			[PhoneNumber] = @PhoneNumber
+END
+GO
+
+CREATE PROCEDURE dbo.Users_Read_LogIn
+(
+@Email nvarchar(50),
+@Password nvarchar(50)
+)
+AS
+BEGIN
+	SELECT  UserID			
+	FROM	[Users]
+	WHERE	[Email] = @Email OR
+			[Password] = @Password
 END
 GO
 

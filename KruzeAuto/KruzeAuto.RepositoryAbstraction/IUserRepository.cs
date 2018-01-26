@@ -11,5 +11,7 @@ namespace KruzeAuto.RepositoryAbstraction
         void Delete(Guid userID);
         List<User> ReadAll();
         User ReadByID(Guid userID);
+        User ReadSingIn(string email, string userName, string phoneNumber);
+        User ReadLogIn(string email, string password);
     }
 }

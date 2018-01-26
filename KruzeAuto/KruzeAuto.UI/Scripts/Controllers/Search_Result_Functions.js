@@ -1,12 +1,9 @@
 ﻿var SearchResult = function (result, serviceContext) {
-    var results = [];
-
-    
-
-
+     
     this.getResult = function () {
        
-        function fc(data) {
+        function displayData(data) {
+            var results = [];
             results = data;
             if (results.length == 0) {
                 $("#card-result").children().remove();
@@ -93,10 +90,6 @@
                 });
             }
         }
-
-        serviceContext.SearchService().MainSearch(result, fc);
-
-        
-       
+        serviceContext.SearchService().MainSearch(result, displayData);
     };
 };

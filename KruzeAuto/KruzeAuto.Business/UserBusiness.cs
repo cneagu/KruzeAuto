@@ -32,6 +32,16 @@ namespace KruzeAuto.Business
         {
             return BusinessContext.Current.RepositoryContext.UserRepository.ReadByID(userID);
         }
+
+        public User ReadSingIn(string email, string userName, string phoneNumber)
+        {
+            return BusinessContext.Current.RepositoryContext.UserRepository.ReadSingIn(email, userName, phoneNumber);
+        }
+
+        public User ReadLogIn(string email, string password)
+        {
+            return BusinessContext.Current.RepositoryContext.UserRepository.ReadLogIn(email, password);
+        }
         #endregion
     }
 }

@@ -1,6 +1,6 @@
 ﻿var SearchService = function () {
 
-    this.MainSearch = function (result, functione) {
-        ajaxService('search', 'POST', result, functione);
+    this.MainSearch = function (result, handleData) {
+        ajaxService('search', 'POST', result, handleData,'#search');
     };
 };

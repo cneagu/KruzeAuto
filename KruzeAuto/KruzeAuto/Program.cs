@@ -24,16 +24,16 @@ namespace KruzeAuto
             string FuelType6 = "";
             string FuelType7 = "";
             int Price = 1000000;
-
+            Guid user = new Guid("CEBF5C68-9AAB-3590-3E11-E01DFEE0CAB7");
 
 
 
             using (BusinessContext businessContext = new BusinessContext())
             {
-                mainSearch(businessContext,  VehicleType, Condition,  Brand,  Model,
-             Kilometer,  FabricationYear,  FuelType1,  FuelType2,  FuelType3,  FuelType4,
-             FuelType5,  FuelType6,  FuelType7, Price);
+                //ShowUser(businessContext, user);
+                readSingIn(businessContext, "neagucristianssstefan@yahoo.com", "morassrioan923", "0234");
                 Console.Write("\n\n\n\n");
+                //ReadLogIn(businessContext, "neagucristianstefan@yahoo.com", "morarioan923");
                 //ShowUsers(businessContext);
 
             }
@@ -66,9 +66,36 @@ namespace KruzeAuto
             Console.WriteLine("Users:");
             foreach (User user in usersAfter)
             {
-                Console.WriteLine("UserID:{0} Email:{1} UserName:{2} Password:{3} PhoneNumber:{4} CreationDate:{5} Subscribed:{6}",
-                    user.UserID, user.Email, user.UserName, user.Password, user.PhoneNumber, user.CreationDate, user.Subscribed);
+                Console.WriteLine(" Email:{0} UserName:{1}  PhoneNumber:{2} ",
+                     user.Email, user.UserName, user.PhoneNumber);
             }
+        }
+        private static void ShowUser(BusinessContext businessContext,Guid userId)
+        {
+            User user = businessContext.UserBusiness.ReadByID(userId);
+            Console.WriteLine("Users:");
+           
+                Console.WriteLine(" Email:{0} UserName:{1}  PhoneNumber:{2} ",
+                     user.Email, user.UserName, user.PhoneNumber);
+           
+        }
+
+        private static void readSingIn(BusinessContext businessContext, string email, string userName, string phoneNumber)
+        {
+            User user = businessContext.UserBusiness.ReadSingIn(email, userName, phoneNumber);
+            Console.WriteLine("Users:");
+
+            Console.WriteLine(" Email:{0} UserName:{1}  PhoneNumber:{2} ",
+                    user.Email, user.UserName, user.PhoneNumber);
+        }
+
+        private static void ReadLogIn(BusinessContext businessContext, string email, string password)
+        {
+            User user = businessContext.UserBusiness.ReadLogIn(email, password);
+            Console.WriteLine("Users:");
+
+            Console.WriteLine(" Email:{0} ",
+                    user.UserID);
         }
     }
          

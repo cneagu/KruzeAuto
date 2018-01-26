@@ -52,8 +52,112 @@ namespace KruseAuto.Repository
             List<User> result = new List<User>();
             SqlParameter[] parameters = { new SqlParameter("@UserID", userID) };
             result = ReadAll("dbo.Users_ReadByID", parameters);
-            return result[0];
+            if (result.Count > 0)
+            {
+
+                return result[0];
+            }
+            else
+                return new User();
         }
+
+        public User ReadSingIn(string email, string userName, string phoneNumber)
+        {
+            User result = new User();
+            SqlParameter[] parameters = {
+                new SqlParameter("@Email", email),
+                new SqlParameter("@UserName", userName),
+                new SqlParameter("@PhoneNumber", phoneNumber) };
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "dbo.Users_Read_SingIn";
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        if (parameters != null)
+                            command.Parameters.AddRange(parameters);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                User user = new User();
+                                user.Email = reader.GetString(reader.GetOrdinal("Email"));
+                                user.UserName = reader.GetString(reader.GetOrdinal("UserName"));
+                                user.PhoneNumber = reader.GetString(reader.GetOrdinal("PhoneNumber"));
+                                result = user;
+                            }
+                        }
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("There was an error: {0}", ex.Message);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+            }
+            return result;
+        }
+
+        public User ReadLogIn(string email, string password)
+        {
+            User result = new User();
+            SqlParameter[] parameters = {
+                new SqlParameter("@Email", email),
+                new SqlParameter("@Password", password)
+            };
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    try
+                    {
+                        using (SqlCommand command = new SqlCommand())
+                        {
+                            command.Connection = connection;
+                        command.CommandText = "dbo.Users_Read_LogIn";
+                            command.CommandType = System.Data.CommandType.StoredProcedure;
+                            if (parameters != null)
+                                command.Parameters.AddRange(parameters);
+                            connection.Open();
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                User user = new User();
+                                user.UserID = reader.GetGuid(reader.GetOrdinal("UserID"));
+                                //user.Email = reader.GetString(reader.GetOrdinal("Email"));
+                                //user.UserName = reader.GetString(reader.GetOrdinal("UserName"));
+                                //user.PhoneNumber = reader.GetString(reader.GetOrdinal("PhoneNumber"));
+                                result = user;
+                                }
+                            }
+                        }
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("There was an error: {0}", ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Dispose();
+                    }
+                }
+                return result;
+            }
+
 
         protected override User GetModelFromReader(SqlDataReader reader)
         {

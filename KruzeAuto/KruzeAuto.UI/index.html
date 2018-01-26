@@ -14,10 +14,14 @@
     <link rel="stylesheet" href="Style/FooterStyle.css" />
     <link href="Style/LogIn.css" rel="stylesheet" />
     <script src="Scripts/Services/AjaxService.js"></script>
+    <script src="Scripts/Controllers/ValidateData_Functions.js"></script>
     <script src="Scripts/Controllers/SearchCardController.js"></script>
-    <script src="Scripts/Controllers/Search_Pagination.js"></script>  
     <script src="Scripts/Services/SearchService.js"></script>
+    <script src="Scripts/Services/UserService.js"></script>
     <script src="Scripts/Services/ServiceContext.js"></script>
+    <script src="Scripts/Controllers/SingIn_Function.js"></script>
+    <script src="Scripts/Controllers/SingInController.js"></script>
+
     <script src="Scripts/Controllers/Search_Result_Functions.js"></script>
     <script src="Scripts/Controllers/Search_Functions.js"></script>
     <script src="Scripts/Controllers/SearchController.js"></script>   
@@ -244,47 +248,45 @@
                                     <div class="card-body text-muted">
                                         <h3>Sign Up Today</h3>
                                         <p>Please fill out this form to register</p>
-                                        <form>
-                                            <div class="form-group">
-                                                <input type="text" id="new-username" class="form-control form-control-lg" placeholder="Username">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" id="new-email" class="form-control form-control-lg" placeholder="Email">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" id="new-password" class="form-control form-control-lg" placeholder="Password">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" id="new-c-password" class="form-control form-control-lg" placeholder="Confirm Password">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" id="new-phonenumber" class="form-control form-control-lg" placeholder="Phone number">
-                                            </div>
-                                            <div class="form-group">
-                                                <select name="Country" class="form-control form-control-lg" id="new-country" required>
-                                                    <option value="" disabled selected>Select a Country</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <select name="County" class="form-control form-control-lg" id="new-county" required>
-                                                    <option value="" disabled selected>Select a County</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <select name="City" class="form-control form-control-lg" id="new-city" required>
-                                                    <option value="" disabled selected>Select a City</option>
-                                                </select>
-                                            </div>                                            
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="new-terms" value="terms">
-                                                <label class="form-check-label" for="inlineCheckbox1"><a href="#terms">Terms and conditions</a></label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="new-subscribe" value="subscribe" checked>
-                                                <label class="form-check-label" for="inlineCheckbox2">subscribe</label>
-                                            </div> 
-                                            <button type="submit" class="btn btn-success btn-block">Sing In!</button>
-                                        </form>
+                                        <div class="form-group">
+                                            <input type="text" id="new-username" class="form-control form-control-lg" placeholder="Username">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" id="new-email" class="form-control form-control-lg" placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" id="new-password" class="form-control form-control-lg" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" id="new-c-password" class="form-control form-control-lg" placeholder="Confirm Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="new-phonenumber" class="form-control form-control-lg" placeholder="Phone number">
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="Country" class="form-control form-control-lg" id="new-country" required>
+                                                <option value="" disabled selected>Select a Country</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="County" class="form-control form-control-lg" id="new-county" required>
+                                                <option value="" disabled selected>Select a County</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="City" class="form-control form-control-lg" id="new-city" required>
+                                                <option value="" disabled selected>Select a City</option>
+                                            </select>
+                                        </div>                                            
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="new-terms" value="terms">
+                                            <label class="form-check-label" for="inlineCheckbox1"><a href="#terms">Terms and conditions</a></label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="new-subscribe" value="subscribe" checked>
+                                            <label class="form-check-label" for="inlineCheckbox2">subscribe</label>
+                                        </div> 
+                                        <button id="singIn" type="submit" class="btn btn-success btn-block">Sing In!</button>
                                     </div>
                                 </div>
                             </div>

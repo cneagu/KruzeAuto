@@ -1,7 +1,7 @@
-﻿function ajaxService(action, verb, data, handleData) {
+﻿function ajaxService(action, verb, data, handleData, divID) {
     var _url = 'http://localhost:65513/api/';
     var _data = [];
-    $('#search').addClass('loader');
+    $(divID).addClass('loader');
      
     var promise = $.ajax({
         crossDomain: true,
@@ -12,5 +12,5 @@
     });
     promise.done(function (data) { handleData(data); });
     promise.fail(function () { alert("error"); });
-    promise.always(function () { $('#search').removeClass('loader'); });
+    promise.always(function () { $(divID).removeClass('loader'); });
 };

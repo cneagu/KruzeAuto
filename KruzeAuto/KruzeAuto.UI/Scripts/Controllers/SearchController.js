@@ -67,7 +67,6 @@
                 fuel: fuel,
                 condition: condition
             };
-            console.log(result);
             var _searchResult = new SearchResult(result, serviceContext);
             _searchResult.getResult();
         });
