@@ -1,11 +1,11 @@
-﻿function validateEmail(email) {
+﻿function validateEmail(email, id) {
     if (!(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i.test(email))) {
-        $('#new-email').addClass("is-invalid");
+        $(id).addClass("is-invalid");
         email = '';
         return email;
     } else {
-        $('#new-email').removeClass("is-invalid");
-        $('#new-email').addClass("is-valid");
+        $(id).removeClass("is-invalid");
+        $(id).addClass("is-valid");
         return email;
     }       
 }
@@ -23,14 +23,14 @@ function validateUsername(username) {
     }   
 }
 
-function validatePassword(password) {
-    if (!(/^(?=.*\d)(?=.*[a-z])[0-9a-zA-Z]{8,}$/i.test(password))) {
-        $('#new-password').addClass("is-invalid");
+function validatePassword(password, id) {
+    if (!(/^(?=.*\d)(?=.*[a-z])[0-9a-zA-Z]{6,}$/i.test(password))) {
+        $(id).addClass("is-invalid");
         password = '';
         return password;
     } else {
-        $('#new-password').removeClass("is-invalid");
-        $('#new-password').addClass("is-valid");
+        $(id).removeClass("is-invalid");
+        $(id).addClass("is-valid");
         return password;
     }   
 }

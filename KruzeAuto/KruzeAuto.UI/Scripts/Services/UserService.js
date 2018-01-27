@@ -1,19 +1,23 @@
 ﻿var UserService = function () {
 
-    //this.ReadAll = function () {
-    //    return _users;
-    //};
-
-    //this.ReadById = function (id) {
-    //    for (var index = 0; index < _users.length; index++) {
-    //        if (index == _users[index].AnnoucementID) {
-    //            return _users[index];
-    //        }
-    //    }
-    //    return null;
-    //};
+    this.ReadById = function (id, data, handleData) {
+        ajaxService('User/ReadById/' + id, 'POST', data, handleData, '#singin');
+    };
 
     this.ReadSingIn = function (data, handleData) {
-        ajaxService('singIn', 'POST', data, handleData,'#singin');
+        ajaxService('SingIn', 'POST', data, handleData, '#singin');
+    };
+
+    this.Insert = function (data, handleData) {
+        ajaxService('User/Insert', 'POST', data, handleData, '#singin');
+    };
+
+    this.LogInValidation = function (Email, Password, data, handleData) {
+        var data = '';
+        ajaxService('User/LogIn/' + Email + '/' + Password , 'GET', data, handleData, 'body');
     }
+
+    this.UserLocationInsert = function (data, handleData) {
+        ajaxService('User/UserLocation/Insert', 'POST', data, handleData, '#singin');
+    };
 };

@@ -3010,15 +3010,15 @@
     this.SubmitForm = function () {
         $("#singIn").on('click', function () {
             var username = validateUsername($('#new-username').val());
-            var email = validateEmail($('#new-email').val());
-            var password = validatePassword($('#new-password').val());
+            var email = validateEmail($('#new-email').val(), '#new-email');
+            var password = validatePassword($('#new-password').val(), '#new-password');
             var rePassword = validaterePassword($('#new-c-password').val(), password);
             var phoneNumber = validatePhoneNumber($('#new-phonenumber').val());
             var country = $('#new-country').val();
             var county = $('#new-county').val();
             var city = $('#new-city').val();
             var terms = validateTerms($('#new-terms').is(':checked') ? 1 : 0);
-            var subscribe = $('#new-subscribe').is(':checked') ? 1 : 0;
+            var subscribe = $('#new-subscribe').is(':checked') ? true : false;
             var location = locationValidate(country, county, city);
 
             var inputData = {
@@ -3034,17 +3034,15 @@
                 subscribe: subscribe,
                 location: location
             };
-
-            
-            console.log(inputData);
             var action = validate(inputData);
-            console.log(action);
 
             if (action == 1) {
                 var _singIn = new SingIn(inputData, serviceContext);
                 _singIn.ChcekData();
-                } else
-                    alert('Data Already Exists');
+            } else {
+                alert('something is not ok');
+            }
+               
             
         });
     };

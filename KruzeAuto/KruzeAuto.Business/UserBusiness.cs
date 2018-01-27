@@ -38,7 +38,7 @@ namespace KruzeAuto.Business
             return BusinessContext.Current.RepositoryContext.UserRepository.ReadSingIn(email, userName, phoneNumber);
         }
 
-        public User ReadLogIn(string email, string password)
+        public Guid ReadLogIn(string email, string password)
         {
             return BusinessContext.Current.RepositoryContext.UserRepository.ReadLogIn(email, password);
         }

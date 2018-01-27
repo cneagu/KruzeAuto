@@ -2,7 +2,8 @@ CREATE DATABASE KruzeAutoDB;
 GO
 
 USE KruzeAutoDB;
-
+Select * from Users where UserName = 'serus123';
+select * from UserLocation where UserID = '6C2AF214-3F73-6C73-BA8F-9FF6BA6D8A4A';
 CREATE TABLE [Users](
 	[UserID] uniqueidentifier NOT NULL,
 	[Email] nvarchar(50) NOT NULL,
@@ -628,7 +629,7 @@ AS
 BEGIN
 	SELECT  UserID			
 	FROM	[Users]
-	WHERE	[Email] = @Email OR
+	WHERE	[Email] = @Email AND
 			[Password] = @Password
 END
 GO

@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 
 namespace KruzeAuto.API.Controllers
 {
-    [RoutePrefix("api/singIn")]
+    [RoutePrefix("api/SingIn")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class SingInController : ApiController
     {
@@ -24,6 +24,9 @@ namespace KruzeAuto.API.Controllers
                 return context.UserBusiness.ReadSingIn(singIn.Email, singIn.UserName, singIn.PhoneNumber);
             }
         }
+
+       
+        
         #endregion
     }
 }

@@ -13,7 +13,7 @@
 
     function navigate() {
         var fragmentIdcomplete = location.hash.substr(1);
-        var fragmentId = fragmentIdcomplete.split("?");
+        var fragmentId = fragmentIdcomplete.split("/");
         setActiveLink(fragmentId[0]);
 
     }
@@ -41,5 +41,9 @@
 
     $(".back-home").on("click", function () {
         window.history.back();
+    });
+
+    $(function () {
+        $("#tabs").tabs();
     });
 }

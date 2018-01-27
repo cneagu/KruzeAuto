@@ -8,5 +8,8 @@
         var _singInController = new SingInController(serviceContext);
         _singInController.InsertLocationData();
         _singInController.SubmitForm();
+
+        var _userController = new UserController(serviceContext);
+        _userController.LogIn();
     };
 };

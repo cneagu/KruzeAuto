@@ -109,9 +109,9 @@ namespace KruseAuto.Repository
             return result;
         }
 
-        public User ReadLogIn(string email, string password)
+        public Guid ReadLogIn(string email, string password)
         {
-            User result = new User();
+            Guid result = new Guid();
             SqlParameter[] parameters = {
                 new SqlParameter("@Email", email),
                 new SqlParameter("@Password", password)
@@ -131,13 +131,8 @@ namespace KruseAuto.Repository
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
                                 while (reader.Read())
-                                {
-                                User user = new User();
-                                user.UserID = reader.GetGuid(reader.GetOrdinal("UserID"));
-                                //user.Email = reader.GetString(reader.GetOrdinal("Email"));
-                                //user.UserName = reader.GetString(reader.GetOrdinal("UserName"));
-                                //user.PhoneNumber = reader.GetString(reader.GetOrdinal("PhoneNumber"));
-                                result = user;
+                                {                               
+                                result = reader.GetGuid(reader.GetOrdinal("UserID"));
                                 }
                             }
                         }

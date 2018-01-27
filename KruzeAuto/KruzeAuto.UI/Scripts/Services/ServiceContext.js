@@ -21,4 +21,12 @@
         }
         return _service;
     };
+
+    this.UserLocationService = function () {
+        if (!_service) {
+            _service = new UserLocationService();
+        }
+        return _service;
+    };
+
 };
