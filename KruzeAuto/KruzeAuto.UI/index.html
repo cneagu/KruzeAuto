@@ -11,14 +11,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
     <link rel="stylesheet" href="Style/Style.css" />
     <link rel="stylesheet" href="Style/FooterStyle.css" />
     <link href="Style/LogIn.css" rel="stylesheet" />
+    <script src="Scripts/Globals.js"></script>
     <script src="Scripts/Services/AjaxService.js"></script>
     <script src="Scripts/Controllers/ValidateData_Functions.js"></script>
+    <script src="Scripts/Controllers/Search_Functions.js"></script>
     <script src="Scripts/Controllers/SearchCardController.js"></script>
     <script src="Scripts/Services/SearchService.js"></script>
     <script src="Scripts/Services/UserLocationService.js"></script>
@@ -29,8 +31,9 @@
     <script src="Scripts/Controllers/LogIn_Function.js"></script>
     <script src="Scripts/Controllers/UserController.js"></script>
     <script src="Scripts/Services/UserLocationService.js"></script>
-    <script src="Scripts/Controllers/Search_Result_Functions.js"></script>
-    <script src="Scripts/Controllers/Search_Functions.js"></script>
+    <script src="Scripts/Controllers/Announcement_Function.js"></script>
+    <script src="Scripts/Controllers/AnnouncementController.js"></script>
+    <script src="Scripts/Controllers/Search_Result_Functions.js"></script>   
     <script src="Scripts/Controllers/SearchController.js"></script>   
     <script src="Scripts/Services/AnnouncementService.js"></script>
     <script src="Scripts/Services/ServiceContext.js"></script>
@@ -40,15 +43,13 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top py-1">
-        <div class="container-fluid">          
+        <div class="container">          
         <a href="#home" class="navbar-brand">
         <img src="Source/Logo.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
         <span id="Tittle">Kruze</span>Auto</a>
             <ul class="navbar-nav md-auto" >
                 <li class="nav-item dropdown user_menu" id="user_menu" hidden>
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="head-userName">
-                        <i class="fa fa-user"></i>
-                    </a>
+                    <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" id="head-userName"></a>
                     <div class="dropdown-menu">
                         <a href="#user_profile" class="dropdown-item">
                             <i class="fa fa-user-circle"></i> Profile
@@ -79,20 +80,20 @@
         <section id="main_page_search">
             <div class="container py-4 ">
                 <div class="row">
-                    <div id="main-page-card" class="card col-xl-4 col-lg-5 col-md-7">
+                    <div id="main-page-card" class="card col-xl-5 col-lg-6 col-md-8">
                         <div class="row main-page-card-category">
                             <ul id="main-page-card-category" class="nav nav-tabs">
                                 <li class="nav-item col-centered">
-                                    <a id="1" class="nav-link active">Cars</a>
+                                    <a id="1" class="nav-link active"><i class="fa fa-car"></i>  Cars</a>
                                 </li>
                                 <li class="nav-item col-centered">
-                                    <a id="2" class="nav-link">Motorcycles</a>
+                                    <a id="2" class="nav-link"><i class="fa fa-motorcycle"></i>  Motorcycles</a>
                                 </li>
                                 <li class="nav-item col-centered">
-                                    <a id="3" class="nav-link">Trucks</a>
+                                    <a id="3" class="nav-link"><i class="fa fa-truck"></i>  Trucks</a>
                                 </li>
                                 <li class="nav-item col-centered">
-                                    <a id="4" class="nav-link">Other</a>
+                                    <a id="4" class="nav-link"><i class="fa fa-cog"></i>  Other</a>
                                 </li>
                             </ul>
                         </div>
@@ -193,7 +194,7 @@
                                 </div>
                                 <div class="form-check form-check-inline col-sm-3 p-3">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="main-radio" id="main-used" value="Used"> Used
+                                        <input class="form-check-input" type="radio" name="main-radio" id="main-used" value="Sec"> Sec
                                     </label>
                                 </div>
                             </div>
@@ -208,7 +209,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 ml-5 text-center text-white d-none d-lg-block">
+                    <div class="col-md-5 ml-5 text-center text-white d-none d-lg-block">
                         <h1 class="display-2 mt-5 ">
                             Drive what you whant
                         </h1>
@@ -344,8 +345,7 @@
             </div>
         </header>
 
-        <!-- ACTIONS -->
-        <section id="action" class="py-4 mb-4 bg-light">
+        <section id="user-action" class="py-4 mb-4 bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 mr-auto">
@@ -354,7 +354,7 @@
                         </a>
                     </div>
                     <div class="col-md-3">
-                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addNewAnnouncement">
+                        <a href="#" id="newAnnouncement" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addNewAnnouncement">
                             <i class="fa fa-plus"></i> New Announcement
                         </a>
                     </div>
@@ -363,11 +363,15 @@
                             <i class="fa fa-credit-card"></i> Add Credits
                         </a>
                     </div>
+                    <div class="col-md-2">
+                        <a href="#tabs-3" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#setings">
+                           <i class="fa fa-gear"></i>  Setings
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROFILE EDIT -->
         <section id="profile">
             <div class="container">
                 <div class="row">
@@ -376,42 +380,50 @@
                             <div class="card-body">
                                 <div id="tabs">
                                     <ul>
-                                        <li><a href="#tabs-1">Nunc tincidunt</a></li>
-                                        <li><a href="#tabs-2">Proin dolor</a></li>
-                                        <li><a href="#tabs-3">Aenean lacinia</a></li>
+                                        <li><a href="#tabs-1"><i class="fa fa-car"></i>  Announcements</a></li>
+                                        <li><a href="#tabs-2"><i class="fa fa-inbox"></i>  Messages</a></li>                                      
                                     </ul>
                                     <div id="tabs-1">
                                         <div class="containter">
-                                            <div class="row">
-                                                <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-                                            </div>
-                                            <div class="row">
-                                                <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-                                            </div>
-                                            <div class="row">
-                                                <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+                                            <div id="announcementsTabs">
+                                                <ul>
+                                                    <li><a href="#announcementsTabs-1"><i class="fa fa-check-circle-o"></i>  Active</a></li>
+                                                    <li><a href="#announcementsTabs-2"><i class="fa fa-circle-o"></i>  Inavtive</a></li>
+                                                </ul>
+                                                <div id="announcementsTabs-1">
+                                                    </div>
+                                                <div id="announcementsTabs-2">
+
+                                                </div>
+                                                   
+                                                </div>
                                             </div>
                                         </div>
-                                        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-                                    </div>
-
-
                                     <div id="tabs-2">
-                                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                                        <div class="containter">
+                                            <div id="inboxTabs">
+                                                <ul>
+                                                    <li><a href="#inboxTabs-1"><i class="fa fa-arrow-down"></i>  Recived</a></li>
+                                                    <li><a href="#inboxTabs-2"><i class="fa fa-arrow-up"></i>  Send</a></li>
+                                                </ul>
+                                                <div id="inboxTabs-1">
+                                                </div>
+                                                <div id="inboxTabs-2">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div id="tabs-3">
-                                        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-                                        <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                     <div class="col-md-3">
                         <h3>Your Avatar</h3>
                         <img src="http://laoblogger.com/images/boo-mario-clipart-1.jpg" alt="" class="d-block img-fluid mb-3">
                         <button class="btn btn-primary btn-block">Edit Image</button>
-                        <button class="btn btn-danger btn-block">Delete Image</button>
+                       
                     </div>
                 </div>
             </div>
@@ -554,6 +566,294 @@
         </div> <!-- /.modal-dialog -->
     </div>
 
+    <div class="modal fade" id="addNewAnnouncement">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info  text-white">
+                    <h5 class="modal-title">Add New Announcement</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Vehicle_Type">*Vehicle Type</label>
+                            <select name="new-vehicle-type" class="form-control form-control-sm" id="new-vehicle-type" required>
+                                <option value="" disabled selected>Select a Type</option>
+                                <option value="1"> Car</option>
+                                <option value="2"> Motorcycles</option>
+                                <option value="3"> Trucks</option>
+                                <option value="4"> Other </option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Condition">*Condition</label>
+                            <select name="new-condition" class="form-control form-control-sm" id="new-condition" required>
+                                <option value="" disabled selected>Select a Type</option>
+                                <option value="New"> New</option>
+                                <option value="Sec"> Sec</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="name">*Title</label>
+                            <input name="new-title" id="new-title" class="form-control" placeholder="Max 32 characters">
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Brand">*Brand</label>
+                            <select name="new-brand" class="form-control form-control-sm" id="new-brand" required>
+                                <option value="" disabled selected>Select a Brand</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Model">*Model</label>
+                            <select name="new-model" class="form-control form-control-sm" id="new-model" required>
+                                <option value="" disabled selected>Select a Model</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Type">*Type</label>
+                            <select name="new-type" class="form-control form-control-sm" id="new-type" required>
+                                <option value="" disabled selected>Select a Type</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Kilometer">*Kilometer</label>
+                            <input name="new-km" id="new-km" class="form-control" placeholder="Input Kilometers">
+                        </div>  
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="FabricationYear">*FabricationYear</label>
+                            <input name="new-fabricationYear" id="new-fabricationYear" class="form-control" placeholder="Input FabricationYear">
+                        </div>  
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="VIN">VIN</label>
+                            <input name ="new-vin" id="new-vin" class="form-control" placeholder="Optional *VIN">
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="FuelType">*FuelType</label>
+                            <select name="new-fuelType" class="form-control form-control-sm" id="new-fuelType" required>
+                                <option value="" disabled selected>Select a FuelType</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Price">*Price</label>
+                            <input name ="new-price" id="new-price" class="form-control" placeholder="Input Price">
+                        </div>
+                        <div class="col-md-2 form-group form-group-sm">
+                            <label for="Currency">*Currency</label>
+                            <select name="new-currency" class="form-control form-control-sm" id="new-currency" required>
+                                <option value="" disabled selected>Select a currency</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 form-group form-group-sm">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    Negociable<input class="form-check-input" type="checkbox" name="nprice-checkbox" id="main-negociablePrice" value="NegociablePrice">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group form-group-sm">
+                            <label for="Color">Color</label>
+                            <select name="new-color" class="form-control form-control-sm" id="new-color" required>
+                                <option value="" disabled selected>Select a Color</option>
+                                <option value="1" style="background:#FFFFFF">White</option>
+                                <option value="2" style="background:#C0C0C0">Silver</option>
+                                <option value="3" style="background:#808080">Gray</option>
+                                <option value="1" style="background:#000000">Black</option>
+                                <option value="2" style="background:#FF0000">Red</option>
+                                <option value="3" style="background:#800000">Maroon</option>
+                                <option value="1" style="background:#FFFF00">Yellow</option>
+                                <option value="2" style="background:#808000">Olive	</option>
+                                <option value="3" style="background:#00FF00">Lime</option>
+                                <option value="1" style="background:#008000">Green</option>
+                                <option value="2" style="background:#00FFFF">Aqua</option>
+                                <option value="3" style="background:#008080">Teal</option>
+                                <option value="1" style="background:#0000FF">Blue</option>
+                                <option value="2" style="background:#000080">Navy</option>
+                                <option value="3" style="background:#FF00FF">Fuchsia</option>
+                                <option value="3" style="background:#800080">Purple</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group form-group-sm">
+                            <label for="ColorType">ColorType</label>
+                            <select name="new-colorType" class="form-control form-control-sm" id="new-colorType" required>
+                                <option value="" disabled selected>Select a ColorType</option>
+                                <option value="Solid" >Solid paint</option>
+                                <option value="Metallic">Metallic</option>
+                                <option value="Pearlescent">Pearlescent</option>
+                                <option value="Matte">Matte finishes</option>
+                                <option value="Special">Special paints</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-group form-group-sm">
+                            <label for="Power">*Power</label>
+                            <input name ="new-power"id="new-power" class="form-control" placeholder="Input Power">
+                        </div>
+                        <div class="col-md-3 form-group form-group-sm">
+                            <label for="Transmission">Transmission</label>
+                            <select name="new-transmission" class="form-control form-control-sm" id="new-transmission" required>
+                                <option value="" disabled selected>Select a Transmission</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group form-group-sm">
+                            <label for="CubicCapacity">CubicCapacity</label>
+                            <input name="new-cubicCapacity" id="new-cubicCapacity" class="form-control" placeholder="Input CubicCapacity">
+                        </div>
+                        <div class="col-md-3 form-group form-group-sm">
+                            <label for="EmissionClass">EmissionClass</label>
+                            <select name="new-emissionClass" class="form-control form-control-sm" id="new-emissionClass" required>
+                                <option value="" disabled selected>Select a EmissionClass</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-group form-group-sm">
+                            <label for="NumberOfSeats">NumberOfSeats</label>
+                            <input name="new-numberOfSeats" id="new-numberOfSeats" class="form-control" placeholder="Input *NumberOfSeats">
+                        </div>
+                        <div class="col-md-3 form-group form-group-sm">
+                            <label for="GVW">GVW</label>
+                            <input name="new-GVW" id="new-GVW" class="form-control" placeholder="Input *GVW">
+                        </div>
+                        <div class="col-md-3 form-group form-group-sm">
+                            <label for="LoadCapacity">LoadCapacity</label>
+                            <input name="new-loadCapacity" id="new-loadCapacity" class="form-control" placeholder="Input *LoadCapacity">
+                        </div>
+                        <div class="col-md-3 form-group form-group-sm">
+                            <label for="OperatingHours">OperatingHours</label>
+                            <input name="new-operatingHours" id="new-operatingHours" class="form-control" placeholder="Input *OperatingHours">
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="modal-header  text-center">
+                        <h5 class="modal-title">Images</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="exampleFormControlFile1">Choose Image</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+                        <div class="col-md-3">
+                            <h3>Your Image</h3>
+                            <img src="http://www.newcarselloff.com/listings/images/default-car.png" class="d-block img-fluid mb-3">
+                        </div>
+                        <div class="col-md-3">
+                            <h3>Your Image</h3>
+                            <img src="http://www.newcarselloff.com/listings/images/default-car.png" class="d-block img-fluid mb-3">
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="modal-header  text-center">
+                        <h5 class="modal-title">Description</h5>
+                    </div>
+                    <div class="form-group">
+                        <textarea id ="new-description"class="form-control" name="editor1"></textarea>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="modal-header  text-center">
+                        <h5 class="modal-title">Options</h5>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                4x2
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                4x4
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                6x2
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                6x4
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                6x6
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                8x4
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                8x6
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                8x8
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                ABS
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                AdaptiveCruise
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                AdaptiveLighting
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="checkbox-inline" for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                                AirSuspension
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="create" class="btn btn-warning" data-dismiss="modal">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="Scripts/SPA.js"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
 </body>
 </html>

@@ -1,4 +1,16 @@
-﻿function validateEmail(email, id) {
+﻿function validateDigits(val, id) {
+    if (!(/^[0-9]+$/i.test(val))) {
+        $(id).addClass("is-invalid");
+        val = '';
+        return val;
+    } else {
+        $(id).removeClass("is-invalid");
+        $(id).addClass("is-valid");
+        return val;
+    }    
+}
+
+function validateEmail(email, id) {
     if (!(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i.test(email))) {
         $(id).addClass("is-invalid");
         email = '';
@@ -97,13 +109,24 @@ function validateTerms(term) {
     return term;
 }
 
-function validate(inputData){
-    if ((inputData.username == '' || inputData.username == null) ||
-        (inputData.email == '' || inputData.email == null) ||
-        (inputData.password == '' || inputData.password == null) ||
-        (inputData.rePassword == '' || inputData.rePassword == null) ||
-        (inputData.phoneNumber == '' || inputData.phoneNumber == null) ||
-        inputData.terms == 0 || inputData.location == 0)
-        return 0;
+function validate(inputData) {
+    for (var i in inputData) {
+        if (inputData[i] == '' || inputData[i] == null || inputData[i] == 0) {
+            alert(i + '  Is not Ok');
+            return 0;
+        }         
+    }
     return 1;
 }
+
+//function validateVIN(vin, id) {
+//    if (!(/^(?:([A-HJ-NPR-Z]){3}|\d{3})(?1){2}\d{2}(?:(?1)|\d)(?:\d|X)(?:(?1)+\d+|\d+(?1)+)\d{6}$/i.test(vin))) {
+//        $(id).addClass("is-invalid");
+//        vin = '';
+//        return password;
+//    } else {
+//        $(id).removeClass("is-invalid");
+//        $(id).addClass("is-valid");
+//        return vin;
+//    }   
+//}

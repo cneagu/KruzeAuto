@@ -45,5 +45,8 @@
 
     $(function () {
         $("#tabs").tabs();
+        $("#announcementsTabs").tabs();
+        $("#inboxTabs").tabs();
     });
+
 }

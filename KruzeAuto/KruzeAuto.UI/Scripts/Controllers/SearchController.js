@@ -1,21 +1,11 @@
 ﻿var SearchController = function (serviceContext) {
-    var carData = {
-        "brands": ["BMW", "Mercedes", "Audi"],
-        "BMW": ["1 Series", "2 Series", "3 Series", "4 Series", "5 Series", "6 Series", "7 Series", "X1", "X3", "X4", "X5", "X6", "M3", "M4", "M5", "M6"],
-        "Mercedes": ["A Class", "B Class", "C Class", "E Class", "S Class", "CLS", "GT AMG"],
-        "Audi": ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "Q7"],
-        "year": 2018,
-        "price": 100,
-        "km": 5000,
-        "fuel": ["Petrol", "Diesel", "Ethanol", "Hibrid", "LPG", "Natural Gas", "Hydrogen", "Other"]
-    };
 
     this.SetMainSearchEngineData = function () {
-        setOption(carData.brands, "#brands");
-        setModel(carData);
-        setCarTime(carData.year);
-        setCarPrice(carData.price);
-        setCarKm(carData.km);
+        setOption(CAR_DATA.brands, "#brands");
+        setModel(CAR_DATA, 'select[name=brands]', "#models");
+        setCarTime(CAR_DATA.year);
+        setCarPrice(CAR_DATA.price);
+        setCarKm(CAR_DATA.km);
     };
 
     this.ActivateData = function () {
@@ -25,7 +15,7 @@
 
         $(".main-search").on("click", function () {
 
-            var fuel = carData.fuel;
+            var fuel = CAR_DATA.fuel;
             var selectedFuel = ['', '', '', '', '', '', '', ''];
             $("#main-fuel:checked").each(function (index) {              
                 selectedFuel[index] = $(this).val();                

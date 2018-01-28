@@ -1,25 +1,7 @@
 ﻿var SingIn = function (inputData, serviceContext) {
     this.ChcekData = function () {
 
-        function newGuid() {
-            var chars = '0123456789abcdef'.split('');
-
-            var guid = [], rnd = Math.random, r;
-            guid[8] = guid[13] = guid[18] = guid[23] = '-';
-            guid[14] = '6';
-
-            for (var i = 0; i < 36; i++) {
-                if (!guid[i]) {
-                    r = 0 | rnd() * 16;
-
-                    guid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r & 0xf];
-                }
-            }
-            return guid.join('');
-        }
-
-        var today = new Date();
-        today = today.getFullYear() + '-' + parseInt(today.getMonth() + 1) + '-' + today.getDate() + " " + today.getHours() + ":" + today.getMinutes();
+        
 
         function responseNewUser(data) {
             //console.log(data);
@@ -43,7 +25,7 @@
                 
             } else {
                 var guid = newGuid();
-                var date = today;
+                var date = newDate();
                 var user = {
                     UserID: guid,
                     Email: inputData.email,

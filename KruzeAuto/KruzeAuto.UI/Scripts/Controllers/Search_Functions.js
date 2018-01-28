@@ -4,7 +4,7 @@
 }
 
 function setOption(field, id) {
-
+    $(id).children().remove();
     $(id).append("<option value='" + "Any" + "'>" + "Any" + "</option>");
     if (field !== undefined) {
         for (var i = 0; i < field.length; i++) {
@@ -14,12 +14,11 @@ function setOption(field, id) {
     
 }
 
-
-function setModel(type) {
-    $('select[name=brands]').change(function () {
-        var model = $('select[name=brands]').val();
-        $("#models").children().remove();
-        setOption(type[model], "#models");
+function setModel(type,whereChange,id) {
+    $(whereChange).change(function () {
+        var model = $(whereChange).val();
+        $(id).children().remove();
+        setOption(type[model], id);
 
     });
 }

@@ -13,7 +13,6 @@
     };
 
     this.LogInValidation = function (Email, Password, data, handleData) {
-        var data = '';
         ajaxService('User/LogIn/' + Email + '/' + Password , 'GET', data, handleData, 'body');
     }
 

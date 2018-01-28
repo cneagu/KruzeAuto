@@ -11,5 +11,12 @@
 
         var _userController = new UserController(serviceContext);
         _userController.LogIn();
+        _userController.LogOut();
+        _userController.UserProfile();
+
+        var _announcementController = new AnnouncementController(serviceContext);
+        _announcementController.SetAnnouncementData();
+        _announcementController.CreateAnnouncement();
+        
     };
 };
