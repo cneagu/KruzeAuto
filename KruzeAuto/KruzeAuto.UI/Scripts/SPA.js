@@ -49,4 +49,11 @@
         $("#inboxTabs").tabs();
     });
 
+    $("#user-announcements").on("click", function () {
+        $("#tabs").tabs({ active: 0 });
+    });
+
+    $("#user-messages").on("click", function () {
+        $("#tabs").tabs({ active: 1 });
+    });
 }

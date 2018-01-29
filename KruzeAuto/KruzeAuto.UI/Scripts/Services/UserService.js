@@ -4,6 +4,10 @@
         ajaxService('User/ReadById/' + id, 'POST', data, handleData, '#singin');
     };
 
+    this.UserUpdate = function (data, handleData) {
+        ajaxService('User/Update', 'POST', data, handleData, '#singin');
+    };
+
     this.ReadSingIn = function (data, handleData) {
         ajaxService('SingIn', 'POST', data, handleData, '#singin');
     };

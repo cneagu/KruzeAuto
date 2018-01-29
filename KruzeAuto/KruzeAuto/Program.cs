@@ -10,29 +10,49 @@ namespace KruzeAuto
         static void Main(string[] args)
         {
 
-            int VehicleType = 1;
-            string Condition = "All";
-            string Brand = "";
-            string Model = "";
-            int Kilometer = 1000000;
-            int FabricationYear = 2000;
-            string FuelType1 = "Petrol";
-            string FuelType2 = "Diesel";
-            string FuelType3 = "";
-            string FuelType4 = "";
-            string FuelType5 = "";
-            string FuelType6 = "";
-            string FuelType7 = "";
-            int Price = 1000000;
-            Guid user = new Guid("CEBF5C68-9AAB-3590-3E11-E01DFEE0CAB7");
+            
+            Guid user = new Guid("561FC9B6-74AB-D604-337F-3D83F8504E01");
 
+            Announcement an = new Announcement();
+            an.Active = true;
+            an.AnnoucementID = new Guid("8984e94a-5b3d-6a22-8bb9-b6f4debd37fc");           
+            an.Brand = "Mercedes";
+            an.Color = "";
+            an.ColorType = "";
+            an.Condition = "New";
+            an.CreationDate = new DateTime(2017, 1, 18);
+            an.CubicCapacity = 0;
+            an.Currency = "Any";
+            an.Description = "";
+            an.EmissionClass = "Any";
+            an.FabricationYear = 1234;
+            an.FuelType = "Any";
+            an.GVW = 0;
+            an.Kilometer = 1234;
+            an.LoadCapacity = 0;
+            an.Model = "B Class";
+            an.NegociablePrice = false;
+            an.NumberOfSeats = 0;
+            an.OperatingHours = 0;
+            an.Power = 123;
+            an.Price = 1234;
+            an.Promoted = false;
+            an.Title = "213423fvsv";
+            an.Transmission = "any";
+            an.Type = "Coupe";
+            an.Update = new DateTime(2017, 1, 18);
+            an.UserID = user;
+            an.VIN = "asda";
+            an.VehicleType = 1;
+            an.Views = 0;
 
 
             using (BusinessContext businessContext = new BusinessContext())
             {
                 //ShowUser(businessContext, user);
-                readSingIn(businessContext, "neagucristianssstefan@yahoo.com", "morassrioan923", "0234");
-                Console.Write("\n\n\n\n");
+                //readSingIn(businessContext, "neagucristianssstefan@yahoo.com", "morassrioan923", "0234");
+                Insert(businessContext, an);
+                Console.Write(" dada\n\n\n\n");
                 //ReadLogIn(businessContext, "neagucristianstefan@yahoo.com", "morarioan923");
                 //ShowUsers(businessContext);
 
@@ -40,7 +60,12 @@ namespace KruzeAuto
             Console.ReadLine();
         }
 
-      
+        private static void Insert(BusinessContext businessContext, Announcement announcement)
+        {
+            businessContext.AnnouncementBusiness.Insert(announcement);
+        }
+
+
 
         private static void mainSearch(BusinessContext businessContext, int VehicleType, string Condition, string Brand, string Model,
             int Kilometer, int FabricationYear, string FuelType1, string FuelType2, string FuelType3, string FuelType4,
@@ -89,14 +114,14 @@ namespace KruzeAuto
                     user.Email, user.UserName, user.PhoneNumber);
         }
 
-        private static void ReadLogIn(BusinessContext businessContext, string email, string password)
-        {
-            User user = businessContext.UserBusiness.ReadLogIn(email, password);
-            Console.WriteLine("Users:");
+        //private static void ReadLogIn(BusinessContext businessContext, string email, string password)
+        //{
+        //    User user = businessContext.UserBusiness.ReadLogIn(email, password);
+        //    Console.WriteLine("Users:");
 
-            Console.WriteLine(" Email:{0} ",
-                    user.UserID);
-        }
+        //    Console.WriteLine(" Email:{0} ",
+        //            user.UserID);
+        //}
     }
          
 }

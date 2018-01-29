@@ -22,6 +22,18 @@ namespace KruzeAuto.API.Controllers
 
         }
 
+        [HttpPost]
+        [Route("Update")]
+        public int Update([FromBody] User user)
+        {
+            using (BusinessContext context = new BusinessContext())
+            {
+                context.UserBusiness.Update(user);
+                return 1;
+            }
+
+        }
+
         [HttpGet]
         [Route("LogIn/{email}/{password}")]
         public Guid GetGuid(string email, string password)

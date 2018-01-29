@@ -11,6 +11,7 @@
 
         var _userController = new UserController(serviceContext);
         _userController.LogIn();
+        _userController.Setings();
         _userController.LogOut();
         _userController.UserProfile();
 

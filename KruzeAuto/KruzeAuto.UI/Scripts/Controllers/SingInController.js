@@ -29,11 +29,11 @@
 
     this.SubmitForm = function () {
         $("#singIn").on('click', function () {
-            var username = validateUsername($('#new-username').val());
+            var username = validateUsername($('#new-username').val(), '#new-username');
             var email = validateEmail($('#new-email').val(), '#new-email');
             var password = validatePassword($('#new-password').val(), '#new-password');
-            var rePassword = validaterePassword($('#new-c-password').val(), password);
-            var phoneNumber = validatePhoneNumber($('#new-phonenumber').val());
+            var rePassword = validaterePassword($('#new-c-password').val(), password, '#new-c-password');
+            var phoneNumber = validatePhoneNumber($('#new-phonenumber').val(), '#new-phonenumber');
             var country = $('#new-country').val();
             var county = $('#new-county').val();
             var city = $('#new-city').val();
@@ -62,8 +62,6 @@
             } else {
                 alert('something is not ok');
             }
-               
-            
         });
     };
 };

@@ -22,15 +22,15 @@ function validateEmail(email, id) {
     }       
 }
 
-function validateUsername(username) {
+function validateUsername(username, id) {
     if (!(/^[a-z][a-z0-9_.-]{4,19}$/i.test(username))) {
-        $('#new-username').addClass("is-invalid");
+        $(id).addClass("is-invalid");
         username = '';
         return username;
     }
     else {
-        $('#new-username').removeClass("is-invalid");
-        $('#new-username').addClass("is-valid");
+        $(id).removeClass("is-invalid");
+        $(id).addClass("is-valid");
         return username;
     }   
 }
@@ -47,26 +47,26 @@ function validatePassword(password, id) {
     }   
 }
 
-function validaterePassword(rePassword, password) {
+function validaterePassword(rePassword, password, id) {
     if (rePassword != password || rePassword == ''){
-        $('#new-c-password').addClass("is-invalid");
+        $(id).addClass("is-invalid");
         rePassword = '';
         return rePassword;
     } else {
-        $('#new-c-password').removeClass("is-invalid");
-        $('#new-c-password').addClass("is-valid");
+        $(id).removeClass("is-invalid");
+        $(id).addClass("is-valid");
         return rePassword;
     }  
 }
 
-function validatePhoneNumber(phoneNumber) {
+function validatePhoneNumber(phoneNumber, id) {
     if (!(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})$/i.test(phoneNumber))) {
-        $('#new-phonenumber').addClass("is-invalid");
+        $(id).addClass("is-invalid");
         phoneNumber = '';
         return phoneNumber;
     } else {
-        $('#new-phonenumber').removeClass("is-invalid");
-        $('#new-phonenumber').addClass("is-valid");
+        $(id).removeClass("is-invalid");
+        $(id).addClass("is-valid");
         return phoneNumber;
     }   
 }
@@ -118,6 +118,24 @@ function validate(inputData) {
     }
     return 1;
 }
+
+function validateDigit(nb) {
+    if (isNaN(nb))
+        return 0;
+    return nb;
+}
+function validationText(t) {
+    if (t == '' || t == undefined)
+        return '';
+    else return t;
+}
+
+function validateCurentPassword(paswword) {
+    if (CURENT_USER.Password == paswword)
+        return paswword;
+    return '';
+}
+
 
 //function validateVIN(vin, id) {
 //    if (!(/^(?:([A-HJ-NPR-Z]){3}|\d{3})(?1){2}\d{2}(?:(?1)|\d)(?:\d|X)(?:(?1)+\d+|\d+(?1)+)\d{6}$/i.test(vin))) {

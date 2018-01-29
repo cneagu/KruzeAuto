@@ -19,6 +19,7 @@
     <link href="Style/LogIn.css" rel="stylesheet" />
     <script src="Scripts/Globals.js"></script>
     <script src="Scripts/Services/AjaxService.js"></script>
+    <script src="Scripts/Controllers/User_Function.js"></script>
     <script src="Scripts/Controllers/ValidateData_Functions.js"></script>
     <script src="Scripts/Controllers/Search_Functions.js"></script>
     <script src="Scripts/Controllers/SearchCardController.js"></script>
@@ -51,16 +52,16 @@
                 <li class="nav-item dropdown user_menu" id="user_menu" hidden>
                     <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" id="head-userName"></a>
                     <div class="dropdown-menu">
-                        <a href="#user_profile" class="dropdown-item">
+                        <a href="#user_profile" id="" class="dropdown-item">
                             <i class="fa fa-user-circle"></i> Profile
                         </a>
-                        <a href="#user_profile" class="dropdown-item">
+                        <a href="#user_profile" id="user-announcements" class="dropdown-item">
                             <i class="fa fa-tachometer"></i> Announcements
                         </a>
-                        <a href="#user_profile" class="dropdown-item">
+                        <a href="#user_profile" id="user-messages" class="dropdown-item">
                             <i class="fa fa-envelope-o"></i> Messages
                         </a>
-                        <a href="#user_profile" class="dropdown-item">
+                        <a href="#user_profile" id="user-settings" class="dropdown-item setings" data-toggle="modal" data-target="#setings">
                             <i class="fa fa-gear"></i> Settings
                         </a>
                         <div class="dropdown-divider"></div>
@@ -364,7 +365,7 @@
                         </a>
                     </div>
                     <div class="col-md-2">
-                        <a href="#tabs-3" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#setings">
+                        <a href="#tabs-3" class="btn btn-secondary btn-block setings" data-toggle="modal" data-target="#setings">
                            <i class="fa fa-gear"></i>  Setings
                         </a>
                     </div>
@@ -375,7 +376,7 @@
         <section id="profile">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                         <div class="card">               
                             <div class="card-body">
                                 <div id="tabs">
@@ -391,6 +392,156 @@
                                                     <li><a href="#announcementsTabs-2"><i class="fa fa-circle-o"></i>  Inavtive</a></li>
                                                 </ul>
                                                 <div id="announcementsTabs-1">
+                                                        <table class="table table-striped">
+                                                            <thead class="thead-inverse">
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>#</th>
+                                                                    <th>Picture</th>
+                                                                    <th>Title</th>
+                                                                    <th>Views</th>
+                                                                    <th>Date</th>
+                                                                    <th></th>
+                                                                    <th>
+                                                                        <a href="details.html" class="btn btn-danger">
+                                                                            <i class="fa fa-trash"> Delete</i>
+                                                                        </a>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input id="checkBox" type="checkbox">
+                                                                    </td>
+                                                                    <td scope="row">1</td>
+                                                                    <td><img src="https://dxsdcl7y7vn9x.cloudfront.net/350927/0FC77A2A-8605-45C5-A016-54105B9339BC_1.jpg" width="50" height="50" class="d-inline-block align-top" alt="" /></td>
+                                                                    <td>Announcement Title</td>
+                                                                    <td>(no)</td>
+                                                                    <td>July 12, 2017</td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-secondary">
+                                                                            <i class="fa fa-angle-double-right"></i> Details
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-danger">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input id="checkBox" type="checkbox">
+                                                                    </td>
+                                                                    <td scope="row">1</td>
+                                                                    <td><img src="https://dxsdcl7y7vn9x.cloudfront.net/350927/0FC77A2A-8605-45C5-A016-54105B9339BC_1.jpg" width="50" height="50" class="d-inline-block align-top" alt="" /></td>
+                                                                    <td>Announcement Title</td>
+                                                                    <td>(no)</td>
+                                                                    <td>July 12, 2017</td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-secondary">
+                                                                            <i class="fa fa-angle-double-right"></i> Details
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-danger">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input id="checkBox" type="checkbox">
+                                                                    </td>
+                                                                    <td scope="row">1</td>
+                                                                    <td><img src="https://dxsdcl7y7vn9x.cloudfront.net/350927/0FC77A2A-8605-45C5-A016-54105B9339BC_1.jpg" width="50" height="50" class="d-inline-block align-top" alt="" /></td>
+                                                                    <td>Announcement Title</td>
+                                                                    <td>(no)</td>
+                                                                    <td>July 12, 2017</td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-secondary">
+                                                                            <i class="fa fa-angle-double-right"></i> Details
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-danger">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input id="checkBox" type="checkbox">
+                                                                    </td>
+                                                                    <td scope="row">1</td>
+                                                                    <td><img src="https://dxsdcl7y7vn9x.cloudfront.net/350927/0FC77A2A-8605-45C5-A016-54105B9339BC_1.jpg" width="50" height="50" class="d-inline-block align-top" alt="" /></td>
+                                                                    <td>Announcement Title</td>
+                                                                    <td>(no)</td>
+                                                                    <td>July 12, 2017</td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-secondary">
+                                                                            <i class="fa fa-angle-double-right"></i> Details
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-danger">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input id="checkBox" type="checkbox">
+                                                                    </td>
+                                                                    <td scope="row">1</td>
+                                                                    <td><img src="https://dxsdcl7y7vn9x.cloudfront.net/350927/0FC77A2A-8605-45C5-A016-54105B9339BC_1.jpg" width="50" height="50" class="d-inline-block align-top" alt="" /></td>
+                                                                    <td>Announcement Title</td>
+                                                                    <td>(no)</td>
+                                                                    <td>July 12, 2017</td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-secondary">
+                                                                            <i class="fa fa-angle-double-right"></i> Details
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-danger">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input id="checkBox" type="checkbox">
+                                                                    </td>
+                                                                    <td scope="row">1</td>
+                                                                    <td><img src="https://dxsdcl7y7vn9x.cloudfront.net/350927/0FC77A2A-8605-45C5-A016-54105B9339BC_1.jpg" width="50" height="50" class="d-inline-block align-top" alt="" /></td>
+                                                                    <td>Announcement Title</td>
+                                                                    <td>(no)</td>
+                                                                    <td>July 12, 2017</td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-secondary">
+                                                                            <i class="fa fa-angle-double-right"></i> Details
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="details.html" class="btn btn-danger">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <nav class="ml-4">
+                                                            <ul class="pagination">
+                                                                <li class="page-item disabled"><a href="#" class="page-link">Previous</a></li>
+                                                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                                                                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                                                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                                                                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                                                            </ul>
+                                                        </nav>
+                                                   
                                                     </div>
                                                 <div id="announcementsTabs-2">
 
@@ -419,7 +570,7 @@
                                 </div>
                             </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <h3>Your Avatar</h3>
                         <img src="http://laoblogger.com/images/boo-mario-clipart-1.jpg" alt="" class="d-block img-fluid mb-3">
                         <button class="btn btn-primary btn-block">Edit Image</button>
@@ -665,19 +816,19 @@
                                 <option value="1" style="background:#FFFFFF">White</option>
                                 <option value="2" style="background:#C0C0C0">Silver</option>
                                 <option value="3" style="background:#808080">Gray</option>
-                                <option value="1" style="background:#000000">Black</option>
-                                <option value="2" style="background:#FF0000">Red</option>
-                                <option value="3" style="background:#800000">Maroon</option>
-                                <option value="1" style="background:#FFFF00">Yellow</option>
-                                <option value="2" style="background:#808000">Olive	</option>
-                                <option value="3" style="background:#00FF00">Lime</option>
-                                <option value="1" style="background:#008000">Green</option>
-                                <option value="2" style="background:#00FFFF">Aqua</option>
-                                <option value="3" style="background:#008080">Teal</option>
-                                <option value="1" style="background:#0000FF">Blue</option>
-                                <option value="2" style="background:#000080">Navy</option>
-                                <option value="3" style="background:#FF00FF">Fuchsia</option>
-                                <option value="3" style="background:#800080">Purple</option>
+                                <option value="4" style="background:#000000">Black</option>
+                                <option value="5" style="background:#FF0000">Red</option>
+                                <option value="6" style="background:#800000">Maroon</option>
+                                <option value="7" style="background:#FFFF00">Yellow</option>
+                                <option value="8" style="background:#808000">Olive	</option>
+                                <option value="9" style="background:#00FF00">Lime</option>
+                                <option value="10" style="background:#008000">Green</option>
+                                <option value="11" style="background:#00FFFF">Aqua</option>
+                                <option value="12" style="background:#008080">Teal</option>
+                                <option value="13" style="background:#0000FF">Blue</option>
+                                <option value="14" style="background:#000080">Navy</option>
+                                <option value="15" style="background:#FF00FF">Fuchsia</option>
+                                <option value="16" style="background:#800080">Purple</option>
                             </select>
                         </div>
                         <div class="col-md-6 form-group form-group-sm">
@@ -849,6 +1000,95 @@
         </div>
     </div>
 
+    <div class="modal fade text-dark" id="setings">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary text-white">
+                    <h5 class="modal-title" id="contactModalTitle">Setings</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalTitle">Email</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="container row">
+                                <h5>Your Email is: </h5>
+                                <h5 id="curent-Email"></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group form-group-sm">
+                            <label for="Email">New Email</label>
+                            <input name="new-seting-email" id="new-seting-email" class="form-control" placeholder="Input Email">
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalTitle">Username</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="container row">
+                                <h5>Your Username is: </h5>
+                                <h5 id="curent-Username"></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group form-group-sm">
+                            <label for="Username">New Username</label>
+                            <input name="new-seting-username" id="new-seting-username" class="form-control" placeholder="Input UserName">
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalTitle">Password</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Curent-Password">Curent Password</label>
+                            <input name="new-seting-curent-password" id="new-seting-curent-password" class="form-control" placeholder="Input Password">
+                        </div>
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="New-Password">New Password</label>
+                            <input name="new-seting-new-password" id="new-seting-new-password" class="form-control" placeholder="Input Password">
+                        </div>
+                        <div class="col-md-4 form-group form-group-sm">
+                            <label for="Confirm-Password">Confirm New Password</label>
+                            <input name="new-seting-new-cpassword" id="new-seting-new-cpassword" class="form-control" placeholder="Input Password">
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalTitle">Phone Number</h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="container row">
+                                <h5>Your Phone Number: </h5>
+                                <h5 id="curent-PhoneNumber"></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group form-group-sm">
+                            <label for="PhoneNumber">New PhoneNumber</label>
+                            <input name="new-seting-phoneNumber" id="new-seting-phoneNumber" class="form-control" placeholder="Input PhoneNumber">
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalTitle">Subscribed</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="checkbox-inline" for="checkboxes-0">
+                            <input type="checkbox" name="checkboxes" id="new-seting-subscribe" value="1">
+                            Subscribe
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-warning btn-block" id="update-setings"><i class="fa fa-upload"></i>  Update</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    
 
 
     <script src="Scripts/SPA.js"></script>

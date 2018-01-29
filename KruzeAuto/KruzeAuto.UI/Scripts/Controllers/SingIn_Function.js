@@ -1,8 +1,5 @@
 ﻿var SingIn = function (inputData, serviceContext) {
     this.ChcekData = function () {
-
-        
-
         function responseNewUser(data) {
             //console.log(data);
             alert('New account created!   now you can login :)');
@@ -47,6 +44,5 @@
             }
         }
         serviceContext.UserService().ReadSingIn(inputData, checkteUserData);
-
     };
 };

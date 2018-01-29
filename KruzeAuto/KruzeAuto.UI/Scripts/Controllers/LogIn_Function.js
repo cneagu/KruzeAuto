@@ -2,14 +2,11 @@
     this.ValidateLogIn = function (email, password) {
 
         function UserReadByIdCallBack(user) {
-
             CURENT_USER = user;
-
             $("#loginModal .close").click();
             $('#user_menu').removeAttr('hidden');
             $('#login-button').attr("hidden", "true");
             $('#head-userName').html("<i class='fa fa-user'></i>  " + user.UserName);
-
         }
 
         function LogInCallBack(guid) {

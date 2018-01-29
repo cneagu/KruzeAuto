@@ -103,6 +103,7 @@
     <Content Include="Scripts\Controllers\SingInController.js" />
     <Content Include="Scripts\Controllers\SingIn_Function.js" />
     <Content Include="Scripts\Controllers\UserController.js" />
+    <Content Include="Scripts\Controllers\User_Function.js" />
     <Content Include="Scripts\Controllers\ValidateData_Functions.js" />
     <Content Include="Scripts\Globals.js" />
     <Content Include="Scripts\MenuController.js" />
