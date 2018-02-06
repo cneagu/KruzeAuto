@@ -1,32 +1,35 @@
 ﻿var ServiceContext = function () {
-    var _service;
+    var _announcementService;
+    var _userService;
+    var _searchService;
+    var _userLocationService;
 
     this.AnnouncementService = function () {
-        if (!_service) {
-            _service = new AnnouncementService();
+        if (!_announcementService) {
+            _announcementService = new AnnouncementService();
         }
-        return _service;
+        return _announcementService;
     };
 
     this.UserService = function () {
-        if (!_service) {
-            _service = new UserService();
+        if (!_userService) {
+            _userService = new UserService();
         }
-        return _service;
+        return _userService;
     };
 
     this.SearchService = function () {
-        if (!_service) {
-            _service = new SearchService();
+        if (!_searchService) {
+            _searchService = new SearchService();
         }
-        return _service;
+        return _searchService;
     };
 
     this.UserLocationService = function () {
-        if (!_service) {
-            _service = new UserLocationService();
+        if (!_userLocationService) {
+            _userLocationService = new UserLocationService();
         }
-        return _service;
+        return _userLocationService;
     };
 
 };
