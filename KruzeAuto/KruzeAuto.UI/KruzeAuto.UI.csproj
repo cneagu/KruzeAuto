@@ -94,16 +94,11 @@
     <Content Include="index.html" />
     <Content Include="Scripts\AppController.js" />
     <Content Include="Scripts\Controllers\AnnouncementController.js" />
-    <Content Include="Scripts\Controllers\Announcement_Function.js" />
-    <Content Include="Scripts\Controllers\LogIn_Function.js" />
     <Content Include="Scripts\Controllers\SearchCardController.js" />
     <Content Include="Scripts\Controllers\SearchController.js" />
-    <Content Include="Scripts\Controllers\Search_Result_Functions.js" />
     <Content Include="Scripts\Library\SetData_Functions.js" />
     <Content Include="Scripts\Controllers\SingInController.js" />
-    <Content Include="Scripts\Controllers\SingIn_Function.js" />
     <Content Include="Scripts\Controllers\UserController.js" />
-    <Content Include="Scripts\Controllers\User_Function.js" />
     <Content Include="Scripts\Library\ValidateData_Functions.js" />
     <Content Include="Scripts\Globals.js" />
     <Content Include="Scripts\MenuController.js" />

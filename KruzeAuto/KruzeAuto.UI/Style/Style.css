@@ -95,3 +95,7 @@ option {
     background-position: center;
     opacity: .8;
 }
+
+.cardHeigth{
+    height: 100px;
+}

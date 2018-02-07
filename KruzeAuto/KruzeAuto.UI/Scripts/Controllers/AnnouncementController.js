@@ -46,8 +46,6 @@
             var operatingHours = parseInt(validateDigits($('input[name=new-operatingHours]').val(), '#new-operatingHours'));
             var description = $('textarea#new-description').val();
 
-
-
             var _announcementToValidate = {
                 vehicleType: vehicleType,
                 condition: condition,
@@ -97,11 +95,11 @@
                     OperatingHours: validateDigit(operatingHours),
                     Description: validationText(description)
                 };
-                
-
-                console.log(_announcement);
-                var _newAnnouncement = new NewAnnouncement(serviceContext, _announcement);
-                _newAnnouncement.Insert();
+              //console.log(_announcement);
+                function callBackFunction(data) {
+                    alert('Create New Announcement');
+                }
+                serviceContext.AnnouncementService().Insert(_announcement, callBackFunction);
             }
             else
                 alert('not valid!');
