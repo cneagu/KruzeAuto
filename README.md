@@ -1,2 +1,2 @@
 # KruzeAuto
-internship_Project
+KruzeAuto is a demo project
