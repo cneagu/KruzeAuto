@@ -12,12 +12,11 @@ namespace KruzeAuto.API.Controllers
         #region Methods
         [HttpPost]
         [Route("InsertAnnouncement")]
-        public int InsertAnnouncement([FromBody] Announcement announcement)
+        public void InsertAnnouncement([FromBody] Announcement announcement)
         {
             using (BusinessContext context = new BusinessContext())
             {
                  context.AnnouncementBusiness.Insert(announcement);
-                return 1;
             }
         }
         #endregion

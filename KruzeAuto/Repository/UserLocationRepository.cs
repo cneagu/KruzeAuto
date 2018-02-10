@@ -39,7 +39,6 @@ namespace KruseAuto.Repository
 
         public List<UserLocation> ReadAll()
         {
-            //Get current StudentRepository instance
             return ReadAll("dbo.UserLocation_ReadAll");
         }
 

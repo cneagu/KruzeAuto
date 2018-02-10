@@ -12,24 +12,22 @@ namespace KruzeAuto.API.Controllers
     {
         [HttpPost]
         [Route("Insert")]
-        public int Insert([FromBody] User singIn)
+        public void Insert([FromBody] User singIn)
         {
             using (BusinessContext context = new BusinessContext())
             {
                 context.UserBusiness.Insert(singIn);
-                return 1;
             }
 
         }
 
         [HttpPost]
         [Route("Update")]
-        public int Update([FromBody] User user)
+        public void Update([FromBody] User user)
         {
             using (BusinessContext context = new BusinessContext())
             {
                 context.UserBusiness.Update(user);
-                return 1;
             }
 
         }
@@ -58,12 +56,11 @@ namespace KruzeAuto.API.Controllers
 
         [HttpPost]
         [Route("UserLocation/Insert")]
-        public int Insert([FromBody] UserLocation singIn)
+        public void Insert([FromBody] UserLocation singIn)
         {
             using (BusinessContext context = new BusinessContext())
             {
                 context.UserLocationBusiness.Insert(singIn);
-                return 1;
             }
 
         }
